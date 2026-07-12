@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
+import { CursorTrail } from "@/components/cursor-trail";
 import { SmoothScroll } from "@/components/smooth-scroll";
 
 const geistSans = Geist({
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <SmoothScroll />
         {children}
+        <CursorTrail />
       </body>
     </html>
   );

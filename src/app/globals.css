@@ -54,7 +54,7 @@
 
 :root {
   --ink: oklch(0.15 0.01 82);
-  --paper: oklch(0.965 0.017 93);
+  --paper: #f7f7f4;
   --lime: oklch(0.89 0.22 123);
   --blush: oklch(0.86 0.115 7);
   --background: var(--paper);
@@ -131,9 +131,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(circle at 12% 8%, color-mix(in oklch, var(--lime), transparent 78%), transparent 26rem),
-      linear-gradient(180deg, color-mix(in oklch, var(--paper), white 26%), var(--paper));
+    background-image: none;
   }
   html {
     @apply font-sans;
@@ -145,6 +143,80 @@
   }
 }
 
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  background: #fdfbf7;
+  color: #000;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    transform 0.95s cubic-bezier(0.78, 0, 0.18, 1),
+    opacity 0.3s ease 0.65s;
+  will-change: transform;
+}
+
+#loader.is-revealing {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-110%);
+}
+
+#loaderText {
+  position: absolute;
+  bottom: 24px;
+  left: 16px;
+  display: block;
+  min-width: clamp(4.8rem, 9vw, 9rem);
+  color: #000;
+  font-size: clamp(5rem, 10vw, 9rem);
+  font-weight: 700;
+  line-height: 0.78;
+  letter-spacing: 0;
+  will-change: transform;
+}
+
+body.is-works-leaving::before {
+  content: "";
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9998;
+  height: 200vh;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0%) 0%,
+    rgb(0 0 0 / 70%) 18%,
+    #000 32%,
+    #000 100%
+  );
+  pointer-events: none;
+  transform: translateY(100%);
+  animation: works-transition-wipe 0.95s cubic-bezier(0.76, 0, 0.18, 1)
+    forwards;
+  will-change: transform;
+}
+
+body.is-works-leaving::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgb(0 0 0 / 0%);
+  pointer-events: none;
+}
+
+@keyframes works-transition-wipe {
+  to {
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -153,5 +225,13 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  #loader {
+    display: none;
+  }
+
+  body.is-works-leaving::before {
+    animation-duration: 0.01ms;
   }
 }

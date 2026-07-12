@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "cowart",
+  "pages": [
+    {
+      "id": "page:page",
+      "name": "Page 1",
+      "index": "a1",
+      "path": "pages\\page\\cowart-canvas.json"
+    },
+    {
+      "id": "page:9BEaRDqIJiibNeNqSWzU5",
+      "name": "页面 1",
+      "index": "a2bnqp1V",
+      "path": "pages\\9BEaRDqIJiibNeNqSWzU5\\cowart-canvas.json"
+    }
+  ]
+}

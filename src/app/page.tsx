@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { ArrowUpRight, Mail, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { HeroLoader } from "@/components/hero-loader";
+import { SiteNav } from "@/components/site-nav";
 
 const projects = [
   {
@@ -22,13 +24,6 @@ const projects = [
   },
 ];
 
-const services = [
-  "个人网站与作品集",
-  "品牌叙事与文案结构",
-  "AI 工具工作流设计",
-  "视觉系统与页面原型",
-];
-
 const notes = [
   {
     label: "Studio Note",
@@ -47,68 +42,76 @@ const notes = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="fixed inset-x-0 top-0 z-50 px-4 py-4 sm:px-6">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-foreground/10 bg-background/80 px-4 py-3 shadow-[0_10px_40px_rgba(20,20,20,0.08)] backdrop-blur-xl">
-          <a className="text-sm font-semibold uppercase tracking-normal" href="#">
-            Personal Studio
-          </a>
-          <div className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-            <a href="#work">Work</a>
-            <a href="#services">Services</a>
-            <a href="#notes">Notes</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <a
-            className="inline-flex size-9 items-center justify-center rounded-full bg-foreground text-background transition hover:scale-95"
-            href="mailto:hello@example.com"
-            aria-label="Send email"
+      <HeroLoader />
+      <SiteNav />
+
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#f7f7f4] px-4 py-28 sm:px-6">
+        <div className="relative z-10 flex w-full max-w-7xl flex-col items-center justify-center">
+          <h1
+            className="max-w-full whitespace-nowrap text-center text-[clamp(2.65rem,5.4vw,5.8rem)] font-semibold leading-none text-ink"
+            aria-label="Explore New Things"
           >
-            <Mail className="size-4" />
-          </a>
-        </nav>
-      </header>
+            Explore New Things
+          </h1>
+        </div>
 
-      <section className="relative overflow-hidden px-4 pt-28 sm:px-6">
-        <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl grid-cols-1 content-end gap-6 pb-8 lg:grid-cols-[1.05fr_0.95fr] lg:pb-12">
-          <div className="flex flex-col justify-end">
-            <p className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-foreground/15 bg-white/60 px-3 py-1 text-xs uppercase text-muted-foreground">
-              <Sparkles className="size-3.5" />
-              Independent digital studio
-            </p>
-            <h1 className="max-w-5xl text-[clamp(3.3rem,11vw,11rem)] font-semibold leading-[0.86] text-balance">
-              清晰、鲜活、有态度的个人网站。
-            </h1>
+        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 sm:left-12 sm:translate-x-0">
+          <div className="mb-2 flex w-fit items-center gap-1 rounded-full bg-white/90 p-1.5 shadow-[0_12px_35px_rgba(20,20,20,0.08)] backdrop-blur-xl">
+            {["🌴", "😊", "🧠", "✒️", "💻"].map((mood) => (
+              <button
+                className="inline-flex size-7 items-center justify-center rounded-full text-sm transition hover:bg-ink/10"
+                type="button"
+                key={mood}
+                aria-label={`Mood ${mood}`}
+              >
+                {mood}
+              </button>
+            ))}
           </div>
-
-          <aside className="grid gap-4 self-end lg:pb-4">
-            <div className="grid grid-cols-[0.9fr_1.1fr] gap-4">
-              <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-accent">
-                <Image
-                  src="/images/portrait-workspace.png"
-                  alt="Abstract workspace portrait"
-                  width={900}
-                  height={1125}
-                  className="h-full w-full object-cover"
-                  priority
-                />
-              </div>
-              <div className="flex min-h-64 flex-col justify-between rounded-[2rem] bg-lime px-5 py-5 text-ink">
-                <span className="text-sm uppercase text-ink/65">Now building</span>
-                <p className="text-2xl font-semibold leading-tight">
-                  一个可以介绍你、展示作品、持续更新想法的网站。
-                </p>
-              </div>
-            </div>
-            <p className="max-w-xl text-lg leading-8 text-muted-foreground">
-              参考 Fler Design 的杂志式编排、强对比色块和松弛的创意工作室气质，但内容会换成你的个人表达、作品和联系方式。
-            </p>
-          </aside>
+          <button
+            className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-ink shadow-[0_12px_35px_rgba(20,20,20,0.08)] backdrop-blur-xl transition hover:scale-95"
+            type="button"
+          >
+            今天的心情如何？
+          </button>
         </div>
       </section>
 
-      <section id="work" className="px-4 py-16 sm:px-6 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-8 flex items-end justify-between gap-6">
+      <section id="about" className="px-4 py-10 lg:py-16">
+        <div className="mx-auto grid max-w-[100rem] gap-5 lg:grid-cols-[1fr_0.96fr]">
+          <div className="flex h-[34rem] flex-col justify-between rounded-[1.5rem] bg-[#f4ff75] p-5 text-ink sm:p-7 lg:h-[37rem] lg:p-8">
+            <div>
+              <p className="mb-8 font-mono text-sm uppercase tracking-normal text-ink/75">
+                Who&apos;s Shure
+              </p>
+              <h2 className="max-w-3xl text-[clamp(2.8rem,5vw,5rem)] font-semibold leading-[0.92]">
+                Shure 是一个
+                <span className="text-[#ff6e14]"> 爱折腾的数字创作者 </span>
+                ，把灵感、工具和表达整理成可被看见的作品。
+              </h2>
+            </div>
+            <p className="max-w-xl text-base font-semibold leading-tight sm:text-lg">
+              我正在把个人网站做成一个开放的工作室：这里会放作品、笔记、实验、AI 工作流，也会记录我如何把模糊想法变成清楚、鲜活、有个性的数字表达。
+            </p>
+          </div>
+
+          <div className="h-[34rem] overflow-hidden rounded-[1.5rem] bg-ink lg:h-[37rem]">
+            <video
+              className="h-full w-full object-cover"
+              src="/videos/shure-about.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="px-4 py-10 lg:py-16">
+        <div className="mx-auto max-w-[100rem]">
+          <div className="mb-5 flex items-end justify-between gap-5">
             <h2 className="text-4xl font-semibold sm:text-6xl">Selected Work</h2>
             <a className="hidden items-center gap-2 text-sm font-medium md:inline-flex" href="#contact">
               Start a project <ArrowUpRight className="size-4" />
@@ -145,39 +148,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="bg-ink px-4 py-16 text-paper sm:px-6 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p className="mb-4 text-sm uppercase text-paper/55">What I can shape with you</p>
-            <h2 className="text-4xl font-semibold sm:text-6xl">从想法到上线的完整表达。</h2>
-          </div>
-          <div className="grid gap-3">
-            {services.map((service) => (
-              <div
-                className="flex items-center justify-between border-t border-paper/15 py-6 text-2xl sm:text-4xl"
-                key={service}
-              >
-                <span>{service}</span>
-                <ArrowUpRight className="size-6 text-lime" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="notes" className="px-4 py-16 sm:px-6 lg:py-24">
-        <div className="mx-auto max-w-7xl">
+      <section id="notes" className="px-4 py-10 lg:py-16">
+        <div className="mx-auto max-w-[100rem]">
           <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-[2rem] bg-blush p-6 text-ink sm:p-10">
-              <p className="mb-12 text-sm uppercase text-ink/60">Notes / Podcast / Blog</p>
+            <div className="flex h-[34rem] flex-col justify-between rounded-[1.5rem] bg-blush p-5 text-ink sm:p-7 lg:h-[37rem] lg:p-8">
+              <p className="text-sm uppercase text-ink/60">Notes / Podcast / Blog</p>
               <h2 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-6xl">
                 用长期更新的方式，让别人持续理解你。
               </h2>
             </div>
-            <div className="grid gap-3">
+            <div className="grid h-[34rem] gap-5 lg:h-[37rem]">
               {notes.map((note) => (
-                <article className="rounded-[2rem] border border-foreground/10 p-6" key={note.title}>
-                  <p className="mb-8 text-xs uppercase text-muted-foreground">{note.label}</p>
+                <article className="flex flex-col justify-between rounded-[1.5rem] border border-foreground/10 p-5 sm:p-7" key={note.title}>
+                  <p className="text-xs uppercase text-muted-foreground">{note.label}</p>
                   <h3 className="text-2xl font-semibold leading-tight">{note.title}</h3>
                 </article>
               ))}
@@ -186,24 +169,32 @@ export default function Home() {
         </div>
       </section>
 
-      <footer id="contact" className="px-4 pb-4 sm:px-6">
-        <div className="mx-auto rounded-[2.4rem] bg-lime px-6 py-12 text-ink sm:px-10 lg:px-14 lg:py-16">
-          <p className="mb-10 text-sm uppercase text-ink/60">Available for collaboration</p>
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-            <h2 className="text-[clamp(3rem,9vw,8.5rem)] font-semibold leading-[0.9]">
-              让你的下一版网站先跑起来。
-            </h2>
-            <div className="grid gap-6">
-              <p className="text-xl leading-8 text-ink/75">
-                这是第一版视觉方向。下一步我们可以替换你的名字、照片、项目、履历和真实联系方式。
+      <footer id="contact" className="bg-black px-4 text-white">
+        <div className="mx-auto flex min-h-[34rem] max-w-[100rem] flex-col justify-between overflow-hidden pb-14 pt-20 lg:min-h-[38rem] lg:pb-16 lg:pt-24">
+          <h2
+            className="flex max-w-[94rem] flex-wrap items-start gap-x-2 gap-y-1 self-start text-[clamp(3.2rem,9.8vw,11rem)] font-semibold leading-[0.8] text-white lg:-ml-2"
+            aria-label="Shure。sure？sure！"
+          >
+            <span className="inline-block -rotate-6 translate-y-5">Sh</span>
+            <span className="inline-block rotate-3 -translate-y-2">ure。</span>
+            <span className="inline-block rotate-6 translate-y-8">sure？</span>
+            <span className="inline-block -rotate-3 translate-y-2">sure！</span>
+          </h2>
+          <div className="grid gap-12 pb-2 lg:grid-cols-[1fr_auto] lg:items-start">
+            <div className="max-w-xl">
+              <p className="max-w-[34rem] text-2xl font-semibold leading-[0.95] sm:text-3xl">
+                欢迎来找我聊新项目、个人网站、内容表达，或者任何正在发光的小想法。
               </p>
-              <a
-                className="inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper transition hover:scale-95"
-                href="mailto:hello@example.com"
-              >
-                hello@example.com <ArrowUpRight className="size-4" />
-              </a>
+              <p className="mt-8 max-w-[25rem] text-sm leading-[1.1] text-white/55">
+                我喜欢把模糊的灵感整理成清楚、鲜活、有个性的数字表达。这里会慢慢长成一个更像我的个人空间。
+              </p>
             </div>
+            <a
+              className="mt-1 text-2xl font-semibold leading-none text-white transition hover:opacity-70 sm:text-3xl lg:mr-2"
+              href="mailto:2664265205@qq.com"
+            >
+              2664265205@qq.com
+            </a>
           </div>
         </div>
       </footer>

@@ -1,0 +1,388 @@
+{
+  "schema": {
+    "schemaVersion": 2,
+    "sequences": {
+      "com.tldraw.store": 5,
+      "com.tldraw.asset": 1,
+      "com.tldraw.camera": 1,
+      "com.tldraw.document": 2,
+      "com.tldraw.instance": 26,
+      "com.tldraw.instance_page_state": 5,
+      "com.tldraw.page": 1,
+      "com.tldraw.instance_presence": 6,
+      "com.tldraw.pointer": 1,
+      "com.tldraw.shape": 4,
+      "com.tldraw.user": 1,
+      "com.tldraw.asset.image": 6,
+      "com.tldraw.asset.video": 5,
+      "com.tldraw.asset.bookmark": 2,
+      "com.tldraw.shape.arrow": 8,
+      "com.tldraw.shape.bookmark": 2,
+      "com.tldraw.shape.draw": 4,
+      "com.tldraw.shape.embed": 4,
+      "com.tldraw.shape.frame": 1,
+      "com.tldraw.shape.geo": 11,
+      "com.tldraw.shape.group": 0,
+      "com.tldraw.shape.highlight": 3,
+      "com.tldraw.shape.image": 5,
+      "com.tldraw.shape.line": 5,
+      "com.tldraw.shape.note": 12,
+      "com.tldraw.shape.text": 4,
+      "com.tldraw.shape.video": 4,
+      "com.tldraw.binding.arrow": 1
+    }
+  },
+  "store": {
+    "asset:154674165": {
+      "id": "asset:154674165",
+      "type": "image",
+      "typeName": "asset",
+      "props": {
+        "name": "asset-154674165.png",
+        "src": "/page-assets/page/asset-154674165.png",
+        "w": 2560,
+        "h": 1268,
+        "fileSize": 299506,
+        "mimeType": "image/png",
+        "isAnimated": false
+      },
+      "meta": {}
+    },
+    "shape:o_DpHzquf6MB7uC2LicRn": {
+      "x": -391.69570901276495,
+      "y": 147.67025110289865,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:o_DpHzquf6MB7uC2LicRn",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": -48,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 1003.6564976688556,
+          "y": 633.8882526433285
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "页面中间部分的文字内容，改为“Explore New Things”"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:page",
+      "index": "a4nG0qTV",
+      "typeName": "shape"
+    },
+    "user:cgZGK9ibvTqzn0JSduYni": {
+      "name": "",
+      "color": "#FF802B",
+      "imageUrl": "",
+      "meta": {},
+      "id": "user:cgZGK9ibvTqzn0JSduYni",
+      "typeName": "user"
+    },
+    "shape:ig-mslWkqjSfXK1H8_YXl": {
+      "x": -684.034228060782,
+      "y": 1050.1350582038106,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:ig-mslWkqjSfXK1H8_YXl",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": -48,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 322.91547816325544,
+          "y": 270.57036837494
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "左下角的“今天的心情”模块保留，出现的文字改成“今天的心情如何？”"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:page",
+      "index": "a7B6r7MV",
+      "typeName": "shape"
+    },
+    "shape:kHWR2sDB0cRxQyp8y2bJf": {
+      "x": 1009.8181482281339,
+      "y": -7.6656832396481605,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:kHWR2sDB0cRxQyp8y2bJf",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": 48,
+        "start": {
+          "x": -1572.476037019453,
+          "y": 225.47704912485887
+        },
+        "end": {
+          "x": -200.63306728616885,
+          "y": 810.1684114435916
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "中间图片出现形式保留"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:page",
+      "index": "a6BRt08V",
+      "typeName": "shape"
+    },
+    "shape:wBguRVii_Aei_JFdrEvFu": {
+      "x": -247.6886614558099,
+      "y": -18.25754795143814,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:wBguRVii_Aei_JFdrEvFu",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": -48,
+        "start": {
+          "x": 644.777211632748,
+          "y": 37.64498152032962
+        },
+        "end": {
+          "x": 1027.3579711914062,
+          "y": 285.79541015625
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "定部栏，保留基本样式。方块数量改为4，从左到右四个方块中的内容，分别是，Shure，About me，My works，Get in touch"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:page",
+      "index": "a3iTol2V",
+      "typeName": "shape"
+    },
+    "shape:8gv3iyUTM1SYD7EHt8qay": {
+      "x": 1636.3977482230134,
+      "y": 93.56447592710589,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:8gv3iyUTM1SYD7EHt8qay",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": 48,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 281.0827352597803,
+          "y": 1178.4367193017924
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "这个右下角的内容先去掉"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:page",
+      "index": "a5cclzaG",
+      "typeName": "shape"
+    },
+    "shape:SE-KlLZVDqnnPjSV2Gt5z": {
+      "x": -484.36702661707636,
+      "y": 186.2472913770075,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:SE-KlLZVDqnnPjSV2Gt5z",
+      "type": "image",
+      "props": {
+        "w": 2560,
+        "h": 1268,
+        "assetId": "asset:154674165",
+        "playing": true,
+        "url": "",
+        "flipX": false,
+        "flipY": false,
+        "altText": "",
+        "crop": null
+      },
+      "parentId": "page:page",
+      "index": "a2FhU00G",
+      "typeName": "shape"
+    },
+    "page:page": {
+      "meta": {},
+      "id": "page:page",
+      "name": "Page 1",
+      "index": "a1",
+      "typeName": "page"
+    },
+    "document:document": {
+      "gridSize": 10,
+      "name": "",
+      "meta": {},
+      "id": "document:document",
+      "typeName": "document"
+    }
+  }
+}

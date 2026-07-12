@@ -1,0 +1,388 @@
+{
+  "schema": {
+    "schemaVersion": 2,
+    "sequences": {
+      "com.tldraw.store": 5,
+      "com.tldraw.asset": 1,
+      "com.tldraw.camera": 1,
+      "com.tldraw.document": 2,
+      "com.tldraw.instance": 26,
+      "com.tldraw.instance_page_state": 5,
+      "com.tldraw.page": 1,
+      "com.tldraw.instance_presence": 6,
+      "com.tldraw.pointer": 1,
+      "com.tldraw.shape": 4,
+      "com.tldraw.user": 1,
+      "com.tldraw.asset.image": 6,
+      "com.tldraw.asset.video": 5,
+      "com.tldraw.asset.bookmark": 2,
+      "com.tldraw.shape.arrow": 8,
+      "com.tldraw.shape.bookmark": 2,
+      "com.tldraw.shape.draw": 4,
+      "com.tldraw.shape.embed": 4,
+      "com.tldraw.shape.frame": 1,
+      "com.tldraw.shape.geo": 11,
+      "com.tldraw.shape.group": 0,
+      "com.tldraw.shape.highlight": 3,
+      "com.tldraw.shape.image": 5,
+      "com.tldraw.shape.line": 5,
+      "com.tldraw.shape.note": 12,
+      "com.tldraw.shape.text": 4,
+      "com.tldraw.shape.video": 4,
+      "com.tldraw.binding.arrow": 1
+    }
+  },
+  "store": {
+    "shape:DtYw1y2XITagLOqBhZy_3": {
+      "x": -406.5909423828116,
+      "y": -507.8048600927259,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:DtYw1y2XITagLOqBhZy_3",
+      "type": "image",
+      "props": {
+        "w": 2545,
+        "h": 1047,
+        "assetId": "asset:2101123442",
+        "playing": true,
+        "url": "",
+        "crop": null,
+        "flipX": false,
+        "flipY": false,
+        "altText": ""
+      },
+      "parentId": "page:9BEaRDqIJiibNeNqSWzU5",
+      "index": "a1bMkg6V",
+      "typeName": "shape"
+    },
+    "shape:TpAHycWGpZYiOrMDLeLt0": {
+      "x": 2480.9659423828107,
+      "y": 598.9905500635218,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:TpAHycWGpZYiOrMDLeLt0",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "xl",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": 48,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -539.602294921875,
+          "y": -157.8408203125
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "这几个小图标的模块也先删除"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:9BEaRDqIJiibNeNqSWzU5",
+      "index": "a5enEaeV",
+      "typeName": "shape"
+    },
+    "user:cgZGK9ibvTqzn0JSduYni": {
+      "name": "",
+      "color": "#FF802B",
+      "imageUrl": "",
+      "meta": {},
+      "id": "user:cgZGK9ibvTqzn0JSduYni",
+      "typeName": "user"
+    },
+    "page:9BEaRDqIJiibNeNqSWzU5": {
+      "meta": {},
+      "id": "page:9BEaRDqIJiibNeNqSWzU5",
+      "name": "页面 1",
+      "index": "a2bnqp1V",
+      "typeName": "page"
+    },
+    "asset:2101123442": {
+      "id": "asset:2101123442",
+      "type": "image",
+      "typeName": "asset",
+      "props": {
+        "name": "asset-2101123442.png",
+        "src": "/page-assets/9BEaRDqIJiibNeNqSWzU5/asset-2101123442.png",
+        "w": 2545,
+        "h": 1047,
+        "fileSize": 236550,
+        "mimeType": "image/png",
+        "isAnimated": false
+      },
+      "meta": {}
+    },
+    "shape:hFvY2uKTxdvmamrIrFgc2": {
+      "x": -286.30682373047057,
+      "y": -781.0093278661657,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:hFvY2uKTxdvmamrIrFgc2",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "xl",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": -48,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 1180.3976440429688,
+          "y": 511.24993896484375
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "这个英文换成”Shure。srue？sure！“"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:9BEaRDqIJiibNeNqSWzU5",
+      "index": "a2cXCbYV",
+      "typeName": "shape"
+    },
+    "document:document": {
+      "gridSize": 10,
+      "name": "",
+      "meta": {},
+      "id": "document:document",
+      "typeName": "document"
+    },
+    "shape:rAaW1pDrw8IA85MY2BfF7": {
+      "x": 2430.0567626953107,
+      "y": 115.35431959477182,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:rAaW1pDrw8IA85MY2BfF7",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "xl",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": 48,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -485.056884765625,
+          "y": 74.8863525390625
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "邮箱换成我的邮箱”2664265205@qq.com\"，并且位置向下移动"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:9BEaRDqIJiibNeNqSWzU5",
+      "index": "a4nP0KxV",
+      "typeName": "shape"
+    },
+    "shape:r1aieBTVxvOHhYGGIDZUW": {
+      "x": 2420.9659423828107,
+      "y": 388.0814924463343,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:r1aieBTVxvOHhYGGIDZUW",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "xl",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": 48,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -483.23876953125,
+          "y": -83.29541015625
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "这几个跳转链接的模块删除"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:9BEaRDqIJiibNeNqSWzU5",
+      "index": "a3UoCF5G",
+      "typeName": "shape"
+    },
+    "shape:Mlldvjw7hRKezUBPX6O1l": {
+      "x": -620.8522491455096,
+      "y": 208.08149244633432,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {
+        "cowartAnnotationArrow": true
+      },
+      "id": "shape:Mlldvjw7hRKezUBPX6O1l",
+      "type": "arrow",
+      "props": {
+        "kind": "arc",
+        "elbowMidPoint": 0.5,
+        "dash": "draw",
+        "size": "xl",
+        "fill": "none",
+        "color": "red",
+        "labelColor": "red",
+        "bend": -48,
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 400.39772033691406,
+          "y": -41.4771728515625
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "richText": {
+          "type": "doc",
+          "attrs": {
+            "dir": "auto"
+          },
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "dir": "auto"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "这个英文换成“Shure"
+                }
+              ]
+            }
+          ]
+        },
+        "labelPosition": 0,
+        "font": "draw",
+        "scale": 1
+      },
+      "parentId": "page:9BEaRDqIJiibNeNqSWzU5",
+      "index": "a6EKNBbV",
+      "typeName": "shape"
+    }
+  }
+}

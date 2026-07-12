@@ -7,6 +7,7 @@
 | 你可以这样叫 | 页面上看到的内容 | 对应文件 |
 | --- | --- | --- |
 | 顶部导航栏 | 顶部居中的 `Shure / About me / My works / Get in touch` 按钮组 | `src/components/site-nav.tsx` |
+| 作品分类下拉 | 鼠标悬停 `My works` 时弹出的 `Dynamic / Brand / Visual` 三个入口 | `src/components/site-nav.tsx`、`src/lib/work-categories.ts` |
 | 作品页跳转动画 | 点击 `My works` 时出现的黑色转场效果 | `src/components/works-transition-link.tsx`、`src/app/globals.css` |
 | 首页加载动画 | 刚打开首页时的首屏加载/揭开动画 | `src/components/hero-loader.tsx`、`src/app/globals.css` |
 
@@ -18,11 +19,13 @@
 | --- | --- | --- | --- |
 | H1 | 首页首屏 / 首页大标题区 | `Explore New Things` 大标题、浅色背景 | `src/app/page.tsx` 的第一个 `section` |
 | H2 | 心情按钮区 / 左下角心情浮层 | 首屏左下角的表情按钮和“今天的心情如何？”按钮 | 首页首屏 `section` 内的绝对定位浮层 |
-| H3 | 关于我区域 / Who's Shure 区域 | 黄绿色大卡片文字 + 右侧视频 | `section id="about"` |
-| H4 | 关于我文字卡片 | `Who's Shure`、大段个人介绍、底部说明文字 | `section id="about"` 左侧卡片 |
+| H3 | 关于我区域 / About me 区域 | 金属纹理文字卡片 + 右侧视频 | `section id="about"` |
+| H4 | 关于我文字卡片 | `Hi！我是徐航朔`、大段个人介绍、底部说明文字 | `section id="about"` 左侧卡片 |
 | H5 | 关于我视频卡片 | 右侧竖向视频画面 | `section id="about"` 右侧视频容器 |
-| H6 | 首页作品预览区 / Selected Work 区域 | `Selected Work` 标题和三张作品卡片 | `section id="work"` |
+| H6 | 首页设计项目区 / Design projects 区域 | `Design projects` 标题、`Start a project` 链接和三张作品卡片 | `section id="work"` |
 | H7 | 首页作品卡片 | `Field Notes / Soft Lab / Open Signal` 单张卡片 | `projects.map(...)` 生成的 `article` |
+| H7-1 | 首页作品图片区 / 作品分类图 | 每张卡片上方的 `Dynamic Design / Brand Design / Visual Design` 彩色图片，点击分别进入分类作品页 | `projects.map(...)` 内的 `Link` 和 `Image` |
+| H7-2 | 首页作品文字区 | 每张卡片下方的编号、类型、标题、箭头和说明文字 | 单张 `article` 下方文字容器 |
 | H8 | 笔记区域 / Notes 区域 | 粉色大卡片 + 右侧三条笔记卡片 | `section id="notes"` |
 | H9 | 联系区域 / 页脚 | 黑底 `Shure。sure？sure！` 和邮箱 | `footer id="contact"` |
 
@@ -30,7 +33,8 @@
 
 - “把 H1 首页大标题区的文字变大一点。”
 - “调整 H3 关于我区域，让右侧视频更窄。”
-- “把 H6 首页作品预览区的三张卡片间距拉开。”
+- “把 H6 首页设计项目区的三张卡片间距拉开。”
+- “把 H7-1 首页作品图片区的图片完整显示出来。”
 - “修改 H9 联系区域的邮箱位置。”
 
 ## 作品页 `/works`
@@ -57,6 +61,23 @@
 - “把 W1 作品页标题框的圆角改小。”
 - “调整 W8 下方单张作品卡片的图片比例。”
 - “把 W3 主推项目标签区放到 W4 文字区上面。”
+
+## 作品分类页 `/works/dynamic`、`/works/brand`、`/works/visual`
+
+对应主文件：`src/app/works/[category]/page.tsx`
+分类数据：`src/lib/work-categories.ts`
+
+| 区域编号 | 你可以这样叫 | 页面上看到的内容 | 大概代码位置 |
+| --- | --- | --- | --- |
+| C1 | 分类作品页顶部区域 | `Dynamic Design / Brand Design / Visual Design` 标题、说明文字和右侧分类图 | `src/app/works/[category]/page.tsx` 顶部 `section` |
+| C2 | 分类切换按钮区 | 页面中部的 `Dynamic / Brand / Visual` 三个切换按钮 | `workCategories.map(...)` 生成的链接 |
+| C3 | 分类作品列表区 | `Selected Dynamic / Selected Brand / Selected Visual` 下方的三张作品卡片 | `category.projects.map(...)` 生成的 `article` |
+
+### 分类页提需求示例
+
+- “把 C1 分类作品页顶部区域的图片放到左边。”
+- “修改 C2 分类切换按钮区的选中颜色。”
+- “给 C3 分类作品列表区增加更多作品卡片。”
 
 ## 截图标注时怎么说
 

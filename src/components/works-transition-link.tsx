@@ -2,6 +2,7 @@
 
 import type { MouseEvent, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 type WorksTransitionLinkProps = {
@@ -37,7 +38,7 @@ export function WorksTransitionLink({
       event.altKey ||
       event.ctrlKey ||
       event.shiftKey ||
-      pathname === "/works"
+      pathname.startsWith("/works")
     ) {
       return;
     }
@@ -57,13 +58,13 @@ export function WorksTransitionLink({
   }
 
   return (
-    <a
+    <Link
       aria-disabled={isTransitioning}
       className={className}
       href="/works"
       onClick={handleClick}
     >
       {children}
-    </a>
+    </Link>
   );
 }

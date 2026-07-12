@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { WorksTransitionLink } from "@/components/works-transition-link";
+import { workCategories } from "@/lib/work-categories";
 
 export function SiteNav() {
   const secondaryLink =
@@ -10,7 +11,7 @@ export function SiteNav() {
   return (
     <header className="fixed inset-x-0 top-8 z-50 flex justify-center px-4">
       <nav
-        className="flex max-w-[calc(100vw-2rem)] items-center gap-2 overflow-x-auto text-[0.94rem] font-semibold"
+        className="flex max-w-[calc(100vw-2rem)] flex-wrap items-center justify-center gap-2 overflow-visible text-[0.94rem] font-semibold"
         aria-label="Primary navigation"
       >
         <Link className={primaryLink} href="/">
@@ -19,9 +20,24 @@ export function SiteNav() {
         <Link className={secondaryLink} href="/#about">
           About me
         </Link>
-        <WorksTransitionLink className={secondaryLink}>
-          My works
-        </WorksTransitionLink>
+        <div className="group relative flex flex-col items-center">
+          <WorksTransitionLink className={secondaryLink}>
+            My works
+          </WorksTransitionLink>
+          <div className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 w-max -translate-x-1/2 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+            <div className="grid gap-1 rounded-[0.4rem] bg-white/95 p-1.5 text-ink shadow-[0_18px_45px_rgba(20,20,20,0.14)] backdrop-blur-xl">
+              {workCategories.map((category) => (
+                <Link
+                  className="whitespace-nowrap rounded-[0.32rem] px-4 py-2 text-sm transition hover:bg-ink hover:text-paper focus-visible:bg-ink focus-visible:text-paper"
+                  href={category.href}
+                  key={category.slug}
+                >
+                  {category.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
         <Link className={primaryLink} href="/#contact">
           Get in touch
         </Link>

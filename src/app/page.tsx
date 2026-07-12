@@ -1,26 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
 import { HeroLoader } from "@/components/hero-loader";
 import { SiteNav } from "@/components/site-nav";
+import { workCategories } from "@/lib/work-categories";
 
 const projects = [
   {
     title: "Field Notes",
     type: "品牌叙事 / 首页体验",
-    image: "/images/project-field-notes.png",
+    image: workCategories[0].image,
+    href: workCategories[0].href,
     summary: "把零散的想法整理成清楚、有节奏、可继续生长的数字表达。",
   },
   {
     title: "Soft Lab",
     type: "个人系统 / 内容产品",
-    image: "/images/project-soft-lab.png",
+    image: workCategories[1].image,
+    href: workCategories[1].href,
     summary: "为创作者设计一套轻量内容系统，让作品、笔记和服务自然连接。",
   },
   {
     title: "Open Signal",
     type: "研究页面 / 编辑视觉",
-    image: "/images/project-open-signal.png",
+    image: workCategories[2].image,
+    href: workCategories[2].href,
     summary: "用杂志式排版和大胆色块，承载研究、洞察和可执行的下一步。",
   },
 ];
@@ -80,19 +85,17 @@ export default function Home() {
 
       <section id="about" className="px-4 py-10 lg:py-16">
         <div className="mx-auto grid max-w-[100rem] gap-5 lg:grid-cols-[1fr_0.96fr]">
-          <div className="flex h-[34rem] flex-col justify-between rounded-[0.4rem] bg-[#f4ff75] p-5 text-ink sm:p-7 lg:h-[37rem] lg:p-8">
+          <div className="flex h-[34rem] flex-col justify-between rounded-[0.4rem] bg-[#d5d5d2] bg-[url('/images/h3-metal-texture.jpg')] bg-cover bg-center p-5 text-ink sm:p-7 lg:h-[37rem] lg:p-8">
             <div>
-              <p className="mb-8 font-mono text-sm uppercase tracking-normal text-ink/75">
-                Who&apos;s Shure
+              <p className="mb-8 font-mono text-sm tracking-normal text-ink/75">
+                Hi！我是徐航朔
               </p>
               <h2 className="max-w-3xl text-[clamp(2.8rem,5vw,5rem)] font-semibold leading-[0.92]">
-                Shure 是一个
-                <span className="text-[#ff6e14]"> 爱折腾的数字创作者 </span>
-                ，把灵感、工具和表达整理成可被看见的作品。
+                我希望把灵感、工具和表达整理成可以被看见的作品。
               </h2>
             </div>
             <p className="max-w-xl text-base font-semibold leading-tight sm:text-lg">
-              我正在把个人网站做成一个开放的工作室：这里会放作品、笔记、实验、AI 工作流，也会记录我如何把模糊想法变成清楚、鲜活、有个性的数字表达。
+              I hope you will like it.
             </p>
           </div>
 
@@ -123,15 +126,19 @@ export default function Home() {
           <div className="grid gap-5 lg:grid-cols-3">
             {projects.map((project, index) => (
               <article className="group flex flex-col" key={project.title}>
-                <div className="aspect-[16/14] overflow-hidden rounded-[0.4rem] bg-card">
+                <Link
+                  className="block aspect-[1481/1291] overflow-hidden rounded-[0.4rem] bg-card"
+                  href={project.href}
+                  aria-label={`View ${workCategories[index].title} works`}
+                >
                   <Image
                     src={project.image}
                     alt={`${project.title} project visual`}
-                    width={1200}
-                    height={1050}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    width={1481}
+                    height={1291}
+                    className="h-full w-full object-cover"
                   />
-                </div>
+                </Link>
                 <div className="grid gap-5 pt-5">
                   <div className="flex items-start justify-between gap-4">
                     <div>

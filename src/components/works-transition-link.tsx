@@ -45,14 +45,14 @@ export function WorksTransitionLink({
     event.preventDefault();
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      router.push("/works");
+      router.push("/works", { scroll: true });
       return;
     }
 
     document.body.classList.add("is-works-leaving");
     setIsTransitioning(true);
     timeoutRef.current = setTimeout(() => {
-      router.push("/works");
+      router.push("/works", { scroll: true });
     }, 920);
   }
 

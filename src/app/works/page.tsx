@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { ContactFooter } from "@/components/contact-footer";
 import { SiteNav } from "@/components/site-nav";
 
 const featuredWork = {
@@ -85,91 +86,94 @@ function WorkTags({
 
 export default function WorksPage() {
   return (
-    <main className="min-h-screen bg-black px-4 pb-4 text-white">
-      <SiteNav />
+    <main className="min-h-screen bg-black text-white">
+      <div className="px-4 pb-16">
+        <SiteNav />
 
-      <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
-        <div className="mb-5 rounded-[1.25rem] border border-white/15 px-5 py-5 sm:px-7">
-          <h1 className="text-[clamp(2.6rem,4.8vw,5.2rem)] font-medium leading-[1.02] tracking-normal text-white/50">
-            <span className="text-white">Latest </span>projects
-          </h1>
-        </div>
-
-        <article className="grid gap-5 border-t border-white/15 py-5 lg:grid-cols-[0.58fr_1.08fr_1.34fr]">
-          <div className="flex items-start">
-            <WorkTags tags={featuredWork.tags} />
+        <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
+          <div className="mb-8 px-0 py-2">
+            <h1 className="text-[clamp(2.25rem,3.8vw,4.25rem)] font-medium leading-[1.02] tracking-normal text-white/50">
+              <span className="text-white">Latest </span>projects
+            </h1>
           </div>
-          <div className="flex min-h-[33rem] flex-col justify-end gap-10 lg:min-h-[40.5rem]">
-            <div className="pb-6 lg:pb-10">
-              <Link
-                className="group inline-flex items-start gap-2 text-[clamp(2.1rem,3.25vw,3.85rem)] font-medium leading-[0.96] tracking-normal text-white"
-                href="/#about"
-              >
-                {featuredWork.title}
-                <ArrowUpRight className="mt-1 size-5 transition group-hover:translate-x-1 group-hover:-translate-y-1 sm:size-6" />
-              </Link>
-              <p className="mt-5 max-w-[34rem] text-sm font-medium leading-[1.15] text-white/55 sm:text-base">
-                {featuredWork.summary}
-              </p>
-            </div>
-            <p className="font-mono text-xs uppercase leading-none text-white/35">
-              01 / Ongoing personal system
-            </p>
-          </div>
-          <Link
-            className="group block h-[33rem] overflow-hidden rounded-[0.4rem] bg-white/10 lg:h-[40.5rem]"
-            href="/#about"
-            aria-label={`${featuredWork.title} project`}
-          >
-            <video
-              className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-              src={featuredWork.media}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-          </Link>
-        </article>
 
-        <div className="grid gap-5 border-t border-white/15 pt-5 lg:grid-cols-3">
-          {works.map((work, index) => (
-            <article className="group flex min-h-[34rem] flex-col justify-between" key={work.title}>
-              <Link
-                className="block aspect-[0.95] overflow-hidden rounded-[0.4rem] bg-white/10"
-                href="/#work"
-                aria-label={`${work.title} project`}
-              >
-                <Image
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-                  src={work.image}
-                  alt={`${work.title} project visual`}
-                  width={1200}
-                  height={1350}
-                />
-              </Link>
-              <div className="grid gap-5 pt-5">
-                <div className="flex items-start justify-between gap-4">
-                  <Link
-                    className="text-[1.38rem] font-semibold leading-[1.05] tracking-normal text-white transition group-hover:text-white/75"
-                    href="/#work"
-                  >
-                    {work.title}
-                  </Link>
-                  <span className="font-mono text-xs text-white/35">
-                    {String(index + 2).padStart(2, "0")}
-                  </span>
-                </div>
-                <p className="max-w-[31rem] text-sm font-medium leading-[1.18] text-white/50">
-                  {work.summary}
+          <article className="grid gap-5 border-t-2 border-white/45 py-5 lg:grid-cols-[0.58fr_0.82fr_1.61fr]">
+            <div className="flex min-h-[33rem] flex-col justify-between lg:min-h-[40.5rem]">
+              <WorkTags tags={featuredWork.tags} />
+              <div className="pb-6 lg:pb-10">
+                <Link
+                  className="group inline-flex items-start gap-2 text-[clamp(2.1rem,2.65vw,3.2rem)] font-medium leading-[0.96] tracking-normal text-white"
+                  href="/#about"
+                >
+                  {featuredWork.title}
+                  <ArrowUpRight className="mt-1 size-5 transition group-hover:translate-x-1 group-hover:-translate-y-1 sm:size-6" />
+                </Link>
+                <p className="mt-5 max-w-[24rem] text-sm font-medium leading-[1.15] text-white/55 sm:text-base">
+                  {featuredWork.summary}
                 </p>
-                <WorkTags tags={work.tags} compact />
+                <p className="mt-10 font-mono text-xs uppercase leading-none text-white/35">
+                  01 / Ongoing personal system
+                </p>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            </div>
+            <div className="hidden min-h-[33rem] lg:block lg:min-h-[40.5rem]">
+            </div>
+            <Link
+              className="group block h-[33rem] overflow-hidden rounded-[0.4rem] bg-white/10 lg:h-[40.5rem]"
+              href="/#about"
+              aria-label={`${featuredWork.title} project`}
+            >
+              <video
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                src={featuredWork.media}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            </Link>
+          </article>
+
+          <div className="grid gap-5 border-t border-white/15 pt-5 lg:grid-cols-3">
+            {works.map((work, index) => (
+              <article className="group flex flex-col" key={work.title}>
+                <Link
+                  className="block aspect-[16/14] overflow-hidden rounded-[0.4rem] bg-white/10"
+                  href="/#work"
+                  aria-label={`${work.title} project`}
+                >
+                  <Image
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                    src={work.image}
+                    alt={`${work.title} project visual`}
+                    width={1200}
+                    height={1350}
+                  />
+                </Link>
+                <div className="grid gap-5 pt-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <Link
+                      className="text-[1.38rem] font-semibold leading-[1.05] tracking-normal text-white transition group-hover:text-white/75"
+                      href="/#work"
+                    >
+                      {work.title}
+                    </Link>
+                    <span className="font-mono text-xs text-white/35">
+                      {String(index + 2).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <p className="max-w-[31rem] text-sm font-medium leading-[1.18] text-white/50">
+                    {work.summary}
+                  </p>
+                  <WorkTags tags={work.tags} compact />
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+      <ContactFooter />
     </main>
   );
 }

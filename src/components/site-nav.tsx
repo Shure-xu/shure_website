@@ -38,7 +38,7 @@ export function SiteNav() {
             </div>
           </div>
         </div>
-        <Link className={primaryLink} href="/#contact">
+        <Link className={primaryLink} href="#contact">
           Get in touch
         </Link>
       </nav>

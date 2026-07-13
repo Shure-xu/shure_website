@@ -218,6 +218,37 @@ body.is-works-leaving::after {
   scroll-margin-top: 10rem;
 }
 
+.dynamic-work-title {
+  color: inherit;
+  font-family:
+    "Taipei Sans TC Beta",
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    "PingFang TC",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.contact-footer-primary {
+  font-family:
+    "Taipei Sans TC Beta",
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    "PingFang TC",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
 @media (min-width: 1024px) {
   #about,
   #work,

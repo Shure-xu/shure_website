@@ -3,14 +3,27 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
+import { DynamicWorkPage } from "@/components/dynamic-work-page";
 import { SiteNav } from "@/components/site-nav";
-import { getWorkCategory, workCategories } from "@/lib/work-categories";
+import {
+  getWorkCategory,
+  type WorkCategory,
+  workCategories,
+} from "@/lib/work-categories";
 
 type CategoryWorksPageProps = {
   params: Promise<{
     category: string;
   }>;
 };
+
+type DynamicWorkCategory = Extract<WorkCategory, { slug: "dynamic" }>;
+
+function isDynamicWorkCategory(
+  category: WorkCategory,
+): category is DynamicWorkCategory {
+  return category.slug === "dynamic";
+}
 
 export function generateStaticParams() {
   return workCategories.map((category) => ({
@@ -42,6 +55,10 @@ export default async function CategoryWorksPage({
     notFound();
   }
 
+  if (isDynamicWorkCategory(category)) {
+    return <DynamicWorkPage category={category} currentWork="geometry" />;
+  }
+
   return (
     <main className="min-h-screen bg-black text-white">
       <div className="px-4 pb-16">
@@ -65,46 +82,17 @@ export default async function CategoryWorksPage({
               </div>
 
               <div className="aspect-video overflow-hidden bg-black lg:aspect-auto lg:min-h-[35rem]">
-                {"heroVideo" in category ? (
-                  <video
-                    className="h-full w-full object-cover"
-                    src={category.heroVideo}
-                    aria-label={`${category.title} featured video`}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                  />
-                ) : (
-                  <Image
-                    className="h-full w-full object-cover"
-                    src={category.image}
-                    alt={`${category.title} category visual`}
-                    width={1481}
-                    height={1291}
-                    priority
-                  />
-                )}
+                <Image
+                  className="h-full w-full object-cover"
+                  src={category.image}
+                  alt={`${category.title} category visual`}
+                  width={1481}
+                  height={1291}
+                  priority
+                />
               </div>
             </div>
           </div>
-
-          {"featuredWork" in category ? (
-            <section className="my-8 grid gap-5 border-t border-white/15 pt-5 lg:grid-cols-[0.46fr_1fr]">
-              <div>
-                <p className="font-mono text-xs uppercase text-white/35">
-                  {category.featuredWork.eyebrow}
-                </p>
-                <h2 className="mt-3 text-[clamp(2.5rem,5vw,5.8rem)] font-semibold leading-[0.9]">
-                  {category.featuredWork.title}
-                </h2>
-              </div>
-              <p className="max-w-3xl text-xl font-semibold leading-tight text-white/65 sm:text-2xl">
-                {category.featuredWork.summary}
-              </p>
-            </section>
-          ) : null}
 
           <div className="mb-6 mt-8 flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-3xl font-semibold sm:text-5xl">

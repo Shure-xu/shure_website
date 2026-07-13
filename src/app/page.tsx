@@ -47,11 +47,11 @@ const notes = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-white text-foreground">
       <HeroLoader />
       <SiteNav />
 
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#f7f7f4] px-4 py-28 sm:px-6">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-4 py-28 sm:px-6">
         <div className="relative z-10 flex w-full max-w-7xl flex-col items-center justify-center">
           <h1
             className="max-w-full whitespace-nowrap text-center text-[clamp(2.65rem,5.4vw,5.8rem)] font-semibold leading-none text-ink"

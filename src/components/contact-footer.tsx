@@ -13,19 +13,26 @@ export function ContactFooter() {
         </h2>
         <div className="grid gap-12 pb-2 lg:grid-cols-[1fr_auto] lg:items-start">
           <div className="max-w-xl">
-            <p className="max-w-[34rem] text-2xl font-semibold leading-[0.95] sm:text-3xl">
-              欢迎来找我聊新项目、个人网站、内容表达，或者任何正在发光的小想法。
+            <p className="contact-footer-primary max-w-[40rem] text-2xl sm:text-3xl">
+              <span className="block">欢迎来找我聊新项目、</span>
+              <span className="block">个人网站、内容表达，</span>
+              <span className="block">或者任何正在发光的小想法。</span>
             </p>
             <p className="mt-8 max-w-[25rem] text-sm leading-[1.1] text-white/55">
               我喜欢把模糊的灵感整理成清楚、鲜活、有个性的数字表达。这里会慢慢长成一个更像我的个人空间。
             </p>
           </div>
-          <a
-            className="mt-1 text-2xl font-semibold leading-none text-white transition hover:opacity-70 sm:text-3xl lg:mr-2"
-            href="mailto:2664265205@qq.com"
-          >
-            2664265205@qq.com
-          </a>
+          <div className="mt-1 grid gap-3 text-2xl font-semibold leading-none text-white sm:text-3xl lg:mr-2 lg:text-right">
+            <a className="transition hover:opacity-70" href="tel:1806884989">
+              1806884989
+            </a>
+            <a
+              className="transition hover:opacity-70"
+              href="mailto:2664265205@qq.com"
+            >
+              2664265205@qq.com
+            </a>
+          </div>
         </div>
       </div>
     </footer>

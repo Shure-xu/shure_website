@@ -48,32 +48,63 @@ export default async function CategoryWorksPage({
         <SiteNav />
 
         <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
-          <div className="grid gap-5 border-t-2 border-white/45 py-5 lg:grid-cols-[0.82fr_1.18fr]">
-            <div className="flex min-h-[28rem] flex-col justify-between rounded-[0.4rem] bg-white p-5 text-ink sm:p-7 lg:min-h-[35rem] lg:p-8">
-              <div>
-                <p className="mb-5 font-mono text-xs uppercase text-ink/45">
-                  My works / {category.label}
+          <div className="overflow-hidden rounded-[0.4rem] border-t-2 border-white/45 bg-white text-ink">
+            <div className="grid lg:grid-cols-[0.78fr_1.22fr]">
+              <div className="flex min-h-[28rem] flex-col justify-between p-5 sm:p-7 lg:min-h-[35rem] lg:p-8">
+                <div>
+                  <p className="mb-5 font-mono text-xs uppercase text-ink/45">
+                    My works / {category.label}
+                  </p>
+                  <h1 className="max-w-3xl text-[clamp(3rem,6.2vw,7rem)] font-semibold leading-[0.88] tracking-normal">
+                    {category.title}
+                  </h1>
+                </div>
+                <p className="max-w-[31rem] text-base font-semibold leading-tight text-ink/70 sm:text-lg">
+                  {category.description}
                 </p>
-                <h1 className="max-w-3xl text-[clamp(3rem,6.2vw,7rem)] font-semibold leading-[0.88] tracking-normal">
-                  {category.title}
-                </h1>
               </div>
-              <p className="max-w-[31rem] text-base font-semibold leading-tight text-ink/70 sm:text-lg">
-                {category.description}
-              </p>
-            </div>
 
-            <div className="aspect-[1481/1291] overflow-hidden rounded-[0.4rem] bg-white/10 lg:aspect-auto lg:min-h-[35rem]">
-              <Image
-                className="h-full w-full object-cover"
-                src={category.image}
-                alt={`${category.title} category visual`}
-                width={1481}
-                height={1291}
-                priority
-              />
+              <div className="aspect-video overflow-hidden bg-black lg:aspect-auto lg:min-h-[35rem]">
+                {"heroVideo" in category ? (
+                  <video
+                    className="h-full w-full object-cover"
+                    src={category.heroVideo}
+                    aria-label={`${category.title} featured video`}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                  />
+                ) : (
+                  <Image
+                    className="h-full w-full object-cover"
+                    src={category.image}
+                    alt={`${category.title} category visual`}
+                    width={1481}
+                    height={1291}
+                    priority
+                  />
+                )}
+              </div>
             </div>
           </div>
+
+          {"featuredWork" in category ? (
+            <section className="my-8 grid gap-5 border-t border-white/15 pt-5 lg:grid-cols-[0.46fr_1fr]">
+              <div>
+                <p className="font-mono text-xs uppercase text-white/35">
+                  {category.featuredWork.eyebrow}
+                </p>
+                <h2 className="mt-3 text-[clamp(2.5rem,5vw,5.8rem)] font-semibold leading-[0.9]">
+                  {category.featuredWork.title}
+                </h2>
+              </div>
+              <p className="max-w-3xl text-xl font-semibold leading-tight text-white/65 sm:text-2xl">
+                {category.featuredWork.summary}
+              </p>
+            </section>
+          ) : null}
 
           <div className="mb-6 mt-8 flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-3xl font-semibold sm:text-5xl">

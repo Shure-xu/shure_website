@@ -8,6 +8,13 @@ export const workCategories = [
     teaser: "Motion, interaction, and expressive digital moments.",
     description:
       "Dynamic design projects focus on movement, interaction, transitions, and small behaviors that make a digital experience feel alive.",
+    heroVideo: "/videos/dynamic-design-0424.mp4",
+    featuredWork: {
+      title: "4月24日",
+      eyebrow: "Dynamic Design / Video Work",
+      summary:
+        "一段围绕动态视觉、节奏和画面转换展开的作品记录，用视频承载更直接的运动感和现场感。",
+    },
     projects: [
       {
         title: "Motion Notes",

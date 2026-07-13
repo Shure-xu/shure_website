@@ -25,7 +25,8 @@
 | H6 | 首页设计项目区 / Design projects 区域 | `Design projects` 标题、`Start a project` 链接和三张作品卡片 | `section id="work"` |
 | H7 | 首页作品卡片 | `Field Notes / Soft Lab / Open Signal` 单张卡片 | `projects.map(...)` 生成的 `article` |
 | H7-1 | 首页作品图片区 / 作品分类图 | 每张卡片上方的 `Dynamic Design / Brand Design / Visual Design` 彩色图片，点击分别进入分类作品页 | `projects.map(...)` 内的 `Link` 和 `Image` |
-| H7-2 | 首页作品文字区 | 每张卡片下方的编号、类型、标题、箭头和说明文字 | 单张 `article` 下方文字容器 |
+| H7-2 | 首页作品图片显示框 | 控制三张分类图是否铺满、完整显示、裁切、留白、圆角和高度比例的外框 | `Link` 的 `aspect-[1481/1291]`、`overflow-hidden` 和图片样式 |
+| H7-3 | 首页作品文字区 | 每张卡片下方的编号、类型、标题、箭头和说明文字 | 单张 `article` 下方文字容器 |
 | H8 | 笔记区域 / Notes 区域 | 粉色大卡片 + 右侧三条笔记卡片 | `section id="notes"` |
 | H9 | 联系区域 / 页脚 | 黑底 `Shure。sure？sure！` 和邮箱 | `footer id="contact"` |
 
@@ -35,6 +36,7 @@
 - “调整 H3 关于我区域，让右侧视频更窄。”
 - “把 H6 首页设计项目区的三张卡片间距拉开。”
 - “把 H7-1 首页作品图片区的图片完整显示出来。”
+- “把 H7-2 首页作品图片显示框改成铺满，但不要裁掉右侧文字和箭头。”
 - “修改 H9 联系区域的邮箱位置。”
 
 ## 作品页 `/works`
@@ -69,13 +71,15 @@
 
 | 区域编号 | 你可以这样叫 | 页面上看到的内容 | 大概代码位置 |
 | --- | --- | --- | --- |
-| C1 | 分类作品页顶部区域 | `Dynamic Design / Brand Design / Visual Design` 标题、说明文字和右侧分类图 | `src/app/works/[category]/page.tsx` 顶部 `section` |
+| C1 | 分类作品页顶部模块 | 一个完整的大模块：左侧分类标题和说明，右侧分类媒体；Dynamic 页右侧是视频 | `src/app/works/[category]/page.tsx` 顶部模块 |
+| C1-1 | Dynamic 作品介绍区 | C1 和 C2 之间新增的作品名称、作品类型和作品介绍，例如 `4月24日` | `featuredWork` 数据和对应 `section` |
 | C2 | 分类切换按钮区 | 页面中部的 `Dynamic / Brand / Visual` 三个切换按钮 | `workCategories.map(...)` 生成的链接 |
 | C3 | 分类作品列表区 | `Selected Dynamic / Selected Brand / Selected Visual` 下方的三张作品卡片 | `category.projects.map(...)` 生成的 `article` |
 
 ### 分类页提需求示例
 
-- “把 C1 分类作品页顶部区域的图片放到左边。”
+- “把 C1 分类作品页顶部模块里的视频放大。”
+- “修改 C1-1 Dynamic 作品介绍区的作品名称和介绍文案。”
 - “修改 C2 分类切换按钮区的选中颜色。”
 - “给 C3 分类作品列表区增加更多作品卡片。”
 

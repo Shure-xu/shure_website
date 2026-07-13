@@ -136,7 +136,7 @@ export default function Home() {
                     alt={`${project.title} project visual`}
                     width={1481}
                     height={1291}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-right-bottom"
                   />
                 </Link>
                 <div className="grid gap-5 pt-5">

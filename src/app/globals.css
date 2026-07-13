@@ -211,6 +211,22 @@ body.is-works-leaving::after {
   pointer-events: none;
 }
 
+#about,
+#work,
+#notes,
+#contact {
+  scroll-margin-top: 10rem;
+}
+
+@media (min-width: 1024px) {
+  #about,
+  #work,
+  #notes,
+  #contact {
+    scroll-margin-top: 7rem;
+  }
+}
+
 @keyframes works-transition-wipe {
   to {
     transform: translateY(0);

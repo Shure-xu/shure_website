@@ -52,15 +52,6 @@ const works = [
       { label: "INTERFACE", tone: "text-white bg-[#2f2f2f]" },
     ],
   },
-  {
-    title: "Next Personal Site",
-    summary: "正在生长中的个人站：从首页第一屏开始，把视觉、内容和真实个性一点点调出来。",
-    image: "/images/project-field-notes.png",
-    tags: [
-      { label: "IN PROGRESS", tone: "text-[#ff6e14] bg-white" },
-      { label: "WEBSITE", tone: "text-white bg-[#2f2f2f]" },
-    ],
-  },
 ];
 
 function WorkTags({
@@ -97,7 +88,7 @@ export function WorksOverviewPage() {
             </h1>
           </header>
 
-          <article className="grid gap-5 py-5 lg:grid-cols-[0.58fr_0.82fr_1.61fr]">
+          <article className="grid gap-5 pb-5 lg:grid-cols-[0.58fr_0.82fr_1.61fr]">
             <div className="flex min-h-[33rem] flex-col justify-between lg:min-h-[40.5rem]">
               <WorkTags tags={featuredWork.tags} />
               <div className="pb-6 lg:pb-10">
@@ -134,17 +125,17 @@ export function WorksOverviewPage() {
             </Link>
           </article>
 
-          <div className="grid gap-5 border-t border-white/15 pt-5 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-3">
             {works.map((work, index) => (
               <article className="group flex flex-col" key={work.title}>
                 <Link
                   aria-label={`${work.title} project`}
-                  className="block aspect-[16/14] overflow-hidden rounded-[0.4rem] bg-white/10"
+                  className="block aspect-[16/14] overflow-hidden rounded-[0.4rem] bg-white/10 transition-transform duration-700 ease-out hover:scale-[0.98]"
                   href="/#work"
                 >
                   <Image
                     alt={`${work.title} project visual`}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover"
                     height={1350}
                     src={work.image}
                     width={1200}

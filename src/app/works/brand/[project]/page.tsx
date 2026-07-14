@@ -20,8 +20,10 @@ const brandProjects = {
     year: "2026",
     services: "Brand Identity, Visual System, Packaging",
     sector: "Food Brand / Dessert",
-    heroImage: "/images/brand-yuniji-info.jpg",
-    heroAlt: "芋泥集 brand identity on a green leaf background",
+    heroImage: "/images/brand-yuniji-21.jpg",
+    heroAlt: "芋泥集品牌视觉展示 01",
+    heroWidth: 4961,
+    heroHeight: 1377,
     description: [
       "以靖江之泥，集长江之水的香糯馈赠。靖江，长江之畔的沙土岛屿，这里的水土藏着两样东西一一土里生长的香沙芋，指尖捏塑的泥狗子。「芋泥集」，正是将这片土地的水土基因与非遗信仰凝结为一份舌尖上的礼物。「芋泥集」相信，一颗真正的靖江香沙芋，不该只是食物，更是靖江人“捏泥成器，种芋成礼”的农耕哲学，品牌以“集”为名，让每一口粉糯都带着水土的籍贯与文化的体温。",
       "项目重点放在标志、色彩、图形延展与包装画面的统一表达上。视觉系统保留植物感和手作感，同时让品牌在包装、社交传播和线下物料中保持一致的识别秩序。",
@@ -29,7 +31,75 @@ const brandProjects = {
     gallery: [
       {
         src: "/images/brand-yuniji-22.jpg",
-        alt: "芋泥集 brand extended visual",
+        alt: "芋泥集品牌视觉展示 02",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-23.jpg",
+        alt: "芋泥集品牌视觉展示 03",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-24.jpg",
+        alt: "芋泥集品牌视觉展示 04",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-25.jpg",
+        alt: "芋泥集品牌视觉展示 05",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-26.jpg",
+        alt: "芋泥集品牌视觉展示 06",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-27.jpg",
+        alt: "芋泥集品牌视觉展示 07",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-28.jpg",
+        alt: "芋泥集品牌视觉展示 08",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-29.jpg",
+        alt: "芋泥集品牌视觉展示 09",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-30.jpg",
+        alt: "芋泥集品牌视觉展示 10",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-31.jpg",
+        alt: "芋泥集品牌视觉展示 11",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-32.jpg",
+        alt: "芋泥集品牌视觉展示 12",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-yuniji-33.jpg",
+        alt: "芋泥集品牌视觉展示 13",
+        width: 4961,
+        height: 3071,
       },
     ],
   },
@@ -41,8 +111,10 @@ const brandProjects = {
     year: "2026",
     services: "Brand Identity, Illustration, Visual System",
     sector: "Pet Brand / Lifestyle",
-    heroImage: "/images/brand-pet-info.jpg",
-    heroAlt: "PetPets brand identity on a black and white pet photo",
+    heroImage: "/images/brand-petpets-06.jpg",
+    heroAlt: "PetPets 品牌视觉展示 01",
+    heroWidth: 4961,
+    heroHeight: 2129,
     description: [
       "PetPets 是一套面向宠物咖啡馆的品牌视觉系统。项目尝试把亲密、活泼和轻松的情绪转化成可重复使用的图形资产，让品牌既有陪伴感，也有清楚的商业识别。当城市的秩序美学撞上毛茸茸的不讲理哲学，人们会意识到这里不生产标准制品，只贩卖毛茸茸的“意外”。",
       "视觉围绕角色图形、字标比例、黑白影像和高饱和点色展开。系统可以延伸到包装、社交媒体、物料和线下展示，让品牌在不同接触点中保持可爱但不松散的表达。",
@@ -50,7 +122,87 @@ const brandProjects = {
     gallery: [
       {
         src: "/images/brand-petpets-07.jpg",
-        alt: "PetPets brand extended visual",
+        alt: "PetPets 品牌视觉展示 02",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-08.jpg",
+        alt: "PetPets 品牌视觉展示 03",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-09.jpg",
+        alt: "PetPets 品牌视觉展示 04",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-10.jpg",
+        alt: "PetPets 品牌视觉展示 05",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-11.jpg",
+        alt: "PetPets 品牌视觉展示 06",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-12.jpg",
+        alt: "PetPets 品牌视觉展示 07",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-13.jpg",
+        alt: "PetPets 品牌视觉展示 08",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-14.jpg",
+        alt: "PetPets 品牌视觉展示 09",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-15.jpg",
+        alt: "PetPets 品牌视觉展示 10",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-16.jpg",
+        alt: "PetPets 品牌视觉展示 11",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-17.jpg",
+        alt: "PetPets 品牌视觉展示 12",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-18.jpg",
+        alt: "PetPets 品牌视觉展示 13",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-19.jpg",
+        alt: "PetPets 品牌视觉展示 14",
+        width: 4961,
+        height: 3071,
+      },
+      {
+        src: "/images/brand-petpets-20.jpg",
+        alt: "PetPets 品牌视觉展示 15",
+        width: 4961,
+        height: 3071,
       },
     ],
   },
@@ -162,8 +314,8 @@ export default async function BrandProjectPage({
                 className="h-full w-full object-cover"
                 src={project.heroImage}
                 alt={project.heroAlt}
-                width={1481}
-                height={1291}
+                width={project.heroWidth}
+                height={project.heroHeight}
                 priority
               />
             </div>
@@ -177,8 +329,8 @@ export default async function BrandProjectPage({
                   className="h-full w-full object-cover"
                   src={image.src}
                   alt={image.alt}
-                  width={1481}
-                  height={1291}
+                  width={image.width}
+                  height={image.height}
                 />
               </div>
             ))}

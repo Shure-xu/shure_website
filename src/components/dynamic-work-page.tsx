@@ -19,6 +19,54 @@ const dynamicWorkDescription =
 const nihaoWorkDescription =
   "“你好”创意动态设计将摩斯密码与汉语拼音相结合，构建含蓄地向他人表达自己的“沟通方式”。我希望通过这一方式改善回避型倾向者社交困窘的现状，缓解他们对社交的恐惧。";
 
+const geometryGalleryImages = [
+  {
+    src: "/images/dynamic-geometry-08.jpg",
+    alt: "他们记忆中存在的几何作品展示 01",
+    width: 3579,
+    height: 5265,
+  },
+  {
+    src: "/images/dynamic-geometry-09.jpg",
+    alt: "他们记忆中存在的几何作品展示 02",
+    width: 3579,
+    height: 5265,
+  },
+  {
+    src: "/images/dynamic-geometry-10.jpg",
+    alt: "他们记忆中存在的几何作品展示 03",
+    width: 3579,
+    height: 5250,
+  },
+] as const;
+
+const helloGalleryImages = [
+  {
+    src: "/images/dynamic-hello-38.jpg",
+    alt: "你好：作品展示 01",
+    width: 2666,
+    height: 1635,
+  },
+  {
+    src: "/images/dynamic-hello-39.jpg",
+    alt: "你好：作品展示 02",
+    width: 2666,
+    height: 961,
+  },
+  {
+    src: "/images/dynamic-hello-40.jpg",
+    alt: "你好：作品展示 03",
+    width: 2666,
+    height: 961,
+  },
+  {
+    src: "/images/dynamic-hello-41.jpg",
+    alt: "你好：作品展示 04",
+    width: 2666,
+    height: 1635,
+  },
+] as const;
+
 const dynamicWorks = [
   {
     description: dynamicWorkDescription,
@@ -77,6 +125,11 @@ export function DynamicWorkPage({
     ? "border-ink/25"
     : "border-white";
   const videoBackgroundClass = isWhitePage ? "bg-white" : "bg-black";
+  const workImageDisplays =
+    currentWork === "geometry"
+      ? geometryGalleryImages
+      : helloGalleryImages;
+  const workImageClass = "h-auto w-full";
 
   return (
     <main className={`min-h-screen ${pageColorClass}`}>
@@ -158,16 +211,21 @@ export function DynamicWorkPage({
               </div>
             </nav>
 
-            <div className="overflow-hidden rounded-[0.4rem] bg-white">
-              <Image
-                className="h-full min-h-[24rem] w-full object-cover sm:min-h-[34rem] lg:min-h-[42rem]"
-                src={category.image}
-                alt={`${category.title} work image display`}
-                width={1481}
-                height={1291}
-                priority
-              />
-            </div>
+            {workImageDisplays.map((image, index) => (
+              <div
+                className="overflow-hidden rounded-[0.4rem] bg-white"
+                key={image.src}
+              >
+                <Image
+                  className={workImageClass}
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                  priority={index === 0}
+                />
+              </div>
+            ))}
           </section>
 
           <div className="mb-6 mt-8 flex flex-wrap items-center justify-between gap-4">

@@ -218,6 +218,65 @@ body.is-works-leaving::after {
   scroll-margin-top: 10rem;
 }
 
+.dynamic-work-page-title {
+  color: inherit;
+  font-family:
+    "Eskapade Extrabold Italic",
+    "Eskapade",
+    "Montserrat",
+    "Arial Black",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-size: clamp(3.25rem, 4.3vw, 4.75rem);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: 0;
+}
+
+.brand-feature-title {
+  color: inherit;
+  font-family:
+    "Montserrat",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-size: clamp(3.25rem, 4.3vw, 4.75rem);
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: 0;
+}
+
+.brand-page-title {
+  color: inherit;
+  font-family:
+    "Montserrat",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-size: 70px;
+  font-weight: 300;
+  line-height: 0.82;
+  letter-spacing: 0;
+}
+
+.brand-feature-description {
+  color: inherit;
+  font-family:
+    "Taipei Sans TC Beta",
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    "PingFang TC",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-size: clamp(3.25rem, 4.3vw, 4.75rem);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: 0;
+}
+
 .dynamic-work-title {
   color: inherit;
   font-family:

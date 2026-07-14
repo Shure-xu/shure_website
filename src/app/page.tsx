@@ -8,25 +8,25 @@ import { workCategories } from "@/lib/work-categories";
 
 const projects = [
   {
-    title: "Field Notes",
-    type: "品牌叙事 / 首页体验",
+    title: "01/动态设计",
     image: workCategories[0].image,
     href: workCategories[0].href,
-    summary: "把零散的想法整理成清楚、有节奏、可继续生长的数字表达。",
+    summary:
+      "Dynamic design projects focus on movement, interaction, transitions, and small behaviors that make a digital experience feel alive.",
   },
   {
-    title: "Soft Lab",
-    type: "个人系统 / 内容产品",
+    title: "02/品牌设计",
     image: workCategories[1].image,
     href: workCategories[1].href,
-    summary: "为创作者设计一套轻量内容系统，让作品、笔记和服务自然连接。",
+    summary:
+      "Brand design projects organize voice, structure, and identity into systems that can be recognized, repeated, and extended.",
   },
   {
-    title: "Open Signal",
-    type: "研究页面 / 编辑视觉",
+    title: "03/视觉设计",
     image: workCategories[2].image,
     href: workCategories[2].href,
-    summary: "用杂志式排版和大胆色块，承载研究、洞察和可执行的下一步。",
+    summary:
+      "Visual design projects explore composition, contrast, image treatment, and editorial systems for memorable digital pages.",
   },
 ];
 
@@ -54,10 +54,10 @@ export default function Home() {
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-4 py-28 sm:px-6">
         <div className="relative z-10 flex w-full max-w-7xl flex-col items-center justify-center">
           <h1
-            className="max-w-full whitespace-nowrap text-center text-[clamp(2.65rem,5.4vw,5.8rem)] font-semibold leading-none text-ink"
-            aria-label="Explore New Things"
+            className="max-w-full whitespace-nowrap text-center font-['Montserrat',ui-sans-serif,sans-serif] text-[clamp(2.65rem,5.4vw,5.8rem)] font-medium leading-none text-ink"
+            aria-label="Exploring New Things"
           >
-            Explore New Things
+            Exploring New Things
           </h1>
         </div>
 
@@ -133,7 +133,7 @@ export default function Home() {
                 >
                   <Image
                     src={project.image}
-                    alt={`${project.title} project visual`}
+                    alt={`${workCategories[index].title} project visual`}
                     width={1481}
                     height={1291}
                     className="h-full w-full object-cover object-right-bottom"
@@ -142,16 +142,13 @@ export default function Home() {
                 <div className="grid gap-5 pt-5">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-xs uppercase text-muted-foreground">
-                        0{index + 1} / {project.type}
-                      </p>
-                      <h3 className="mt-2 text-2xl font-semibold">
+                      <h3 className="font-['Taipei_Sans_TC_Beta',ui-sans-serif,sans-serif] text-2xl font-normal">
                         {project.title}
                       </h3>
                     </div>
                     <ArrowUpRight className="size-5 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </div>
-                  <p className="max-w-[31rem] text-sm leading-6 text-muted-foreground">
+                  <p className="max-w-[31rem] font-['Montserrat',ui-sans-serif,sans-serif] text-sm font-light leading-5 text-muted-foreground">
                     {project.summary}
                   </p>
                 </div>

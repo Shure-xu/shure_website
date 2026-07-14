@@ -17,16 +17,16 @@
 
 | 区域编号 | 你可以这样叫 | 页面上看到的内容 | 大概代码位置 |
 | --- | --- | --- | --- |
-| H1 | 首页首屏 / 首页大标题区 | `Explore New Things` 大标题、浅色背景 | `src/app/page.tsx` 的第一个 `section` |
+| H1 | 首页首屏 / 首页大标题区 | `Exploring New Things` 大标题、纯白背景 | `src/app/page.tsx` 的第一个 `section` |
 | H2 | 心情按钮区 / 左下角心情浮层 | 首屏左下角的表情按钮和“今天的心情如何？”按钮 | 首页首屏 `section` 内的绝对定位浮层 |
 | H3 | 关于我区域 / About me 区域 | 金属纹理文字卡片 + 右侧视频 | `section id="about"` |
 | H4 | 关于我文字卡片 | `Hi！我是徐航朔`、大段个人介绍、底部说明文字 | `section id="about"` 左侧卡片 |
 | H5 | 关于我视频卡片 | 右侧竖向视频画面 | `section id="about"` 右侧视频容器 |
 | H6 | 首页设计项目区 / Design projects 区域 | `Design projects` 标题、`Start a project` 链接和三张作品卡片 | `section id="work"` |
-| H7 | 首页作品卡片 | `Field Notes / Soft Lab / Open Signal` 单张卡片 | `projects.map(...)` 生成的 `article` |
+| H7 | 首页作品卡片 | `01/动态设计 / 02/品牌设计 / 03/视觉设计` 单张卡片 | `projects.map(...)` 生成的 `article` |
 | H7-1 | 首页作品图片区 / 作品分类图 | 每张卡片上方的 `Dynamic Design / Brand Design / Visual Design` 彩色图片，点击分别进入分类作品页 | `projects.map(...)` 内的 `Link` 和 `Image` |
 | H7-2 | 首页作品图片显示框 | 控制三张分类图是否铺满、完整显示、裁切、留白、圆角和高度比例的外框 | `Link` 的 `aspect-[1481/1291]`、`overflow-hidden` 和图片样式 |
-| H7-3 | 首页作品文字区 | 每张卡片下方的编号、类型、标题、箭头和说明文字 | 单张 `article` 下方文字容器 |
+| H7-3 | 首页作品文字区 | 每张卡片下方的中文标题、箭头和英文说明文字 | 单张 `article` 下方文字容器 |
 | H8 | 笔记区域 / Notes 区域 | 粉色大卡片 + 右侧三条笔记卡片 | `section id="notes"` |
 | H9 | 联系区域 / 页脚 | 黑底 `Shure。sure？sure！`、邮箱和手机号 | `footer id="contact"` |
 
@@ -73,36 +73,54 @@ Dynamic 作品页共用组件：`src/components/dynamic-work-page.tsx`
 
 ### Dynamic 作品展示页 `/works/dynamic`、`/works/dynamic2`
 
-Dynamic 作品展示页目前是单独布局。`/works/dynamic` 和 `/works/dynamic2` 使用同一个展示组件，只是当前选中的作品不同；点击跳转列表会在两个页面之间切换，并回到目标页面顶部。`/works/dynamic2` 当前页面背景为纯白色。
+Dynamic 作品展示页目前是单独布局。`/works/dynamic` 和 `/works/dynamic2` 使用同一个展示组件，只是当前选中的作品不同；点击跳转列表会在两个页面之间切换，并回到目标页面顶部。`/works/dynamic` 为黑色背景，`/works/dynamic2` 为纯白色背景。顶部标题和视频模块均为共用组件的一部分。
 
 | 区域编号 | 你可以这样叫 | 页面上看到的内容 | 大概代码位置 |
 | --- | --- | --- | --- |
-| C1 | Dynamic 顶部视频模块 | 页面顶部的视频画面，只放视频，不放文字内容；`/works/dynamic` 使用几何作品视频并保持裁切铺满，`/works/dynamic2` 使用 `nihao.mp4` 并加高容器、完整展示视频；当前视频宽度为页面内容区的 0.8 倍 | Dynamic 共用组件里的第一个视频 `div` |
-| C1-1 | Dynamic 作品名模块 | 视频下方的作品标题；`/works/dynamic` 为 `他们记忆中存在的几何`，`/works/dynamic2` 为 `你好：` | `dynamicWorks` 数据和标题 `h1` |
-| C1-2 | Dynamic 作品介绍模块 | 作品说明文字；每个 Dynamic 作品页可以有自己的介绍文案，当前使用 `Taipei Sans TC Beta Regular 20px` | `dynamicWorks` 数据里的 `description` 和正文 `p` |
-| C1-3 | Dynamic 作品跳转列表 | `他们记忆中的几何 / 你好：` 两个文字跳转项，当前页为白色选中，未选中项为灰色，右侧保留箭头 | `dynamicWorks.map(...)` 生成的 `nav` |
-| C1-4 | Dynamic 作品图片展示区 | 作品介绍和跳转列表下方的大图展示区域 | `Image` 外层展示容器 |
+| C1 | Dynamic 顶部标题模块 | 视频上方的 `D/0.1` 或 `D/0.2` 标题，以及底部细分隔线 | `src/components/dynamic-work-page.tsx` 的标题 `header` |
+| C1-1 | Dynamic 顶部视频模块 | 标题下方的视频画面，宽度为页面内容区的 0.8 倍并水平居中；`/works/dynamic` 使用几何作品视频并裁切铺满，`/works/dynamic2` 使用 `nihao.mp4` 并完整展示视频 | Dynamic 共用组件里的视频容器和 `video` |
+| C1-2 | Dynamic 作品名模块 | 视频下方的作品标题；`/works/dynamic` 为 `他们记忆中存在的几何`，`/works/dynamic2` 为 `你好：` | `dynamicWorks` 数据和标题 `h1` |
+| C1-3 | Dynamic 作品介绍模块 | 作品说明文字；每个 Dynamic 作品页可以有自己的介绍文案，当前使用 `Taipei Sans TC Beta Regular 20px` | `dynamicWorks` 数据里的 `description` 和正文 `p` |
+| C1-4 | Dynamic 作品跳转列表 | `他们记忆中的几何 / 你好：` 两个文字跳转项，当前页为高对比色选中，未选中项为低对比度文字，右侧保留箭头 | `dynamicWorks.map(...)` 生成的 `nav` |
+| C1-5 | Dynamic 作品图片展示区 | 作品介绍和跳转列表下方的大图展示区域 | `Image` 外层展示容器 |
 | C2 | 分类切换按钮区 | 页面中部的 `Dynamic / Brand / Visual` 三个切换按钮 | `workCategories.map(...)` 生成的链接 |
 | C3 | 分类作品列表区 | `Selected Dynamic / Selected Brand / Selected Visual` 下方的三张作品卡片 | `category.projects.map(...)` 生成的 `article` |
 
 ### Brand / Visual 分类页 `/works/brand`、`/works/visual`
 
-Brand 和 Visual 页目前仍使用通用分类页布局：
+Visual 页使用通用分类页布局；Brand 页在此基础上有独立的双模块结构：
 
 | 区域编号 | 你可以这样叫 | 页面上看到的内容 | 大概代码位置 |
 | --- | --- | --- | --- |
-| C1 | 分类作品页顶部模块 | 一个完整的大模块：左侧分类标题和说明，右侧分类图片 | `src/app/works/[category]/page.tsx` 通用返回分支顶部模块 |
+| C1 | 分类作品页标题模块 | Brand 页顶部的 `B/0.1&0.2` 标题和底部细分隔线；Visual 页没有这一独立标题模块 | `src/app/works/[category]/page.tsx` 的 Brand 条件分支 |
+| C1-1 | Brand `/0.1` 信息模块 | 左侧 `/0.1` 标题和「芋泥集」说明，右侧芋泥图片；图片模块比例约为 `1.55`，图片完整居中显示 | `CategoryFeaturePanel` 第一个 Brand panel |
+| C1-2 | Brand `/0.2` 信息模块 | 左侧 `/0.2` 标题和 `PetPets` 说明，右侧 PetPets 图片；图片模块比例约为 `1.55`，图片完整居中显示 | `CategoryFeaturePanel` 第二个 Brand panel |
+| C1-3 | Visual 分类作品页顶部模块 | 左侧分类标题和说明，右侧分类图片 | `src/app/works/[category]/page.tsx` 通用返回分支顶部模块 |
 | C2 | 分类切换按钮区 | 页面中部的 `Dynamic / Brand / Visual` 三个切换按钮 | `workCategories.map(...)` 生成的链接 |
 | C3 | 分类作品列表区 | `Selected Brand / Selected Visual` 下方的三张作品卡片 | `category.projects.map(...)` 生成的 `article` |
 
+Brand 图片资源位于：
+
+- `/0.1`：`public/images/brand-yuniji-info.jpg`
+- `/0.2`：`public/images/brand-pet-info.jpg`
+
+### 全站联系区域
+
+| 区域编号 | 你可以这样叫 | 页面上看到的内容 | 对应文件 |
+| --- | --- | --- | --- |
+| F1 | 联系标题区 | 黑底 `Shure。sure？sure！` 大标题 | `src/components/contact-footer.tsx` |
+| F2 | 联系说明区 | 欢迎文案、个人说明、手机号和邮箱；标题与说明之间保留统一间距 | `src/components/contact-footer.tsx` |
+
+`ContactFooter` 被首页、作品总览页、分类页和 Dynamic 作品页共用，因此修改联系区域时会同步到这些页面。
+
 ### 分类页提需求示例
 
-- “把 C1 Dynamic 顶部视频模块缩小一点。”
-- “修改 C1-1 Dynamic 作品名模块的字体和字号。”
-- “把 C1-2 Dynamic 作品介绍模块的正文拆成两段。”
-- “调整 C1-3 Dynamic 作品跳转列表，让未选中项更灰。”
-- “点击 C1-3 Dynamic 作品跳转列表里的 `你好：` 时进入 `/works/dynamic2`。”
-- “替换 C1-4 Dynamic 作品图片展示区的图片。”
+- “把 C1-1 Dynamic 顶部视频模块缩小一点。”
+- “修改 C1-2 Dynamic 作品名模块的字体和字号。”
+- “把 C1-3 Dynamic 作品介绍模块的正文拆成两段。”
+- “调整 C1-4 Dynamic 作品跳转列表，让未选中项更灰。”
+- “点击 C1-4 Dynamic 作品跳转列表里的 `你好：` 时进入 `/works/dynamic2`。”
+- “替换 C1-5 Dynamic 作品图片展示区的图片。”
 - “修改 C2 分类切换按钮区的选中颜色。”
 - “给 C3 分类作品列表区增加更多作品卡片。”
 

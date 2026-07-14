@@ -11,7 +11,7 @@ export function ContactFooter() {
           <span className="inline-block rotate-6 translate-y-8">sure？</span>
           <span className="inline-block -rotate-3 translate-y-2">sure！</span>
         </h2>
-        <div className="grid gap-12 pb-2 lg:grid-cols-[1fr_auto] lg:items-start">
+        <div className="mt-14 grid gap-12 pb-2 lg:mt-20 lg:grid-cols-[1fr_auto] lg:items-start">
           <div className="max-w-xl">
             <p className="contact-footer-primary max-w-[40rem] text-2xl sm:text-3xl">
               <span className="block">欢迎来找我聊新项目、</span>

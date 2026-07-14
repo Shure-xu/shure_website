@@ -19,10 +19,93 @@ type CategoryWorksPageProps = {
 
 type DynamicWorkCategory = Extract<WorkCategory, { slug: "dynamic" }>;
 
+type CategoryFeaturePanelProps = {
+  description: string;
+  eyebrow: string;
+  image: string;
+  imageAlt: string;
+  priority?: boolean;
+  title: string;
+  transparentTextPanel?: boolean;
+  titleClassName?: string;
+  descriptionClassName?: string;
+  imageClassName?: string;
+  imageHoverScale?: boolean;
+};
+
 function isDynamicWorkCategory(
   category: WorkCategory,
 ): category is DynamicWorkCategory {
   return category.slug === "dynamic";
+}
+
+function CategoryFeaturePanel({
+  description,
+  eyebrow,
+  image,
+  imageAlt,
+  priority = false,
+  title,
+  transparentTextPanel = false,
+  titleClassName,
+  descriptionClassName,
+  imageClassName,
+  imageHoverScale = false,
+}: CategoryFeaturePanelProps) {
+  const containerClass = transparentTextPanel
+    ? "overflow-hidden rounded-[0.4rem] text-white"
+    : "overflow-hidden rounded-[0.4rem] border-t-2 border-white/45 bg-white text-ink";
+  const descriptionClass = transparentTextPanel ? "text-white/72" : "text-ink/70";
+
+  return (
+    <div className={containerClass}>
+      <div className="grid lg:grid-cols-[0.78fr_1.22fr]">
+        <div
+          className={`flex min-h-[28rem] flex-col justify-between lg:min-h-0 ${
+            transparentTextPanel ? "p-0" : "p-5 sm:p-7 lg:p-8"
+          }`}
+        >
+          <div>
+            {transparentTextPanel ? null : (
+              <p className="mb-5 font-mono text-xs uppercase text-ink/45">
+                {eyebrow}
+              </p>
+            )}
+            <h1
+              className={
+                titleClassName ??
+                "max-w-3xl text-[clamp(3rem,6.2vw,7rem)] font-semibold leading-[0.88] tracking-normal"
+              }
+            >
+              {title}
+            </h1>
+          </div>
+          <p
+            className={`max-w-[31rem] text-base font-semibold leading-tight sm:text-lg ${descriptionClass} ${descriptionClassName ?? ""}`}
+          >
+            {description}
+          </p>
+        </div>
+
+        <div
+          className={`group/image aspect-[1.55] overflow-hidden rounded-[0.4rem] bg-white ${
+            imageHoverScale
+              ? "transition-transform duration-700 ease-out hover:scale-[0.95]"
+              : ""
+          }`}
+        >
+          <Image
+            className={`h-full w-full ${imageClassName ?? "object-cover"}`}
+            src={image}
+            alt={imageAlt}
+            width={1481}
+            height={1291}
+            priority={priority}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function generateStaticParams() {
@@ -59,42 +142,75 @@ export default async function CategoryWorksPage({
     return <DynamicWorkPage category={category} currentWork="geometry" />;
   }
 
+  const isBrandPage = category.slug === "brand";
+  const featurePanels = [
+    {
+      description: isBrandPage ? "芋泥集" : category.description,
+      eyebrow: `My works / ${category.label}`,
+      image: isBrandPage ? "/images/brand-yuniji-info.jpg" : category.image,
+      imageAlt: isBrandPage ? "芋泥集 brand visual" : `${category.title} category visual`,
+      title: isBrandPage ? "/0.1" : category.title,
+    },
+    ...(isBrandPage
+      ? [
+          {
+            description: "PetPets",
+            eyebrow: `My works / ${category.label} / 02`,
+            image: "/images/brand-pet-info.jpg",
+            imageAlt: "PetPets brand visual",
+            title: "/0.2",
+          },
+        ]
+      : []),
+  ];
+
   return (
     <main className="min-h-screen bg-black text-white">
       <div className="px-4 pb-16">
         <SiteNav />
 
         <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
-          <div className="overflow-hidden rounded-[0.4rem] border-t-2 border-white/45 bg-white text-ink">
-            <div className="grid lg:grid-cols-[0.78fr_1.22fr]">
-              <div className="flex min-h-[28rem] flex-col justify-between p-5 sm:p-7 lg:min-h-[35rem] lg:p-8">
-                <div>
-                  <p className="mb-5 font-mono text-xs uppercase text-ink/45">
-                    My works / {category.label}
-                  </p>
-                  <h1 className="max-w-3xl text-[clamp(3rem,6.2vw,7rem)] font-semibold leading-[0.88] tracking-normal">
-                    {category.title}
-                  </h1>
-                </div>
-                <p className="max-w-[31rem] text-base font-semibold leading-tight text-ink/70 sm:text-lg">
-                  {category.description}
-                </p>
-              </div>
+          {isBrandPage ? (
+            <header className="mb-10 flex items-end gap-5 border-b border-white/35 pb-5 text-white">
+              <h1 className="brand-page-title shrink-0">
+                <span>Brand</span>{" "}
+                <span className="text-[#999999]">design</span>
+              </h1>
+            </header>
+          ) : null}
 
-              <div className="aspect-video overflow-hidden bg-black lg:aspect-auto lg:min-h-[35rem]">
-                <Image
-                  className="h-full w-full object-cover"
-                  src={category.image}
-                  alt={`${category.title} category visual`}
-                  width={1481}
-                  height={1291}
-                  priority
-                />
-              </div>
-            </div>
+          <div className={`grid ${isBrandPage ? "gap-14" : "gap-5"}`}>
+            {featurePanels.map((panel, index) => (
+              <CategoryFeaturePanel
+                description={panel.description}
+                eyebrow={panel.eyebrow}
+                image={panel.image}
+                imageAlt={panel.imageAlt}
+                key={`${panel.title}-${index}`}
+                priority={index === 0}
+                title={panel.title}
+                transparentTextPanel={isBrandPage}
+                titleClassName={
+                  isBrandPage ? "brand-feature-title max-w-3xl" : undefined
+                }
+                descriptionClassName={
+                  isBrandPage
+                    ? "brand-feature-description self-start text-left"
+                    : undefined
+                }
+                imageClassName={
+                  isBrandPage ? "object-cover" : undefined
+                }
+                imageHoverScale={isBrandPage}
+              />
+            ))}
           </div>
 
-          <div className="mb-6 mt-8 flex flex-wrap items-center justify-between gap-4">
+          <div
+            className={`mb-6 flex flex-wrap items-center justify-between gap-4 ${
+              isBrandPage ? "mt-24" : "mt-8"
+            }`}
+          >
             <h2 className="text-3xl font-semibold sm:text-5xl">
               Selected {category.label}
             </h2>

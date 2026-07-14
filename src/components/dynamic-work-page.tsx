@@ -25,6 +25,7 @@ const dynamicWorks = [
     href: "/works/dynamic",
     key: "geometry",
     label: "他们记忆中的几何",
+    pageTitle: "D/0.1",
     title: "他们记忆中存在的几何",
     videoContainerClass: "aspect-video",
     videoObjectClass: "object-cover",
@@ -34,6 +35,7 @@ const dynamicWorks = [
     href: "/works/dynamic2",
     key: "hello",
     label: "你好：",
+    pageTitle: "D/0.2",
     title: "你好：",
     videoContainerClass: "h-[min(84vh,60rem)] min-h-[36rem]",
     videoObjectClass: "object-contain",
@@ -44,6 +46,7 @@ const dynamicWorks = [
   href: string;
   key: DynamicWorkKey;
   label: string;
+  pageTitle: string;
   title: string;
   videoContainerClass: string;
   videoObjectClass: string;
@@ -70,6 +73,10 @@ export function DynamicWorkPage({
     ? "bg-ink/10 text-ink hover:bg-ink/15"
     : "bg-white/15 text-white hover:bg-white/25";
   const sectionBorderClass = isWhitePage ? "border-ink/15" : "border-white/15";
+  const pageTitleBorderClass = isWhitePage
+    ? "border-ink/25"
+    : "border-white/35";
+  const videoBackgroundClass = isWhitePage ? "bg-white" : "bg-black";
 
   return (
     <main className={`min-h-screen ${pageColorClass}`}>
@@ -77,11 +84,19 @@ export function DynamicWorkPage({
         <SiteNav />
 
         <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
+          <header
+            className={`mb-10 flex items-end gap-5 border-b pb-5 ${pageTitleBorderClass} ${titleColorClass}`}
+          >
+            <h1 className="dynamic-work-page-title shrink-0">
+              {selectedWork.pageTitle}
+            </h1>
+          </header>
+
           <div
-            className={`w-4/5 overflow-hidden rounded-[0.4rem] bg-black ${selectedWork.videoContainerClass}`}
+            className={`mx-auto w-4/5 overflow-hidden rounded-[0.4rem] ${videoBackgroundClass} ${selectedWork.videoContainerClass}`}
           >
             <video
-              className={`h-full w-full ${selectedWork.videoObjectClass}`}
+              className={`h-full w-full ${videoBackgroundClass} ${selectedWork.videoObjectClass}`}
               src={selectedWork.videoSrc ?? category.heroVideo}
               aria-label={`${category.title} featured video`}
               autoPlay

@@ -91,7 +91,7 @@ export function WorksOverviewPage() {
         <SiteNav />
 
         <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
-          <header className="mb-10 flex items-end gap-5 border-b border-white/35 pb-5 text-white">
+          <header className="mb-10 flex items-end gap-5 border-b border-white pb-5 text-white">
             <h1 className="brand-page-title shrink-0">
               <span>Visual</span> <span className="text-[#999999]">design</span>
             </h1>

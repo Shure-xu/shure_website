@@ -75,7 +75,7 @@ export function DynamicWorkPage({
   const sectionBorderClass = isWhitePage ? "border-ink/15" : "border-white/15";
   const pageTitleBorderClass = isWhitePage
     ? "border-ink/25"
-    : "border-white/35";
+    : "border-white";
   const videoBackgroundClass = isWhitePage ? "bg-white" : "bg-black";
 
   return (

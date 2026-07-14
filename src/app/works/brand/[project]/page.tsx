@@ -23,8 +23,8 @@ const brandProjects = {
     heroImage: "/images/brand-yuniji-info.jpg",
     heroAlt: "芋泥集 brand identity on a green leaf background",
     description: [
-      "芋泥集是一组围绕东方甜品气质展开的品牌视觉实验。整体方向从食材的自然纹理、手作温度和轻盈的日常场景出发，用柔和但清晰的图形语言建立品牌记忆点。",
-      "项目重点放在标志、色彩、图形延展与包装画面的统一表达上。视觉系统保留植物感和手作感，同时让品牌在菜单、包装、社交传播和线下物料中保持一致的识别秩序。",
+      "以靖江之泥，集长江之水的香糯馈赠。靖江，长江之畔的沙土岛屿，这里的水土藏着两样东西一一土里生长的香沙芋，指尖捏塑的泥狗子。「芋泥集」，正是将这片土地的水土基因与非遗信仰凝结为一份舌尖上的礼物。「芋泥集」相信，一颗真正的靖江香沙芋，不该只是食物，更是靖江人“捏泥成器，种芋成礼”的农耕哲学，品牌以“集”为名，让每一口粉糯都带着水土的籍贯与文化的体温。",
+      "项目重点放在标志、色彩、图形延展与包装画面的统一表达上。视觉系统保留植物感和手作感，同时让品牌在包装、社交传播和线下物料中保持一致的识别秩序。",
     ],
     gallery: [
       {
@@ -44,8 +44,8 @@ const brandProjects = {
     heroImage: "/images/brand-pet-info.jpg",
     heroAlt: "PetPets brand identity on a black and white pet photo",
     description: [
-      "PetPets 是一套面向宠物陪伴场景的品牌视觉系统。项目尝试把亲密、活泼和轻松的情绪转化成可重复使用的图形资产，让品牌既有陪伴感，也有清楚的商业识别。",
-      "视觉围绕角色图形、字标比例、黑白影像和高饱和点色展开。系统可以延伸到包装、社交媒体、会员物料和线下展示，让品牌在不同接触点中保持可爱但不松散的表达。",
+      "PetPets 是一套面向宠物咖啡馆的品牌视觉系统。项目尝试把亲密、活泼和轻松的情绪转化成可重复使用的图形资产，让品牌既有陪伴感，也有清楚的商业识别。当城市的秩序美学撞上毛茸茸的不讲理哲学，人们会意识到这里不生产标准制品，只贩卖毛茸茸的“意外”。",
+      "视觉围绕角色图形、字标比例、黑白影像和高饱和点色展开。系统可以延伸到包装、社交媒体、物料和线下展示，让品牌在不同接触点中保持可爱但不松散的表达。",
     ],
     gallery: [
       {
@@ -108,18 +108,18 @@ export default async function BrandProjectPage({
 
           <header className="grid gap-10 border-b border-white/25 pb-10 lg:grid-cols-[1.16fr_0.84fr] lg:items-end">
             <div>
-              <p className="font-mono text-sm uppercase text-white/45">
+              <p className="font-montserrat text-sm uppercase text-white/45">
                 {project.index} / Brand design
               </p>
               <h1 className="brand-detail-title mt-5">{project.title}</h1>
             </div>
 
             <div className="grid gap-5 text-white/72">
-              <h2 className="max-w-[38rem] text-2xl font-semibold leading-none text-white sm:text-3xl">
+              <h2 className="max-w-[38rem] font-montserrat text-2xl font-semibold leading-none text-white sm:text-3xl">
                 {project.subtitle}
               </h2>
               <Link
-                className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-white/55 transition hover:text-white"
+                className="inline-flex w-fit items-center gap-1.5 font-montserrat text-sm font-semibold text-white/55 transition hover:text-white"
                 href="#gallery"
               >
                 View gallery
@@ -132,7 +132,7 @@ export default async function BrandProjectPage({
             <div className="grid max-w-[58rem] gap-6">
               {project.description.map((paragraph) => (
                 <p
-                  className="brand-detail-copy text-lg leading-[1.28] text-white/72 sm:text-xl"
+                  className="brand-detail-copy text-lg leading-[1.6] text-white/72"
                   key={paragraph}
                 >
                   {paragraph}
@@ -142,16 +142,16 @@ export default async function BrandProjectPage({
 
             <dl className="brand-detail-copy grid content-start gap-4 border-t border-white/20 pt-5 text-sm uppercase tracking-normal text-white/55 lg:border-t-0 lg:pt-0">
               <div>
-                <dt className="font-mono text-white/35">Year</dt>
-                <dd className="mt-1 text-white">{project.year}</dd>
+                <dt className="font-montserrat text-white/35">Year</dt>
+                <dd className="mt-1 font-montserrat text-white">{project.year}</dd>
               </div>
               <div>
-                <dt className="font-mono text-white/35">Services</dt>
-                <dd className="mt-1 text-white">{project.services}</dd>
+                <dt className="font-montserrat text-white/35">Services</dt>
+                <dd className="mt-1 font-montserrat text-white">{project.services}</dd>
               </div>
               <div>
-                <dt className="font-mono text-white/35">Sector</dt>
-                <dd className="mt-1 text-white">{project.sector}</dd>
+                <dt className="font-montserrat text-white/35">Sector</dt>
+                <dd className="mt-1 font-montserrat text-white">{project.sector}</dd>
               </div>
             </dl>
           </section>

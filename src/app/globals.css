@@ -373,7 +373,7 @@ body.is-home-returning.is-home-arriving::before {
     ui-sans-serif,
     system-ui,
     sans-serif;
-  font-size: clamp(4rem, 10vw, 10rem);
+  font-size: 64px;
   font-weight: 700;
   line-height: 0.86;
   letter-spacing: 0;
@@ -390,6 +390,12 @@ body.is-home-returning.is-home-arriving::before {
     system-ui,
     sans-serif;
   letter-spacing: 0;
+}
+
+@media (min-width: 640px) {
+  .brand-detail-title {
+    font-size: 80px;
+  }
 }
 
 .dynamic-work-title {

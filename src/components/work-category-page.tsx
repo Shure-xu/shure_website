@@ -14,6 +14,7 @@ type CategoryFeaturePanelProps = {
   imageAlt: string;
   priority?: boolean;
   title: string;
+  titleWeight?: 500 | 600;
   brandLayout?: boolean;
   titleClassName?: string;
   descriptionClassName?: string;
@@ -36,6 +37,7 @@ function CategoryFeaturePanel({
   imageAlt,
   priority = false,
   title,
+  titleWeight,
   brandLayout = false,
   titleClassName,
   descriptionClassName,
@@ -93,6 +95,11 @@ function CategoryFeaturePanel({
                 className={
                   titleClassName ??
                   "max-w-3xl text-[clamp(3rem,6.2vw,7rem)] font-semibold leading-[0.88] tracking-normal"
+                }
+                style={
+                  titleWeight === undefined
+                    ? undefined
+                    : { fontWeight: titleWeight }
                 }
               >
                 {title}
@@ -160,6 +167,10 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
       imageHref: isBrandPage ? "/works/brand/yuniji" : undefined,
       imageLinkLabel: "查看芋泥集作品详情",
       title: isBrandPage ? "芋泥集" : category.title,
+      titleWeight: isBrandPage ? 600 : undefined,
+      titleClassName: isBrandPage
+        ? "brand-feature-title max-w-3xl"
+        : undefined,
     },
     ...(isBrandPage
       ? [
@@ -174,6 +185,8 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
             imageHref: "/works/brand/petpets",
             imageLinkLabel: "查看 PetPets 作品详情",
             title: "PetPets",
+            titleWeight: undefined,
+            titleClassName: "brand-feature-title max-w-3xl",
           },
         ]
       : []),
@@ -186,7 +199,7 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
 
         <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
           {isBrandPage ? (
-            <header className="mb-10 flex items-end gap-5 border-b border-white/35 pb-5 text-white">
+            <header className="mb-10 flex items-end gap-5 border-b border-white bg-black pb-5 text-white">
               <h1 className="brand-page-title shrink-0">
                 <span>Brand</span>{" "}
                 <span className="text-[#999999]">design</span>
@@ -208,10 +221,9 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
                 key={`${panel.title}-${index}`}
                 priority={index === 0}
                 title={panel.title}
+                titleWeight={panel.titleWeight}
                 brandLayout={isBrandPage}
-                titleClassName={
-                  isBrandPage ? "brand-feature-title max-w-3xl" : undefined
-                }
+                titleClassName={panel.titleClassName}
                 descriptionClassName={
                   isBrandPage
                     ? "brand-feature-copy self-start text-left"

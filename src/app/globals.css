@@ -14,6 +14,8 @@
   --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   --font-heading: var(--font-sans);
+  --font-taipei: var(--font-taipei-sans);
+  --font-montserrat: var(--font-montserrat-local);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -180,35 +182,95 @@
   will-change: transform;
 }
 
-body.is-works-leaving::before {
+body.is-works-entering::before {
   content: "";
   position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 9998;
-  height: 200vh;
-  background: linear-gradient(
-    to bottom,
-    rgb(0 0 0 / 0%) 0%,
-    rgb(0 0 0 / 70%) 18%,
-    #000 32%,
-    #000 100%
-  );
+  background: #f8cb37;
   pointer-events: none;
-  transform: translateY(100%);
-  animation: works-transition-wipe 0.95s cubic-bezier(0.76, 0, 0.18, 1)
+  transform: translateY(105%);
+  animation: works-enter-cover-in 0.68s cubic-bezier(0.76, 0, 0.18, 1)
     forwards;
   will-change: transform;
 }
 
-body.is-works-leaving::after {
-  content: "";
+body.is-works-entering[data-work-transition="brand"]::before {
+  background: #8ec02c;
+}
+
+body.is-works-entering[data-work-transition="visual"]::before {
+  background: #48a4dc;
+}
+
+.works-arrival-overlay {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgb(0 0 0 / 0%);
+  display: grid;
+  place-items: center;
+  color: #000;
   pointer-events: none;
+}
+
+.works-arrival-overlay__word {
+  font-family: var(--font-montserrat-local), ui-sans-serif, sans-serif;
+  font-size: clamp(4rem, 13vw, 13rem);
+  font-weight: 500;
+  line-height: 0.78;
+  letter-spacing: -0.07em;
+  animation: works-arrival-word-reveal 1.85s cubic-bezier(0.22, 0.61, 0.36, 1)
+    forwards;
+  will-change: opacity, transform;
+}
+
+body.is-works-entering.is-works-arriving::before {
+  animation: works-enter-cover-reveal 1.85s cubic-bezier(0.22, 0.61, 0.36, 1)
+    forwards;
+}
+
+body.is-home-returning::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: #000;
+  pointer-events: none;
+  transform: translateY(105%);
+  animation: home-return-cover-in 0.68s cubic-bezier(0.76, 0, 0.18, 1)
+    forwards;
+  will-change: transform;
+}
+
+.home-return-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: #000;
+  color: #fff;
+  pointer-events: none;
+  animation: home-return-overlay-dismiss 1.85s cubic-bezier(0.22, 0.61, 0.36, 1)
+    forwards;
+  will-change: opacity;
+}
+
+.home-return-overlay__word {
+  color: #fff;
+  font-family: var(--font-montserrat-local), ui-sans-serif, sans-serif;
+  font-size: clamp(4rem, 13vw, 13rem);
+  font-weight: 500;
+  line-height: 0.78;
+  letter-spacing: -0.07em;
+  animation: home-return-word-reveal 1.85s cubic-bezier(0.22, 0.61, 0.36, 1)
+    forwards;
+  will-change: opacity, transform;
+}
+
+body.is-home-returning.is-home-arriving::before {
+  animation: home-return-cover-reveal 1.85s cubic-bezier(0.22, 0.61, 0.36, 1)
+    forwards;
 }
 
 #about,
@@ -348,7 +410,7 @@ body.is-works-leaving::after {
 
 .contact-footer-primary {
   font-family:
-    "Taipei Sans TC Beta",
+    var(--font-taipei-sans),
     "Noto Sans TC",
     "Microsoft JhengHei",
     "PingFang TC",
@@ -370,9 +432,90 @@ body.is-works-leaving::after {
   }
 }
 
-@keyframes works-transition-wipe {
+@keyframes works-enter-cover-in {
   to {
     transform: translateY(0);
+  }
+}
+
+@keyframes works-enter-cover-reveal {
+  0%,
+  62% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes works-arrival-word-reveal {
+  0%,
+  14% {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+
+  38%,
+  62% {
+    opacity: 1;
+    transform: scale(0.58);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.58);
+  }
+}
+
+@keyframes home-return-cover-in {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-return-cover-reveal {
+  0%,
+  62% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-return-overlay-dismiss {
+  0%,
+  62% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes home-return-word-reveal {
+  0%,
+  14% {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+
+  38%,
+  62% {
+    opacity: 1;
+    transform: scale(0.58);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.58);
   }
 }
 
@@ -390,7 +533,14 @@ body.is-works-leaving::after {
     display: none;
   }
 
-  body.is-works-leaving::before {
+  body.is-works-entering::before,
+  .works-arrival-overlay__word {
+    animation-duration: 0.01ms;
+  }
+
+  body.is-home-returning::before,
+  .home-return-overlay,
+  .home-return-overlay__word {
     animation-duration: 0.01ms;
   }
 }

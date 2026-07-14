@@ -91,13 +91,13 @@ export function WorksOverviewPage() {
         <SiteNav />
 
         <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
-          <div className="mb-8 px-0 py-2">
-            <h1 className="text-[clamp(2.25rem,3.8vw,4.25rem)] font-medium leading-[1.02] tracking-normal text-white/50">
-              <span className="text-white">Latest </span>projects
+          <header className="mb-10 flex items-end gap-5 border-b border-white/35 pb-5 text-white">
+            <h1 className="brand-page-title shrink-0">
+              <span>Visual</span> <span className="text-[#999999]">design</span>
             </h1>
-          </div>
+          </header>
 
-          <article className="grid gap-5 border-t-2 border-white/45 py-5 lg:grid-cols-[0.58fr_0.82fr_1.61fr]">
+          <article className="grid gap-5 py-5 lg:grid-cols-[0.58fr_0.82fr_1.61fr]">
             <div className="flex min-h-[33rem] flex-col justify-between lg:min-h-[40.5rem]">
               <WorkTags tags={featuredWork.tags} />
               <div className="pb-6 lg:pb-10">

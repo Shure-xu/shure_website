@@ -18,11 +18,11 @@ export function ContactFooter() {
               <span className="block">个人网站、内容表达，</span>
               <span className="block">或者任何正在发光的小想法。</span>
             </p>
-            <p className="mt-8 max-w-[25rem] text-sm leading-[1.1] text-white/55">
+            <p className="mt-8 max-w-[25rem] font-taipei text-sm leading-[1.1] text-white/55">
               我喜欢把模糊的灵感整理成清楚、鲜活、有个性的数字表达。这里会慢慢长成一个更像我的个人空间。
             </p>
           </div>
-          <div className="mt-1 grid gap-3 text-2xl font-semibold leading-none text-white sm:text-3xl lg:mr-2 lg:text-right">
+          <div className="mt-1 grid gap-3 font-taipei text-2xl font-semibold leading-none text-white sm:text-3xl lg:mr-2 lg:text-right">
             <a className="transition hover:opacity-70" href="tel:1806884989">
               1806884989
             </a>

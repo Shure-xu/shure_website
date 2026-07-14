@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
+import { montserrat, taipeiSans } from "./fonts";
 import { CursorTrail } from "@/components/cursor-trail";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { WorksTransitionOverlay } from "@/components/works-transition-overlay";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,11 +31,12 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${taipeiSans.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll />
         {children}
+        <WorksTransitionOverlay />
         <CursorTrail />
       </body>
     </html>

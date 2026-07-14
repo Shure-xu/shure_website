@@ -87,8 +87,21 @@ export function DynamicWorkPage({
           <header
             className={`mb-10 flex items-end gap-5 border-b pb-5 ${pageTitleBorderClass} ${titleColorClass}`}
           >
-            <h1 className="dynamic-work-page-title shrink-0">
-              {selectedWork.pageTitle}
+            <h1
+              className={`${
+                currentWork === "geometry"
+                  ? "brand-page-title"
+                  : "dynamic-work-page-title"
+              } shrink-0`}
+            >
+              {currentWork === "geometry" ? (
+                <>
+                  <span>Dynamic</span>{" "}
+                  <span className="text-[#999999]">design</span>
+                </>
+              ) : (
+                selectedWork.pageTitle
+              )}
             </h1>
           </header>
 

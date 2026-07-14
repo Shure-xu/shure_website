@@ -4,29 +4,38 @@ import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
 import { HeroLoader } from "@/components/hero-loader";
 import { SiteNav } from "@/components/site-nav";
+import {
+  type WorkTransitionKey,
+  WorksTransitionLink,
+} from "@/components/works-transition-link";
 import { workCategories } from "@/lib/work-categories";
 
-const projects = [
+const projects: Array<{
+  title: string;
+  image: string;
+  summary: string;
+  transition: WorkTransitionKey;
+}> = [
   {
     title: "01/动态设计",
     image: workCategories[0].image,
-    href: workCategories[0].href,
     summary:
       "Dynamic design projects focus on movement, interaction, transitions, and small behaviors that make a digital experience feel alive.",
+    transition: "dynamic",
   },
   {
     title: "02/品牌设计",
     image: workCategories[1].image,
-    href: workCategories[1].href,
     summary:
       "Brand design projects organize voice, structure, and identity into systems that can be recognized, repeated, and extended.",
+    transition: "brand",
   },
   {
     title: "03/视觉设计",
     image: workCategories[2].image,
-    href: workCategories[2].href,
     summary:
       "Visual design projects explore composition, contrast, image treatment, and editorial systems for memorable digital pages.",
+    transition: "visual",
   },
 ];
 
@@ -87,14 +96,14 @@ export default function Home() {
         <div className="mx-auto grid max-w-[100rem] gap-5 lg:grid-cols-[1fr_0.96fr]">
           <div className="flex h-[34rem] flex-col justify-between rounded-[0.4rem] bg-[#d5d5d2] bg-[url('/images/h3-metal-texture.jpg')] bg-cover bg-center p-5 text-ink sm:p-7 lg:h-[37rem] lg:p-8">
             <div>
-              <p className="mb-8 font-mono text-sm tracking-normal text-ink/75">
+              <p className="mb-8 font-taipei text-sm tracking-normal text-ink/75">
                 Hi！我是徐航朔
               </p>
-              <h2 className="max-w-3xl text-[clamp(2.8rem,5vw,5rem)] font-semibold leading-[0.92]">
+              <h2 className="max-w-3xl font-taipei text-[clamp(2.8rem,5vw,4.0625rem)] font-normal leading-[1.02]">
                 我希望把灵感、工具和表达整理成可以被看见的作品。
               </h2>
             </div>
-            <p className="max-w-xl text-base font-semibold leading-tight sm:text-lg">
+            <p className="max-w-xl font-montserrat text-base font-semibold leading-tight sm:text-lg">
               I hope you will like it.
             </p>
           </div>
@@ -116,7 +125,7 @@ export default function Home() {
       <section id="work" className="px-4 py-10 lg:py-16">
         <div className="mx-auto max-w-[100rem]">
           <div className="mb-8 flex items-end justify-between gap-5 border-t border-foreground/35 pt-8">
-            <h2 className="text-4xl font-semibold sm:text-6xl">
+            <h2 className="font-montserrat text-4xl font-semibold sm:text-6xl">
               Design projects
             </h2>
             <a className="hidden items-center gap-2 text-sm font-medium md:inline-flex" href="#contact">
@@ -126,10 +135,10 @@ export default function Home() {
           <div className="grid gap-5 lg:grid-cols-3">
             {projects.map((project, index) => (
               <article className="group flex flex-col" key={project.title}>
-                <Link
-                  className="block aspect-[1481/1291] overflow-hidden rounded-[0.4rem] bg-card"
-                  href={project.href}
+                <WorksTransitionLink
+                  className="block aspect-[1481/1291] overflow-hidden rounded-[0.4rem] bg-card transition-transform duration-700 ease-out hover:scale-[0.98]"
                   aria-label={`View ${workCategories[index].title} works`}
+                  transition={project.transition}
                 >
                   <Image
                     src={project.image}
@@ -138,7 +147,7 @@ export default function Home() {
                     height={1291}
                     className="h-full w-full object-cover object-right-bottom"
                   />
-                </Link>
+                </WorksTransitionLink>
                 <div className="grid gap-5 pt-5">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -161,22 +170,36 @@ export default function Home() {
       <section id="notes" className="px-4 py-10 lg:py-16">
         <div className="mx-auto max-w-[100rem]">
           <div className="mb-8 border-t border-foreground/35 pt-8">
-            <h2 className="text-4xl font-semibold sm:text-6xl">
+            <h2 className="font-montserrat text-4xl font-semibold sm:text-6xl">
               Vibe coding projects
             </h2>
           </div>
           <div className="grid items-stretch gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="flex aspect-[16/12] flex-col justify-between rounded-[0.4rem] bg-blush p-5 text-ink sm:p-7 lg:p-8">
-              <p className="text-sm uppercase text-ink/60">Notes / Podcast / Blog</p>
-              <h2 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-6xl">
+            <div className="relative flex aspect-[16/12] flex-col justify-between overflow-hidden rounded-[0.4rem] p-5 text-white transition-transform duration-700 ease-out hover:scale-[0.98] sm:p-7 lg:p-8">
+              <Image
+                alt=""
+                className="object-cover"
+                fill
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                src="/images/notes-paper-sky.png"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-ink/35" />
+              <p className="relative z-10 font-montserrat text-sm uppercase text-white/75">
+                Open Letters
+              </p>
+              <h2 className="relative z-10 max-w-3xl font-taipei text-4xl font-semibold leading-tight sm:text-6xl">
                 用长期更新的方式，让别人持续理解你。
               </h2>
             </div>
             <div className="grid gap-5 lg:grid-rows-3">
               {notes.map((note) => (
                 <article className="flex min-h-[11rem] flex-col justify-between rounded-[0.4rem] border border-foreground/10 p-5 sm:p-7 lg:min-h-0" key={note.title}>
-                  <p className="text-xs uppercase text-muted-foreground">{note.label}</p>
-                  <h3 className="text-2xl font-semibold leading-tight">{note.title}</h3>
+                  <p className="font-montserrat text-xs uppercase text-muted-foreground">
+                    {note.label}
+                  </p>
+                  <h3 className="font-taipei text-2xl font-semibold leading-[1.35]">
+                    {note.title}
+                  </h3>
                 </article>
               ))}
             </div>

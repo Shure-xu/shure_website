@@ -10,6 +10,8 @@ type WorksTransitionLinkProps = {
   className?: string;
 };
 
+const worksHref = "/works/dynamic";
+
 export function WorksTransitionLink({
   children,
   className,
@@ -46,14 +48,14 @@ export function WorksTransitionLink({
     event.preventDefault();
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      router.push("/works", { scroll: true });
+      router.push(worksHref, { scroll: true });
       return;
     }
 
     document.body.classList.add("is-works-leaving");
     setIsTransitioning(true);
     timeoutRef.current = setTimeout(() => {
-      router.push("/works", { scroll: true });
+      router.push(worksHref, { scroll: true });
     }, 920);
   }
 
@@ -61,7 +63,7 @@ export function WorksTransitionLink({
     <Link
       aria-disabled={isTransitioning}
       className={className}
-      href="/works"
+      href={worksHref}
       onClick={handleClick}
     >
       {children}

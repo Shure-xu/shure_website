@@ -7,7 +7,7 @@
 | 你可以这样叫 | 页面上看到的内容 | 对应文件 |
 | --- | --- | --- |
 | 顶部导航栏 | 顶部居中的 `Shure / About me / My works / Get in touch` 按钮组 | `src/components/site-nav.tsx` |
-| 作品分类下拉 | 鼠标悬停 `My works` 时弹出的 `Dynamic / Brand / Visual` 三个入口 | `src/components/site-nav.tsx`、`src/lib/work-categories.ts` |
+| 作品分类下拉 | 鼠标悬停 `My works` 时弹出的 `Dynamic / Brand / Visual` 三个入口；其中 `Visual` 进入 `/works` | `src/components/site-nav.tsx`、`src/lib/work-categories.ts` |
 | 作品页跳转动画 | 点击 `My works` 时出现的黑色转场效果 | `src/components/works-transition-link.tsx`、`src/app/globals.css` |
 | 首页加载动画 | 刚打开首页时的首屏加载/揭开动画 | `src/components/hero-loader.tsx`、`src/app/globals.css` |
 
@@ -64,12 +64,15 @@
 - “调整 W8 下方单张作品卡片的图片比例。”
 - “把 W3 主推项目标签区放到 W4 文字区上面。”
 
-## 作品分类页 `/works/dynamic`、`/works/dynamic2`、`/works/brand`、`/works/visual`
+## 作品分类页 `/works/dynamic`、`/works/dynamic2`、`/works/brand`
 
-对应主文件：`src/app/works/[category]/page.tsx`
+通用分类页组件：`src/components/work-category-page.tsx`
+动态分类路由：`src/app/works/[category]/page.tsx`
 Dynamic 第二个作品页：`src/app/works/dynamic2/page.tsx`
 Dynamic 作品页共用组件：`src/components/dynamic-work-page.tsx`
 分类数据：`src/lib/work-categories.ts`
+
+顶部主按钮 `My works` 始终进入 `/works/dynamic`；悬浮菜单中的 `Visual` 进入 `/works`。`/works` 保留作品总览的 `Latest projects` 页面内容，`/works/visual` 不再提供页面。
 
 ### Dynamic 作品展示页 `/works/dynamic`、`/works/dynamic2`
 
@@ -86,16 +89,15 @@ Dynamic 作品展示页目前是单独布局。`/works/dynamic` 和 `/works/dyna
 | C2 | 分类切换按钮区 | 页面中部的 `Dynamic / Brand / Visual` 三个切换按钮 | `workCategories.map(...)` 生成的链接 |
 | C3 | 分类作品列表区 | `Selected Dynamic / Selected Brand / Selected Visual` 下方的三张作品卡片 | `category.projects.map(...)` 生成的 `article` |
 
-### Brand / Visual 分类页 `/works/brand`、`/works/visual`
+### Brand 分类页 `/works/brand`
 
-Visual 页使用通用分类页布局；Brand 页在此基础上有独立的双模块结构：
+Brand 页使用独立的双模块结构；Visual 分类页已移除，菜单入口改为作品总览页：
 
 | 区域编号 | 你可以这样叫 | 页面上看到的内容 | 大概代码位置 |
 | --- | --- | --- | --- |
-| C1 | 分类作品页标题模块 | Brand 页顶部的 `B/0.1&0.2` 标题和底部细分隔线；Visual 页没有这一独立标题模块 | `src/app/works/[category]/page.tsx` 的 Brand 条件分支 |
-| C1-1 | Brand `/0.1` 信息模块 | 左侧 `/0.1` 标题和「芋泥集」说明，右侧芋泥图片；图片模块比例约为 `1.55`，图片完整居中显示 | `CategoryFeaturePanel` 第一个 Brand panel |
-| C1-2 | Brand `/0.2` 信息模块 | 左侧 `/0.2` 标题和 `PetPets` 说明，右侧 PetPets 图片；图片模块比例约为 `1.55`，图片完整居中显示 | `CategoryFeaturePanel` 第二个 Brand panel |
-| C1-3 | Visual 分类作品页顶部模块 | 左侧分类标题和说明，右侧分类图片 | `src/app/works/[category]/page.tsx` 通用返回分支顶部模块 |
+| C1 | 分类作品页标题模块 | Brand 页顶部的 `Brand design` 标题和底部细分隔线；Visual 页没有这一独立标题模块 | `src/app/works/[category]/page.tsx` 的 Brand 条件分支 |
+| C1-1 | Brand `/0.1` 信息模块 | 左上方绿色 `Brand` 小标签；左下方「芋泥集」标题与 15px 作品说明；右侧芋泥图片。图片模块比例约为 `1.55`，支持悬停缩放与点击进入详情页 | `CategoryFeaturePanel` 第一个 Brand panel |
+| C1-2 | Brand `/0.2` 信息模块 | 左上方浅灰色 `Brand` 小标签；左下方 `PetPets` 标题与 15px 作品说明；右侧 PetPets 图片。图片模块比例约为 `1.55`，支持悬停缩放与点击进入详情页 | `CategoryFeaturePanel` 第二个 Brand panel |
 | C2 | 分类切换按钮区 | 页面中部的 `Dynamic / Brand / Visual` 三个切换按钮 | `workCategories.map(...)` 生成的链接 |
 | C3 | 分类作品列表区 | `Selected Brand / Selected Visual` 下方的三张作品卡片 | `category.projects.map(...)` 生成的 `article` |
 
@@ -103,6 +105,22 @@ Brand 图片资源位于：
 
 - `/0.1`：`public/images/brand-yuniji-info.jpg`
 - `/0.2`：`public/images/brand-pet-info.jpg`
+
+点击 Brand 页中的两张作品图片会进入对应详情页：
+
+- `/0.1 芋泥集`：`/works/brand/yuniji`
+- `/0.2 PetPets`：`/works/brand/petpets`
+
+### Brand 作品详情页 `/works/brand/yuniji`、`/works/brand/petpets`
+
+Brand 作品详情页参考 Fler 作品详情页结构：顶部导航栏保留，正文先展示作品标题、服务类型、项目说明和基础信息，随后进入连续大图展示区，底部接统一联系区域。
+
+| 区域编号 | 你可以这样叫 | 页面上看到的内容 | 大概代码位置 |
+| --- | --- | --- | --- |
+| BD1 | Brand 详情返回入口 | 顶部导航下方的 `Brand design` 返回按钮 | `src/app/works/brand/[project]/page.tsx` 顶部 `Link` |
+| BD2 | Brand 详情标题区 | `/0.1 / Brand design` 或 `/0.2 / Brand design`、作品中文标题、服务类型 | `src/app/works/brand/[project]/page.tsx` 的 `header` |
+| BD3 | Brand 详情说明区 | 两段作品说明文字，以及年份、服务、类别信息 | `src/app/works/brand/[project]/page.tsx` 的说明 `section` |
+| BD4 | Brand 详情图片展示区 | 详情页下方连续展示的大图 | `src/app/works/brand/[project]/page.tsx` 的 `section id="gallery"` |
 
 ### 全站联系区域
 

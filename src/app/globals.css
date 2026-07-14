@@ -239,12 +239,28 @@ body.is-works-leaving::after {
   color: inherit;
   font-family:
     "Montserrat",
+    "Taipei Sans TC Beta",
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    "PingFang TC",
     ui-sans-serif,
     system-ui,
     sans-serif;
-  font-size: clamp(3.25rem, 4.3vw, 4.75rem);
+  font-size: 2.5rem;
   font-weight: 500;
   line-height: 0.82;
+  letter-spacing: 0;
+}
+
+.brand-feature-label {
+  font-family:
+    "Montserrat",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1;
   letter-spacing: 0;
 }
 
@@ -255,13 +271,13 @@ body.is-works-leaving::after {
     ui-sans-serif,
     system-ui,
     sans-serif;
-  font-size: 70px;
+  font-size: 3rem;
   font-weight: 300;
   line-height: 0.82;
   letter-spacing: 0;
 }
 
-.brand-feature-description {
+.brand-feature-copy {
   color: inherit;
   font-family:
     "Taipei Sans TC Beta",
@@ -271,9 +287,46 @@ body.is-works-leaving::after {
     ui-sans-serif,
     system-ui,
     sans-serif;
-  font-size: clamp(3.25rem, 4.3vw, 4.75rem);
+  letter-spacing: 0;
+}
+
+@media (min-width: 640px) {
+  .brand-feature-title {
+    font-size: 50px;
+  }
+
+  .brand-page-title {
+    font-size: 60px;
+  }
+}
+
+.brand-detail-title {
+  color: inherit;
+  font-family:
+    "Taipei Sans TC Beta",
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    "PingFang TC",
+    "Montserrat",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-size: clamp(4rem, 10vw, 10rem);
   font-weight: 700;
-  line-height: 0.82;
+  line-height: 0.86;
+  letter-spacing: 0;
+}
+
+.brand-detail-copy {
+  font-family:
+    "Taipei Sans TC Beta",
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    "PingFang TC",
+    "Montserrat",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
   letter-spacing: 0;
 }
 

@@ -70,7 +70,7 @@ export const workCategories = [
     slug: "visual",
     label: "Visual",
     title: "Visual Design",
-    href: "/works/visual",
+    href: "/works",
     image: "/images/h6-visual-design.png",
     teaser: "Editorial layouts, color, composition, and visual direction.",
     description:

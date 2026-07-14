@@ -24,7 +24,7 @@ export function SiteNav() {
           <WorksTransitionLink className={secondaryLink}>
             My works
           </WorksTransitionLink>
-          <div className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 w-max -translate-x-1/2 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+          <div className="pointer-events-none absolute left-1/2 top-full z-50 w-max -translate-x-1/2 pt-2 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
             <div className="grid gap-1 rounded-[0.4rem] bg-white/95 p-1.5 text-ink shadow-[0_18px_45px_rgba(20,20,20,0.14)] backdrop-blur-xl">
               {workCategories.map((category) => (
                 <Link

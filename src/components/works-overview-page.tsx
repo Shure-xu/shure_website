@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
 import { SiteNav } from "@/components/site-nav";
+import { visualProjects } from "@/lib/visual-projects";
 
 const featuredWork = {
   title: "Shure Studio",
@@ -14,45 +15,6 @@ const featuredWork = {
     { label: "VISION", tone: "text-[#595959] bg-[#d9d9d9]" },
   ],
 };
-
-const works = [
-  {
-    title: "Field Notes",
-    summary: "把零散想法整理成有节奏的首页叙事，让一个人先被看见，再被理解。",
-    image: "/images/project-field-notes.png",
-    tags: [
-      { label: "BRAND", tone: "text-[#b54500] bg-[#f0e4d8]" },
-      { label: "HOMEPAGE", tone: "text-white bg-[#2f2f2f]" },
-    ],
-  },
-  {
-    title: "Soft Lab",
-    summary: "为创作者设计轻量内容系统，让作品、笔记、服务入口自然连接。",
-    image: "/images/project-soft-lab.png",
-    tags: [
-      { label: "SYSTEM", tone: "text-[#0074a6] bg-[#d8edf4]" },
-      { label: "AI FLOW", tone: "text-white bg-[#2f2f2f]" },
-    ],
-  },
-  {
-    title: "Open Signal",
-    summary: "用杂志式排版和强色块承载研究、洞察，以及可以继续执行的下一步。",
-    image: "/images/project-open-signal.png",
-    tags: [
-      { label: "EDITORIAL", tone: "text-[#b54500] bg-[#f0e4d8]" },
-      { label: "VISUAL", tone: "text-white bg-[#2f2f2f]" },
-    ],
-  },
-  {
-    title: "Mood Index",
-    summary: "一个记录每日心情、灵感和小实验的界面原型，像私人电台一样慢慢更新。",
-    image: "/images/portrait-workspace.png",
-    tags: [
-      { label: "EXPERIENCE", tone: "text-[#0074a6] bg-[#d8edf4]" },
-      { label: "INTERFACE", tone: "text-white bg-[#2f2f2f]" },
-    ],
-  },
-];
 
 function WorkTags({
   tags,
@@ -126,31 +88,39 @@ export function WorksOverviewPage() {
           </article>
 
           <div className="grid gap-5 lg:grid-cols-3">
-            {works.map((work, index) => (
+            {visualProjects.map((work) => (
               <article className="group flex flex-col" key={work.title}>
                 <Link
                   aria-label={`${work.title} project`}
-                  className="block aspect-[16/14] overflow-hidden rounded-[0.4rem] bg-white/10 transition-transform duration-700 ease-out hover:scale-[0.98]"
-                  href="/#work"
+                  className={`block aspect-[16/14] overflow-hidden rounded-[0.4rem] transition-transform duration-700 ease-out hover:scale-[0.98] ${
+                    work.image.fit === "contain" ? "bg-white" : "bg-white/10"
+                  }`}
+                  href={work.href}
                 >
                   <Image
-                    alt={`${work.title} project visual`}
-                    className="h-full w-full object-cover"
-                    height={1350}
-                    src={work.image}
-                    width={1200}
+                    alt={work.image.alt}
+                    className={`h-full w-full ${
+                      work.image.fit === "contain"
+                        ? work.image.scale === false
+                          ? "object-contain"
+                          : "scale-[1.05] object-contain"
+                        : "object-cover"
+                    }`}
+                    height={work.image.height}
+                    src={work.image.src}
+                    width={work.image.width}
                   />
                 </Link>
                 <div className="grid gap-5 pt-5">
                   <div className="flex items-start justify-between gap-4">
                     <Link
                       className="text-[1.38rem] font-semibold leading-[1.05] tracking-normal text-white transition group-hover:text-white/75"
-                      href="/#work"
+                      href={work.href}
                     >
                       {work.title}
                     </Link>
                     <span className="font-mono text-xs text-white/35">
-                      {String(index + 2).padStart(2, "0")}
+                      {work.index}
                     </span>
                   </div>
                   <p className="max-w-[31rem] text-sm font-medium leading-[1.18] text-white/50">

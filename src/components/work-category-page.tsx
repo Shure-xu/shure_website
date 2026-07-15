@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
 import { SiteNav } from "@/components/site-nav";
+import { WorksTransitionLink } from "@/components/works-transition-link";
 import { type WorkCategory, workCategories } from "@/lib/work-categories";
 
 type CategoryFeaturePanelProps = {
@@ -251,17 +252,17 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
             </h2>
             <div className="flex flex-wrap gap-2">
               {workCategories.map((item) => (
-                <Link
+                <WorksTransitionLink
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                     item.slug === category.slug
                       ? "bg-white text-ink"
                       : "bg-white/15 text-white hover:bg-white/25"
                   }`}
-                  href={item.href}
                   key={item.slug}
+                  transition={item.slug}
                 >
                   {item.label}
-                </Link>
+                </WorksTransitionLink>
               ))}
             </div>
           </div>

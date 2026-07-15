@@ -25,10 +25,11 @@ export function HomeTransitionLink({
 
   useEffect(() => {
     return () => {
-      const hasPendingTransition = timeoutRef.current !== null;
+      const timeout = timeoutRef.current;
+      const hasPendingTransition = timeout !== null;
 
-      if (hasPendingTransition) {
-        clearTimeout(timeoutRef.current);
+      if (timeout !== null) {
+        clearTimeout(timeout);
       }
 
       if (hasPendingTransition && !hasNavigatedRef.current) {

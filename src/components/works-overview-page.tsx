@@ -50,7 +50,7 @@ export function WorksOverviewPage() {
             </h1>
           </header>
 
-          <article className="grid gap-5 pb-5 lg:grid-cols-[0.58fr_0.82fr_1.61fr]">
+          <article className="grid gap-5 pb-10 lg:pb-16 lg:grid-cols-[0.58fr_0.82fr_1.61fr]">
             <div className="flex min-h-[33rem] flex-col justify-between lg:min-h-[40.5rem]">
               <WorkTags tags={featuredWork.tags} />
               <div className="pb-6 lg:pb-10">
@@ -87,7 +87,7 @@ export function WorksOverviewPage() {
             </Link>
           </article>
 
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-x-5 gap-y-10 lg:gap-y-16 lg:grid-cols-3">
             {visualProjects.map((work) => (
               <article className="group flex flex-col" key={work.title}>
                 <Link
@@ -111,19 +111,19 @@ export function WorksOverviewPage() {
                     width={work.image.width}
                   />
                 </Link>
-                <div className="grid gap-5 pt-5">
-                  <div className="flex items-start justify-between gap-4">
+                <div className="grid gap-3.5 pt-4 sm:pt-5">
+                  <div className="flex items-baseline justify-between gap-4">
                     <Link
-                      className="text-[1.38rem] font-semibold leading-[1.05] tracking-normal text-white transition group-hover:text-white/75"
+                      className="text-[1.2rem] font-medium leading-[1.15] tracking-normal text-white transition group-hover:text-white/75 sm:text-[1.28rem]"
                       href={work.href}
                     >
                       {work.title}
                     </Link>
-                    <span className="font-mono text-xs text-white/35">
+                    <span className="shrink-0 font-montserrat text-sm font-medium leading-none text-white/55 sm:text-[0.95rem]">
                       {work.index}
                     </span>
                   </div>
-                  <p className="max-w-[31rem] text-sm font-medium leading-[1.18] text-white/50">
+                  <p className="max-w-[31rem] text-[0.82rem] font-medium leading-[1.45] text-white/62 sm:text-sm">
                     {work.summary}
                   </p>
                   <WorkTags compact tags={work.tags} />

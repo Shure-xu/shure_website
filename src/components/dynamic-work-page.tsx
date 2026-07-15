@@ -173,7 +173,7 @@ export function DynamicWorkPage({
             />
           </div>
 
-          <section className="mt-5 grid gap-5">
+          <section className="mt-5 grid gap-5 lg:mt-16 lg:gap-12">
             <div className={`p-5 sm:p-7 lg:p-8 ${titleColorClass}`}>
               <h1 className="dynamic-work-title max-w-5xl">
                 {selectedWork?.title}

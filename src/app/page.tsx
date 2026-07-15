@@ -167,7 +167,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="notes" className="px-4 py-10 lg:py-16">
+      <section id="notes" className="px-4 pt-10 pb-20 lg:pt-16 lg:pb-32">
         <div className="mx-auto max-w-[100rem]">
           <div className="mb-8 border-t border-foreground/35 pt-8">
             <h2 className="font-montserrat text-4xl font-semibold sm:text-6xl">

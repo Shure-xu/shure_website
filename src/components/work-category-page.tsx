@@ -52,7 +52,7 @@ function CategoryFeaturePanel({
   const descriptionClass = brandLayout ? "text-white/72" : "text-ink/70";
   const imageFrameClass = `group/image aspect-[1.55] overflow-hidden rounded-[0.4rem] bg-white ${
     imageHoverScale
-      ? "transition-transform duration-700 ease-out hover:scale-[0.95]"
+      ? "transition-transform duration-700 ease-out hover:scale-[0.98]"
       : ""
   }`;
   const imageElement = (
@@ -207,7 +207,11 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
             </header>
           ) : null}
 
-          <div className={`grid ${isBrandPage ? "gap-14" : "gap-5"}`}>
+          <div
+            className={`grid ${
+              isBrandPage ? "gap-14 lg:gap-16" : "gap-5"
+            }`}
+          >
             {featurePanels.map((panel, index) => (
               <CategoryFeaturePanel
                 description={panel.description}

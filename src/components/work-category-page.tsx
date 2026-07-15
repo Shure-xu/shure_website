@@ -152,7 +152,7 @@ function CategoryFeaturePanel({
 
 export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
   const isBrandPage = category.slug === "brand";
-  const featurePanels = [
+  const featurePanels: CategoryFeaturePanelProps[] = [
     {
       description: isBrandPage
         ? "芋泥集是一组围绕东方甜品气质展开的品牌视觉实验。整体方向从食材的自然纹理、手作温度和轻盈的日常场景出发，用柔和但清晰的图形语言建立品牌记忆点。"

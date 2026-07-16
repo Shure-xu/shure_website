@@ -27,7 +27,7 @@ export const visualProjects: VisualProject[] = [
   {
     slug: "field-notes",
     href: "/works/visual/field-notes",
-    index: "02",
+    index: "01",
     title: "蛙趣看世界",
     summary: "把零散想法整理成有节奏的首页叙事，让一个人先被看见，再被理解。",
     image: {
@@ -59,12 +59,12 @@ export const visualProjects: VisualProject[] = [
   {
     slug: "soft-lab",
     href: "/works/visual/soft-lab",
-    index: "03",
-    title: "Soft Lab",
+    index: "02",
+    title: "扶龍直上",
     summary: "为创作者设计轻量内容系统，让作品、笔记、服务入口自然连接。",
     image: {
       src: "/images/project-soft-lab-78.jpg",
-      alt: "Soft Lab project visual",
+      alt: "扶龍直上 project visual",
       width: 3517,
       height: 3069,
       fit: "contain",
@@ -76,13 +76,13 @@ export const visualProjects: VisualProject[] = [
     gallery: [
       {
         src: "/images/project-soft-lab-78.jpg",
-        alt: "Soft Lab visual module 01",
+        alt: "扶龍直上 visual module 01",
         width: 3517,
         height: 3069,
       },
       {
         src: "/images/h3-metal-texture.jpg",
-        alt: "Soft Lab visual module 02",
+        alt: "扶龍直上 visual module 02",
         width: 3840,
         height: 2560,
       },
@@ -91,12 +91,12 @@ export const visualProjects: VisualProject[] = [
   {
     slug: "open-signal",
     href: "/works/visual/open-signal",
-    index: "04",
-    title: "Open Signal",
+    index: "03",
+    title: "当下的秘密寄给远方的自己",
     summary: "用杂志式排版和强色块承载研究、洞察，以及可以继续执行的下一步。",
     image: {
       src: "/images/project-open-signal-03.jpg",
-      alt: "Open Signal project visual",
+      alt: "当下的秘密寄给远方的自己 project visual",
       width: 3488,
       height: 3069,
       fit: "contain",
@@ -108,13 +108,13 @@ export const visualProjects: VisualProject[] = [
     gallery: [
       {
         src: "/images/project-open-signal-03.jpg",
-        alt: "Open Signal visual module 01",
+        alt: "当下的秘密寄给远方的自己 visual module 01",
         width: 3488,
         height: 3069,
       },
       {
         src: "/images/notes-paper-sky.png",
-        alt: "Open Signal visual module 02",
+        alt: "当下的秘密寄给远方的自己 visual module 02",
         width: 2816,
         height: 1536,
       },
@@ -123,12 +123,12 @@ export const visualProjects: VisualProject[] = [
   {
     slug: "mood-index",
     href: "/works/visual/mood-index",
-    index: "05",
-    title: "Mood Index",
+    index: "04",
+    title: "YUE JIA",
     summary: "一个记录每日心情、灵感和小实验的界面原型，像私人电台一样慢慢更新。",
     image: {
       src: "/images/project-mood-index-04.jpg",
-      alt: "Mood Index project visual",
+      alt: "YUE JIA project visual",
       width: 3517,
       height: 3069,
       fit: "contain",
@@ -140,13 +140,13 @@ export const visualProjects: VisualProject[] = [
     gallery: [
       {
         src: "/images/project-mood-index-04.jpg",
-        alt: "Mood Index visual module 01",
+        alt: "YUE JIA visual module 01",
         width: 3517,
         height: 3069,
       },
       {
         src: "/images/h3-metal-texture.jpg",
-        alt: "Mood Index visual module 02",
+        alt: "YUE JIA visual module 02",
         width: 3840,
         height: 2560,
       },
@@ -155,12 +155,12 @@ export const visualProjects: VisualProject[] = [
   {
     slug: "practice-and-other",
     href: "/works/visual/practice-and-other",
-    index: "06",
-    title: "练习与其他",
+    index: "05",
+    title: "其他作品",
     summary: "其他",
     image: {
       src: "/images/project-practice-and-other-80.jpg",
-      alt: "练习与其他 project visual",
+      alt: "其他作品 project visual",
       width: 3488,
       height: 3069,
       fit: "contain",
@@ -173,13 +173,13 @@ export const visualProjects: VisualProject[] = [
     gallery: [
       {
         src: "/images/project-practice-and-other-80.jpg",
-        alt: "练习与其他 visual module 01",
+        alt: "其他作品 visual module 01",
         width: 3488,
         height: 3069,
       },
       {
         src: "/images/project-practice-and-other-80.jpg",
-        alt: "练习与其他 visual module 02",
+        alt: "其他作品 visual module 02",
         width: 3488,
         height: 3069,
       },

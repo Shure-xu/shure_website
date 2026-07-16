@@ -114,7 +114,7 @@ export function WorksOverviewPage() {
                 <div className="grid gap-3.5 pt-4 sm:pt-5">
                   <div className="flex items-baseline justify-between gap-4">
                     <Link
-                      className="text-[1.2rem] font-medium leading-[1.15] tracking-normal text-white transition group-hover:text-white/75 sm:text-[1.28rem]"
+                      className="font-taipei text-[24px] font-normal leading-[1.15] tracking-normal text-white transition group-hover:text-white/75"
                       href={work.href}
                     >
                       {work.title}

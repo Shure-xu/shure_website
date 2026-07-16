@@ -182,12 +182,6 @@
   will-change: transform;
 }
 
-@property --inter-work-wipe-position {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: -28%;
-}
-
 body.is-works-entering::before {
   content: "";
   position: fixed;
@@ -214,34 +208,34 @@ body.is-works-entering[data-work-transition-mode="inter-work"]::before {
 }
 
 .inter-work-transition-snapshot {
-  --inter-work-wipe-position: -28%;
   position: fixed;
   inset: 0;
   z-index: 40;
   overflow: hidden;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    #000 0,
-    #000 calc(100% - var(--inter-work-wipe-position) - 26%),
-    transparent calc(100% - var(--inter-work-wipe-position)),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    #000 0,
-    #000 calc(100% - var(--inter-work-wipe-position) - 26%),
-    transparent calc(100% - var(--inter-work-wipe-position)),
-    transparent 100%
-  );
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  will-change: opacity, mask-image;
+  clip-path: inset(0 0 0 0);
+  will-change: clip-path;
 }
 
 .inter-work-transition-snapshot.is-leaving {
-  animation: inter-work-snapshot-wipe-out 0.22s cubic-bezier(0.16, 1, 0.3, 1)
+  animation: inter-work-next-page-reveal 0.3s cubic-bezier(0.38, 0.05, 0.65, 1)
     forwards;
+}
+
+.inter-work-transition-snapshot__viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0) scale(1);
+  transform-origin: center center;
+  will-change: opacity, transform;
+}
+
+.inter-work-transition-snapshot.is-leaving
+  .inter-work-transition-snapshot__viewport {
+  animation: inter-work-current-page-out 0.3s
+    cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .inter-work-transition-snapshot__page {
@@ -491,15 +485,16 @@ body.is-home-returning.is-home-arriving::before {
   }
 }
 
-@keyframes inter-work-snapshot-wipe-out {
-  from {
-    opacity: 1;
-    --inter-work-wipe-position: -28%;
-  }
-
+@keyframes inter-work-next-page-reveal {
   to {
-    opacity: 0;
-    --inter-work-wipe-position: 52%;
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+@keyframes inter-work-current-page-out {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -30vh, 0) scale(1);
   }
 }
 

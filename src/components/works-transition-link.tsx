@@ -28,9 +28,15 @@ export const workTransitionModeStorageKey = "work-transition-mode";
 export type WorkTransitionMode = "category" | "inter-work";
 
 const categoryTransitionDuration = 680;
-const dynamicBrandTransitionDuration = 220;
+const interWorkTransitionDuration = 300;
 const dynamicWorkPath = "/works/dynamic";
 const brandWorkPath = "/works/brand";
+const visualWorkPath = "/works";
+const interWorkTransitionPaths = new Set([
+  dynamicWorkPath,
+  brandWorkPath,
+  visualWorkPath,
+]);
 
 type WorksTransitionLinkProps = {
   children: ReactNode;
@@ -50,14 +56,15 @@ export function isWorkTransitionMode(
   return value === "category" || value === "inter-work";
 }
 
-function isDynamicBrandTransition(pathname: string, href: string) {
+function isInterWorkTransition(pathname: string, href: string) {
   return (
-    (pathname === dynamicWorkPath && href === brandWorkPath) ||
-    (pathname === brandWorkPath && href === dynamicWorkPath)
+    pathname !== href &&
+    interWorkTransitionPaths.has(pathname) &&
+    interWorkTransitionPaths.has(href)
   );
 }
 
-function createDynamicBrandSnapshot() {
+function createInterWorkSnapshot() {
   const sourcePage = document.querySelector("main");
 
   if (!sourcePage) {
@@ -65,13 +72,28 @@ function createDynamicBrandSnapshot() {
   }
 
   const snapshot = document.createElement("div");
+  const viewport = document.createElement("div");
   const pageClone = sourcePage.cloneNode(true) as HTMLElement;
+
+  sourcePage.querySelectorAll("video").forEach((video) => {
+    video.muted = true;
+    video.volume = 0;
+  });
+  pageClone.querySelectorAll("video").forEach((video) => {
+    video.defaultMuted = true;
+    video.muted = true;
+    video.volume = 0;
+    video.setAttribute("muted", "");
+  });
 
   snapshot.className = "inter-work-transition-snapshot";
   snapshot.setAttribute("aria-hidden", "true");
+  viewport.className = "inter-work-transition-snapshot__viewport";
   pageClone.classList.add("inter-work-transition-snapshot__page");
   pageClone.style.top = `-${window.scrollY}px`;
-  snapshot.append(pageClone);
+  pageClone.querySelector(":scope > header")?.remove();
+  viewport.append(pageClone);
+  snapshot.append(viewport);
   document.body.append(snapshot);
 
   const removeSnapshot = () => {
@@ -83,7 +105,7 @@ function createDynamicBrandSnapshot() {
       removeSnapshot();
     }
   });
-  window.setTimeout(removeSnapshot, dynamicBrandTransitionDuration + 100);
+  window.setTimeout(removeSnapshot, interWorkTransitionDuration + 100);
   window.requestAnimationFrame(() => {
     snapshot.classList.add("is-leaving");
   });
@@ -121,12 +143,9 @@ export function WorksTransitionLink({
   }, []);
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    const shouldUseDynamicBrandTransition = isDynamicBrandTransition(
-      pathname,
-      href,
-    );
+    const shouldUseInterWorkTransition = isInterWorkTransition(pathname, href);
     const shouldUseTransition =
-      pathname === "/" || shouldUseDynamicBrandTransition;
+      pathname === "/" || shouldUseInterWorkTransition;
 
     if (
       event.defaultPrevented ||
@@ -148,9 +167,9 @@ export function WorksTransitionLink({
       return;
     }
 
-    if (shouldUseDynamicBrandTransition) {
+    if (shouldUseInterWorkTransition) {
       setIsTransitioning(true);
-      createDynamicBrandSnapshot();
+      createInterWorkSnapshot();
       router.push(href, { scroll: true });
       return;
     }

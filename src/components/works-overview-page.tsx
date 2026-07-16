@@ -3,7 +3,9 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
 import { SiteNav } from "@/components/site-nav";
+import { WorksTransitionLink } from "@/components/works-transition-link";
 import { visualProjects } from "@/lib/visual-projects";
+import { workCategories } from "@/lib/work-categories";
 
 const featuredWork = {
   title: "Shure Studio",
@@ -131,6 +133,27 @@ export function WorksOverviewPage() {
               </article>
             ))}
           </div>
+
+          <section className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-5 lg:mt-24">
+            <h2 className="text-3xl font-semibold sm:text-5xl">
+              Selected Visual
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {workCategories.map((category) => (
+                <WorksTransitionLink
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                    category.slug === "visual"
+                      ? "bg-white text-ink"
+                      : "bg-white/15 text-white hover:bg-white/25"
+                  }`}
+                  key={category.slug}
+                  transition={category.slug}
+                >
+                  {category.label}
+                </WorksTransitionLink>
+              ))}
+            </div>
+          </section>
         </section>
       </div>
       <ContactFooter />

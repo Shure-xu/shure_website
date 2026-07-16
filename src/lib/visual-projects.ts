@@ -12,8 +12,18 @@ type ProjectImage = {
   width: number;
 };
 
+type ProjectVideo = {
+  label: string;
+  src: string;
+};
+
 export type VisualProject = {
   gallery: ProjectImage[];
+  galleryLayout?:
+    | "mood-index-grid"
+    | "practice-and-other-stack"
+    | "three-placeholders-and-banner";
+  placeholderVideos?: ProjectVideo[];
   href: string;
   image: ProjectImage;
   index: string;
@@ -43,16 +53,22 @@ export const visualProjects: VisualProject[] = [
     ],
     gallery: [
       {
-        src: "/images/project-field-notes-76.jpg",
-        alt: "Field Notes visual module 01",
-        width: 3488,
-        height: 3069,
+        src: "/images/waqu-1.jpg",
+        alt: "蛙趣看世界视觉模块 01",
+        width: 3404,
+        height: 1774,
       },
       {
-        src: "/images/notes-paper-sky.png",
-        alt: "Field Notes visual module 02",
-        width: 2816,
-        height: 1536,
+        src: "/images/waqu-2.jpg",
+        alt: "蛙趣看世界视觉模块 02",
+        width: 3404,
+        height: 1790,
+      },
+      {
+        src: "/images/waqu-3.jpg",
+        alt: "蛙趣看世界视觉模块 03",
+        width: 3404,
+        height: 1951,
       },
     ],
   },
@@ -73,18 +89,27 @@ export const visualProjects: VisualProject[] = [
       { label: "SYSTEM", tone: "text-[#0074a6] bg-[#d8edf4]" },
       { label: "AI FLOW", tone: "text-white bg-[#2f2f2f]" },
     ],
-    gallery: [
+    galleryLayout: "three-placeholders-and-banner",
+    placeholderVideos: [
       {
-        src: "/images/project-soft-lab-78.jpg",
-        alt: "扶龍直上 visual module 01",
-        width: 3517,
-        height: 3069,
+        src: "/videos/soft-lab-long.mp4",
+        label: "扶龍直上视觉模块 01",
       },
       {
-        src: "/images/h3-metal-texture.jpg",
-        alt: "扶龍直上 visual module 02",
-        width: 3840,
-        height: 2560,
+        src: "/videos/soft-lab-jujilong.mp4",
+        label: "扶龍直上视觉模块 02",
+      },
+      {
+        src: "/videos/soft-lab-juqiulong.mp4",
+        label: "扶龍直上视觉模块 03",
+      },
+    ],
+    gallery: [
+      {
+        src: "/images/soft-lab-35.jpg",
+        alt: "扶龍直上视觉模块 04",
+        width: 3357,
+        height: 1569,
       },
     ],
   },
@@ -107,16 +132,16 @@ export const visualProjects: VisualProject[] = [
     ],
     gallery: [
       {
-        src: "/images/project-open-signal-03.jpg",
-        alt: "当下的秘密寄给远方的自己 visual module 01",
-        width: 3488,
-        height: 3069,
+        src: "/images/shuji-1.jpg",
+        alt: "当下的秘密寄给远方的自己视觉模块 01",
+        width: 3357,
+        height: 2692,
       },
       {
-        src: "/images/notes-paper-sky.png",
-        alt: "当下的秘密寄给远方的自己 visual module 02",
-        width: 2816,
-        height: 1536,
+        src: "/images/shuji-2.jpg",
+        alt: "当下的秘密寄给远方的自己视觉模块 02",
+        width: 3357,
+        height: 3000,
       },
     ],
   },
@@ -137,18 +162,37 @@ export const visualProjects: VisualProject[] = [
       { label: "EXPERIENCE", tone: "text-[#0074a6] bg-[#d8edf4]" },
       { label: "INTERFACE", tone: "text-white bg-[#2f2f2f]" },
     ],
+    galleryLayout: "mood-index-grid",
     gallery: [
       {
-        src: "/images/project-mood-index-04.jpg",
+        src: "/images/yuejia-1.jpg",
         alt: "YUE JIA visual module 01",
-        width: 3517,
-        height: 3069,
+        width: 3414,
+        height: 649,
       },
       {
-        src: "/images/h3-metal-texture.jpg",
+        src: "/images/yuejia-2.jpg",
         alt: "YUE JIA visual module 02",
-        width: 3840,
-        height: 2560,
+        width: 1830,
+        height: 3254,
+      },
+      {
+        src: "/images/yuejia-3.jpg",
+        alt: "YUE JIA visual module 03",
+        width: 1517,
+        height: 3249,
+      },
+      {
+        src: "/images/yuejia-4.jpg",
+        alt: "YUE JIA visual module 04",
+        width: 2533,
+        height: 1322,
+      },
+      {
+        src: "/images/yuejia-5.jpg",
+        alt: "YUE JIA visual module 05",
+        width: 822,
+        height: 1322,
       },
     ],
   },
@@ -170,18 +214,25 @@ export const visualProjects: VisualProject[] = [
       { label: "other", tone: "text-white bg-[#2f2f2f]" },
       { label: "vision", tone: "text-[#595959] bg-[#d9d9d9]" },
     ],
+    galleryLayout: "practice-and-other-stack",
     gallery: [
       {
-        src: "/images/project-practice-and-other-80.jpg",
-        alt: "其他作品 visual module 01",
-        width: 3488,
-        height: 3069,
+        src: "/images/qita-1.jpg",
+        alt: "其他作品视觉模块 01",
+        width: 2662,
+        height: 2313,
       },
       {
-        src: "/images/project-practice-and-other-80.jpg",
-        alt: "其他作品 visual module 02",
-        width: 3488,
-        height: 3069,
+        src: "/images/qita-2.jpg",
+        alt: "其他作品视觉模块 02",
+        width: 3404,
+        height: 1604,
+      },
+      {
+        src: "/images/qita-3.jpg",
+        alt: "其他作品视觉模块 03",
+        width: 3405,
+        height: 1990,
       },
     ],
   },

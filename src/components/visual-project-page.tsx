@@ -64,23 +64,140 @@ export function VisualProjectPage({ project }: VisualProjectPageProps) {
             </div>
           </section>
 
-          <section className="grid gap-5 pt-10" id="gallery">
-            {project.gallery.map((image, index) => (
-              <figure
-                className="overflow-hidden rounded-[0.4rem] bg-white"
-                key={`${image.src}-${index}`}
-              >
-                <Image
-                  alt={image.alt}
-                  className="h-auto w-full"
-                  height={image.height}
-                  priority={index === 0}
-                  src={image.src}
-                  width={image.width}
-                />
-              </figure>
-            ))}
-          </section>
+          {project.galleryLayout === "three-placeholders-and-banner" ? (
+            <section className="grid grid-cols-3 gap-5 pt-10" id="gallery">
+              {Array.from({ length: 3 }, (_, index) => {
+                const video = project.placeholderVideos?.[index];
+
+                if (video) {
+                  return (
+                    <video
+                      aria-label={video.label}
+                      autoPlay
+                      className="aspect-[7/10] h-full w-full object-cover"
+                      key={video.src}
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      src={video.src}
+                    />
+                  );
+                }
+
+                return (
+                  <div
+                    aria-hidden="true"
+                    className="aspect-[7/10] bg-white"
+                    key={index}
+                  />
+                );
+              })}
+              {project.gallery.map((image, index) => (
+                <figure
+                  className="col-span-full overflow-hidden bg-white"
+                  key={`${image.src}-${index}`}
+                >
+                  <Image
+                    alt={image.alt}
+                    className="h-auto w-full"
+                    height={image.height}
+                    priority={index === 0}
+                    src={image.src}
+                    width={image.width}
+                  />
+                </figure>
+              ))}
+            </section>
+          ) : project.galleryLayout === "mood-index-grid" ? (
+            <section className="grid gap-5 pt-10" id="gallery">
+              {project.gallery.slice(0, 1).map((image) => (
+                <figure className="overflow-hidden bg-white" key={image.src}>
+                  <Image
+                    alt={image.alt}
+                    className="h-auto w-full"
+                    height={image.height}
+                    priority
+                    src={image.src}
+                    width={image.width}
+                  />
+                </figure>
+              ))}
+              <div className="grid grid-cols-[1.206fr_1fr] gap-5">
+                {project.gallery.slice(1, 3).map((image) => (
+                  <figure className="overflow-hidden bg-white" key={image.src}>
+                    <Image
+                      alt={image.alt}
+                      className="h-auto w-full"
+                      height={image.height}
+                      src={image.src}
+                      width={image.width}
+                    />
+                  </figure>
+                ))}
+              </div>
+              <div className="grid grid-cols-[3.081fr_1fr] gap-5">
+                {project.gallery.slice(3, 5).map((image) => (
+                  <figure className="overflow-hidden bg-white" key={image.src}>
+                    <Image
+                      alt={image.alt}
+                      className="h-auto w-full"
+                      height={image.height}
+                      src={image.src}
+                      width={image.width}
+                    />
+                  </figure>
+                ))}
+              </div>
+            </section>
+          ) : project.galleryLayout === "practice-and-other-stack" ? (
+            <section className="grid gap-5 pt-10" id="gallery">
+              {project.gallery.slice(0, 1).map((image) => (
+                <figure
+                  className="mx-auto w-[78.2%] overflow-hidden bg-white"
+                  key={image.src}
+                >
+                  <Image
+                    alt={image.alt}
+                    className="h-auto w-full"
+                    height={image.height}
+                    priority
+                    src={image.src}
+                    width={image.width}
+                  />
+                </figure>
+              ))}
+              {project.gallery.slice(1).map((image) => (
+                <figure className="overflow-hidden bg-white" key={image.src}>
+                  <Image
+                    alt={image.alt}
+                    className="h-auto w-full"
+                    height={image.height}
+                    src={image.src}
+                    width={image.width}
+                  />
+                </figure>
+              ))}
+            </section>
+          ) : (
+            <section className="grid gap-5 pt-10" id="gallery">
+              {project.gallery.map((image, index) => (
+                <figure
+                  className="overflow-hidden rounded-[0.4rem] bg-white"
+                  key={`${image.src}-${index}`}
+                >
+                  <Image
+                    alt={image.alt}
+                    className="h-auto w-full"
+                    height={image.height}
+                    priority={index === 0}
+                    src={image.src}
+                    width={image.width}
+                  />
+                </figure>
+              ))}
+            </section>
+          )}
         </article>
       </div>
 

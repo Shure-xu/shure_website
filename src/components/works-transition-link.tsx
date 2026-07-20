@@ -27,7 +27,7 @@ export const workTransitionModeStorageKey = "work-transition-mode";
 
 export type WorkTransitionMode = "category" | "inter-work";
 
-const categoryTransitionDuration = 680;
+const categoryTransitionDuration = 420;
 const dynamicWorkPath = "/works/dynamic";
 const brandWorkPath = "/works/brand";
 const visualWorkPath = "/works";

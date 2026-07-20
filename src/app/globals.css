@@ -190,7 +190,7 @@ body.is-works-entering::before {
   background: #f8cb37;
   pointer-events: none;
   transform: translateY(105%);
-  animation: works-enter-cover-in 0.68s cubic-bezier(0.76, 0, 0.18, 1)
+  animation: works-enter-cover-in 0.42s cubic-bezier(0.76, 0, 0.18, 1)
     forwards;
   will-change: transform;
 }

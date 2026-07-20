@@ -183,7 +183,6 @@ export default function Home() {
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 src="/images/notes-paper-sky.png"
               />
-              <div aria-hidden="true" className="absolute inset-0 bg-ink/35" />
               <p className="relative z-10 font-montserrat text-sm uppercase text-white/75">
                 Open Letters
               </p>

@@ -9,12 +9,11 @@ import { workCategories } from "@/lib/work-categories";
 
 const featuredWork = {
   title: "Shure Studio",
-  summary:
-    "一个把个人网站、内容表达和 AI 工作流串起来的开放实验室。它不只是作品集，也是一块可以持续更新的数字墙面。",
+  summary: "开放视界！Try new things！",
   media: "/videos/shure-about.mp4",
   tags: [
     { label: "GRAPHIC", tone: "text-[#ff36dd] bg-white" },
-    { label: "VISION", tone: "text-[#595959] bg-[#d9d9d9]" },
+    { label: "VISUAL", tone: "text-[#595959] bg-[#d9d9d9]" },
   ],
 };
 

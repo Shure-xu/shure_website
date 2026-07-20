@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
+import { HomeImageCycle } from "@/components/home-image-cycle";
 import { HeroLoader } from "@/components/hero-loader";
 import { SiteNav } from "@/components/site-nav";
 import {
@@ -66,7 +67,12 @@ export default function Home() {
             className="max-w-full whitespace-nowrap text-center font-['Montserrat',ui-sans-serif,sans-serif] text-[clamp(2.65rem,5.4vw,5.8rem)] font-medium leading-none text-ink"
             aria-label="Exploring New Things"
           >
-            Exploring New Things
+            <span>Exploring </span>
+            <span className="relative inline-block">
+              New
+              <HomeImageCycle />
+            </span>
+            <span> Things</span>
           </h1>
         </div>
 
@@ -126,7 +132,8 @@ export default function Home() {
         <div className="mx-auto max-w-[100rem]">
           <div className="mb-8 flex items-end justify-between gap-5 border-t border-foreground/35 pt-8">
             <h2 className="font-montserrat text-4xl font-semibold sm:text-6xl">
-              Design projects
+              <span>Design </span>
+              <span className="text-[#999999]">projects</span>
             </h2>
             <a className="hidden items-center gap-2 text-sm font-medium md:inline-flex" href="#contact">
               Start a project <ArrowUpRight className="size-4" />
@@ -171,7 +178,8 @@ export default function Home() {
         <div className="mx-auto max-w-[100rem]">
           <div className="mb-8 border-t border-foreground/35 pt-8">
             <h2 className="font-montserrat text-4xl font-semibold sm:text-6xl">
-              Vibe coding projects
+              <span>Vibe coding </span>
+              <span className="text-[#999999]">projects</span>
             </h2>
           </div>
           <div className="grid items-stretch gap-5 lg:grid-cols-[1.1fr_0.9fr]">

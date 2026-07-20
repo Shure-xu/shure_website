@@ -1,0 +1,52 @@
+.cycle {
+  position: absolute;
+  z-index: 10;
+  top: 46%;
+  left: 50%;
+  width: clamp(5.95rem, 10.78vw, 11.55rem);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate3d(10%, 0, 0) scaleX(0.05);
+  transform-origin: center;
+  will-change: opacity, transform;
+  animation: imageCycle 24s cubic-bezier(0.76, 0, 0.18, 1) both infinite;
+}
+
+@keyframes imageCycle {
+  0% {
+    opacity: 0;
+    transform: translate3d(10%, 0, 0) scaleX(0.05);
+  }
+
+  3%,
+  12.5% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scaleX(1);
+  }
+
+  16%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-10%, 0, 0) scaleX(0.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame {
+    animation: none;
+  }
+
+  .frame:first-child {
+    opacity: 1;
+    transform: none;
+  }
+}

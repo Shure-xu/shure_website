@@ -174,14 +174,18 @@ export function DynamicWorkPage({
             />
           </div>
 
-          <section className="mt-5 grid gap-5 lg:mt-16 lg:gap-12">
-            <div className={`p-5 sm:p-7 lg:p-8 ${titleColorClass}`}>
+          <section className="mt-5 grid gap-5 lg:mt-16 lg:gap-6">
+            <div
+              className={`p-5 sm:p-7 lg:px-8 lg:pt-8 lg:pb-3 ${titleColorClass}`}
+            >
               <h1 className="dynamic-work-title max-w-5xl">
                 {selectedWork?.title}
               </h1>
             </div>
 
-            <div className={`p-5 sm:p-7 lg:p-8 ${titleColorClass}`}>
+            <div
+              className={`p-5 sm:p-7 lg:px-8 lg:pt-2 lg:pb-8 ${titleColorClass}`}
+            >
               <p
                 className={`max-w-[48rem] text-left font-['Taipei_Sans_TC_Beta',ui-sans-serif,sans-serif] text-[20px] font-normal leading-[1.6] ${bodyColorClass}`}
               >

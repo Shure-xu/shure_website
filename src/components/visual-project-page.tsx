@@ -24,7 +24,7 @@ export function VisualProjectPage({ project }: VisualProjectPageProps) {
             Visual design
           </Link>
 
-          <header className="grid gap-10 border-b border-white/25 pb-10 lg:grid-cols-[1.16fr_0.84fr] lg:items-end">
+          <header className="grid gap-10 border-b border-white/25 pb-10 lg:grid-cols-[1.16fr_0.84fr] lg:items-start">
             <div>
               <p className="font-montserrat text-sm uppercase text-white/45">
                 {project.index} /

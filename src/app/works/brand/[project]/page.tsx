@@ -14,7 +14,7 @@ type BrandProjectPageProps = {
 const brandProjects = {
   yuniji: {
     slug: "yuniji",
-    index: "/0.1",
+    index: "0.1",
     title: "芋泥集",
     subtitle: "Art Direction, Brand Identity, Packaging",
     year: "2026",
@@ -105,7 +105,7 @@ const brandProjects = {
   },
   petpets: {
     slug: "petpets",
-    index: "/0.2",
+    index: "0.2",
     title: "PetPets",
     subtitle: "Brand Identity, Mascot, Visual System",
     year: "2026",

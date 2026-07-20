@@ -42,7 +42,8 @@ export const visualProjects: VisualProject[] = [
     href: "/works/visual/field-notes",
     index: "01",
     title: "蛙趣看世界",
-    summary: "把零散想法整理成有节奏的首页叙事，让一个人先被看见，再被理解。",
+    summary:
+      "通过蛙蛙慢慢适应交通规则的过程来隐喻人们从面对未尝新事物时的局促，到慢慢适应新变化、新环境的过程。呼吁观者像蛙蛙一样奔跃向前，遇到挫折要勇于面对，对未来的生活充满希望。",
     image: {
       src: "/images/project-field-notes-76.jpg",
       alt: "Field Notes project visual",
@@ -73,6 +74,24 @@ export const visualProjects: VisualProject[] = [
         width: 3404,
         height: 1951,
       },
+      {
+        src: "/images/waqu-37.jpg",
+        alt: "蛙趣看世界视觉模块 04",
+        width: 3403,
+        height: 1971,
+      },
+      {
+        src: "/images/waqu-38.jpg",
+        alt: "蛙趣看世界视觉模块 05",
+        width: 3402,
+        height: 1950,
+      },
+      {
+        src: "/images/waqu-39.jpg",
+        alt: "蛙趣看世界视觉模块 06",
+        width: 3403,
+        height: 2148,
+      },
     ],
   },
   {
@@ -80,7 +99,8 @@ export const visualProjects: VisualProject[] = [
     href: "/works/visual/soft-lab",
     index: "02",
     title: "扶龍直上",
-    summary: "为创作者设计轻量内容系统，让作品、笔记、服务入口自然连接。",
+    summary:
+      "作品提取出古代龙纹盘中的神龍形象进行再创造。通过打破重组的方式，结合现代设计手法，重塑了神龍的形象。寓意打破常规，突破自我，像神龍一般不惧万难，乘风而起扶摇直上九万里。",
     image: {
       src: "/images/project-soft-lab-78.jpg",
       alt: "扶龍直上 project visual",
@@ -129,7 +149,8 @@ export const visualProjects: VisualProject[] = [
     href: "/works/visual/open-signal",
     index: "03",
     title: "当下的秘密寄给远方的自己",
-    summary: "用杂志式排版和强色块承载研究、洞察，以及可以继续执行的下一步。",
+    summary:
+      "年少时的我们总有许多秘密，偷藏在心底。它们代表着我们成长的痕迹。我将年少的秘密藏在书中，邮寄给未来的自己，用摩斯密码的解密让未来的自己回忆起年少时成长的痕迹。",
     image: {
       src: "/images/project-open-signal-03.jpg",
       alt: "当下的秘密寄给远方的自己 project visual",
@@ -143,16 +164,16 @@ export const visualProjects: VisualProject[] = [
     ],
     gallery: [
       {
-        src: "/images/shuji-1.jpg",
+        src: "/images/open-signal-book-1.jpg",
         alt: "当下的秘密寄给远方的自己视觉模块 01",
-        width: 3357,
-        height: 2692,
+        width: 3508,
+        height: 4961,
       },
       {
-        src: "/images/shuji-2.jpg",
+        src: "/images/open-signal-book-2.jpg",
         alt: "当下的秘密寄给远方的自己视觉模块 02",
-        width: 3357,
-        height: 3000,
+        width: 3508,
+        height: 4961,
       },
     ],
   },
@@ -161,7 +182,7 @@ export const visualProjects: VisualProject[] = [
     href: "/works/visual/mood-index",
     index: "04",
     title: "YUE JIA",
-    summary: "一个记录每日心情、灵感和小实验的界面原型，像私人电台一样慢慢更新。",
+    summary: "YUEJIA MEDIA以“像素风”为切入点，定位为“只做精致女团”的团播品牌",
     image: {
       src: "/images/project-mood-index-04.jpg",
       alt: "YUE JIA project visual",

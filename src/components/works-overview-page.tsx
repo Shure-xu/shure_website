@@ -13,7 +13,7 @@ const featuredWork = {
     "一个把个人网站、内容表达和 AI 工作流串起来的开放实验室。它不只是作品集，也是一块可以持续更新的数字墙面。",
   media: "/videos/shure-about.mp4",
   tags: [
-    { label: "DTNAMIC", tone: "text-[#ff36dd] bg-white" },
+    { label: "GRAPHIC", tone: "text-[#ff36dd] bg-white" },
     { label: "VISION", tone: "text-[#595959] bg-[#d9d9d9]" },
   ],
 };
@@ -55,19 +55,12 @@ export function WorksOverviewPage() {
           <article className="grid gap-5 pb-10 lg:pb-16 lg:grid-cols-[0.58fr_0.82fr_1.61fr]">
             <div className="flex min-h-[33rem] flex-col justify-between lg:min-h-[40.5rem]">
               <WorkTags tags={featuredWork.tags} />
-              <div className="pb-6 lg:pb-10">
-                <Link
-                  className="group inline-flex items-start gap-2 text-[clamp(2.1rem,2.65vw,3.2rem)] font-medium leading-[0.96] tracking-normal text-white"
-                  href="/#about"
-                >
+              <div>
+                <h2 className="text-[clamp(2.1rem,2.65vw,3.2rem)] font-medium leading-[0.96] tracking-normal text-white">
                   {featuredWork.title}
-                  <ArrowUpRight className="mt-1 size-5 transition group-hover:translate-x-1 group-hover:-translate-y-1 sm:size-6" />
-                </Link>
+                </h2>
                 <p className="mt-5 max-w-[24rem] text-sm font-medium leading-[1.15] text-white/55 sm:text-base">
                   {featuredWork.summary}
-                </p>
-                <p className="mt-10 font-mono text-xs uppercase leading-none text-white/35">
-                  01 / Ongoing personal system
                 </p>
               </div>
             </div>
@@ -99,19 +92,31 @@ export function WorksOverviewPage() {
                   }`}
                   href={work.href}
                 >
-                  <Image
-                    alt={work.image.alt}
-                    className={`h-full w-full ${
-                      work.image.fit === "contain"
-                        ? work.image.scale === false
-                          ? "object-contain"
-                          : "scale-[1.05] object-contain"
-                        : "object-cover"
-                    }`}
-                    height={work.image.height}
-                    src={work.image.src}
-                    width={work.image.width}
-                  />
+                  {work.cardVideo ? (
+                    <video
+                      autoPlay
+                      className={`h-full w-full object-cover ${work.cardVideoScale ?? ""}`}
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      src={work.cardVideo}
+                    />
+                  ) : (
+                    <Image
+                      alt={work.image.alt}
+                      className={`h-full w-full ${
+                        work.image.fit === "contain"
+                          ? work.image.scale === false
+                            ? "object-contain"
+                            : "scale-[1.05] object-contain"
+                          : "object-cover"
+                      }`}
+                      height={work.image.height}
+                      src={work.image.src}
+                      width={work.image.width}
+                    />
+                  )}
                 </Link>
                 <div className="grid gap-3.5 pt-4 sm:pt-5">
                   <div className="flex items-baseline justify-between gap-4">

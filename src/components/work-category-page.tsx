@@ -159,7 +159,7 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
         ? "芋泥集是一组围绕东方甜品气质展开的品牌视觉实验。整体方向从食材的自然纹理、手作温度和轻盈的日常场景出发，用柔和但清晰的图形语言建立品牌记忆点。"
         : category.description,
       eyebrow: isBrandPage ? "Brand" : `My works / ${category.label}`,
-      eyebrowIndex: isBrandPage ? "/0.1" : undefined,
+      eyebrowIndex: isBrandPage ? "0.1 /" : undefined,
       eyebrowClassName: isBrandPage ? "bg-[#88bb4e] text-white" : undefined,
       image: isBrandPage ? "/images/brand-yuniji-info.jpg" : category.image,
       imageAlt: isBrandPage
@@ -179,7 +179,7 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
             description:
               "PetPets 是一套面向宠物陪伴场景的品牌视觉系统。项目尝试把亲密、活泼和轻松的情绪转化成可重复使用的图形资产，让品牌既有陪伴感，也有清楚的商业识别。",
             eyebrow: "Brand",
-            eyebrowIndex: "/0.2",
+            eyebrowIndex: "0.2 /",
             eyebrowClassName: "bg-[#e0e0e0] text-black",
             image: "/images/brand-pet-info.jpg",
             imageAlt: "PetPets brand visual",

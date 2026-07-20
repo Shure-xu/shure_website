@@ -160,7 +160,7 @@ export function DynamicWorkPage({
           </header>
 
           <div
-            className={`mx-auto w-4/5 overflow-hidden rounded-[0.4rem] ${videoBackgroundClass} ${selectedWork.videoContainerClass}`}
+            className={`mx-auto w-full overflow-hidden rounded-[0.4rem] lg:w-[104%] lg:max-w-none ${videoBackgroundClass} ${selectedWork.videoContainerClass}`}
           >
             <video
               className={`h-full w-full ${videoBackgroundClass} ${selectedWork.videoObjectClass}`}

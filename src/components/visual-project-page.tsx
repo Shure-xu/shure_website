@@ -27,7 +27,7 @@ export function VisualProjectPage({ project }: VisualProjectPageProps) {
           <header className="grid gap-10 border-b border-white/25 pb-10 lg:grid-cols-[1.16fr_0.84fr] lg:items-end">
             <div>
               <p className="font-montserrat text-sm uppercase text-white/45">
-                {project.index} / Visual design
+                {project.index} /
               </p>
               <h1 className="mt-5 font-montserrat text-[52px] font-medium leading-[0.9] tracking-normal text-white">
                 {project.title}
@@ -48,10 +48,7 @@ export function VisualProjectPage({ project }: VisualProjectPageProps) {
             </div>
           </header>
 
-          <section className="grid gap-8 border-b border-white/15 py-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:items-start">
-            <p className="font-montserrat text-sm uppercase text-white/35">
-              Focus
-            </p>
+          <section className="border-b border-white/15 py-8">
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
@@ -66,6 +63,18 @@ export function VisualProjectPage({ project }: VisualProjectPageProps) {
 
           {project.galleryLayout === "three-placeholders-and-banner" ? (
             <section className="grid grid-cols-3 gap-5 pt-10" id="gallery">
+              {project.galleryIntro ? (
+                <figure className="col-span-full overflow-hidden bg-white">
+                  <Image
+                    alt={project.galleryIntro.alt}
+                    className="h-auto w-full"
+                    height={project.galleryIntro.height}
+                    priority
+                    src={project.galleryIntro.src}
+                    width={project.galleryIntro.width}
+                  />
+                </figure>
+              ) : null}
               {Array.from({ length: 3 }, (_, index) => {
                 const video = project.placeholderVideos?.[index];
 

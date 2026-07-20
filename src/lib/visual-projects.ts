@@ -18,11 +18,14 @@ type ProjectVideo = {
 };
 
 export type VisualProject = {
+  cardVideo?: string;
+  cardVideoScale?: string;
   gallery: ProjectImage[];
   galleryLayout?:
     | "mood-index-grid"
     | "practice-and-other-stack"
     | "three-placeholders-and-banner";
+  galleryIntro?: ProjectImage;
   placeholderVideos?: ProjectVideo[];
   href: string;
   image: ProjectImage;
@@ -48,8 +51,8 @@ export const visualProjects: VisualProject[] = [
       fit: "contain",
     },
     tags: [
-      { label: "BRAND", tone: "text-[#b54500] bg-[#f0e4d8]" },
-      { label: "HOMEPAGE", tone: "text-white bg-[#2f2f2f]" },
+      { label: "POSTER", tone: "text-[#b54500] bg-[#f0e4d8]" },
+      { label: "VISUAL", tone: "text-white bg-[#2f2f2f]" },
     ],
     gallery: [
       {
@@ -85,11 +88,19 @@ export const visualProjects: VisualProject[] = [
       height: 3069,
       fit: "contain",
     },
+    cardVideo: "/videos/soft-lab-jujilong.mp4",
+    cardVideoScale: "scale-[1.7]",
     tags: [
-      { label: "SYSTEM", tone: "text-[#0074a6] bg-[#d8edf4]" },
-      { label: "AI FLOW", tone: "text-white bg-[#2f2f2f]" },
+      { label: "TOUCH DESIGN", tone: "text-[#0074a6] bg-[#d8edf4]" },
+      { label: "POSTER", tone: "text-white bg-[#2f2f2f]" },
     ],
     galleryLayout: "three-placeholders-and-banner",
+    galleryIntro: {
+      src: "/images/soft-lab-visual-36.jpg",
+      alt: "扶龍直上视觉模块概览",
+      width: 4325,
+      height: 3071,
+    },
     placeholderVideos: [
       {
         src: "/videos/soft-lab-long.mp4",
@@ -127,7 +138,7 @@ export const visualProjects: VisualProject[] = [
       fit: "contain",
     },
     tags: [
-      { label: "EDITORIAL", tone: "text-[#b54500] bg-[#f0e4d8]" },
+      { label: "BOOK", tone: "text-[#b54500] bg-[#f0e4d8]" },
       { label: "VISUAL", tone: "text-white bg-[#2f2f2f]" },
     ],
     gallery: [
@@ -159,8 +170,8 @@ export const visualProjects: VisualProject[] = [
       fit: "contain",
     },
     tags: [
-      { label: "EXPERIENCE", tone: "text-[#0074a6] bg-[#d8edf4]" },
-      { label: "INTERFACE", tone: "text-white bg-[#2f2f2f]" },
+      { label: "MEDIA", tone: "text-[#0074a6] bg-[#d8edf4]" },
+      { label: "VISUAL", tone: "text-white bg-[#2f2f2f]" },
     ],
     galleryLayout: "mood-index-grid",
     gallery: [
@@ -211,8 +222,8 @@ export const visualProjects: VisualProject[] = [
       scale: false,
     },
     tags: [
-      { label: "other", tone: "text-white bg-[#2f2f2f]" },
-      { label: "vision", tone: "text-[#595959] bg-[#d9d9d9]" },
+      { label: "PRACTISE", tone: "text-white bg-[#2f2f2f]" },
+      { label: "VISUAL", tone: "text-[#595959] bg-[#d9d9d9]" },
     ],
     galleryLayout: "practice-and-other-stack",
     gallery: [

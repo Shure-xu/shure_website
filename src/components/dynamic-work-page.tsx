@@ -73,8 +73,8 @@ const dynamicWorks = [
     description: dynamicWorkDescription,
     href: "/works/dynamic",
     key: "geometry",
-    label: "他们记忆中的几何",
-    pageTitle: "D/0.1",
+    label: "0.1 / 他们记忆中的几何",
+    pageTitle: "0.1",
     title: "他们记忆中存在的几何",
     videoContainerClass: "aspect-video",
     videoObjectClass: "object-cover",
@@ -83,8 +83,8 @@ const dynamicWorks = [
     description: nihaoWorkDescription,
     href: "/works/dynamic2",
     key: "hello",
-    label: "你好：",
-    pageTitle: "D/0.2",
+    label: "0.2 / 你好：",
+    pageTitle: "0.2",
     title: "你好：",
     videoContainerClass: "h-[min(84vh,60rem)] min-h-[36rem]",
     videoObjectClass: "object-contain",
@@ -121,7 +121,6 @@ export function DynamicWorkPage({
   const categoryInactiveClass = isWhitePage
     ? "bg-ink/10 text-ink hover:bg-ink/15"
     : "bg-white/15 text-white hover:bg-white/25";
-  const sectionBorderClass = isWhitePage ? "border-ink/15" : "border-white/15";
   const pageTitleBorderClass = isWhitePage
     ? "border-ink/25"
     : "border-white";
@@ -141,21 +140,11 @@ export function DynamicWorkPage({
           <header
             className={`mb-10 flex items-end gap-5 border-b pb-5 ${pageTitleBorderClass} ${titleColorClass}`}
           >
-            <h1
-              className={`${
-                currentWork === "geometry"
-                  ? "brand-page-title"
-                  : "dynamic-work-page-title"
-              } shrink-0`}
-            >
-              {currentWork === "geometry" ? (
-                <>
-                  <span>Dynamic</span>{" "}
-                  <span className="text-[#999999]">design</span>
-                </>
-              ) : (
-                selectedWork.pageTitle
-              )}
+            <h1 className="brand-page-title shrink-0">
+              <span>Dynamic</span>{" "}
+              <span className="text-[#999999]">
+                design {selectedWork.pageTitle}
+              </span>
             </h1>
           </header>
 
@@ -254,41 +243,6 @@ export function DynamicWorkPage({
             </div>
           </div>
 
-          <div className={`grid gap-5 border-t pt-5 lg:grid-cols-3 ${sectionBorderClass}`}>
-            {category.projects.map((work, index) => (
-              <article
-                className="group flex min-h-[22rem] flex-col justify-between rounded-[0.4rem] bg-white p-5 text-ink transition hover:-translate-y-1 sm:p-7"
-                id={`${category.slug}-work-${index + 1}`}
-                key={work.title}
-              >
-                <div>
-                  <div className="mb-8 flex items-start justify-between gap-4">
-                    <span className="font-mono text-xs text-ink/35">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <ArrowUpRight className="size-5 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </div>
-                  <h3 className="text-3xl font-semibold leading-none">
-                    {work.title}
-                  </h3>
-                  <p className="mt-5 max-w-[29rem] text-sm font-medium leading-5 text-ink/55">
-                    {work.summary}
-                  </p>
-                </div>
-
-                <div className="mt-10 flex flex-wrap gap-1.5">
-                  {work.tags.map((tag) => (
-                    <span
-                      className="rounded-full bg-ink px-3 py-1 font-mono text-[0.68rem] font-semibold uppercase leading-none text-paper"
-                      key={tag}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
         </section>
       </div>
 

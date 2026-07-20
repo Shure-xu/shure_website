@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
 import { SiteNav } from "@/components/site-nav";
 import { WorksTransitionLink } from "@/components/works-transition-link";
@@ -48,9 +47,9 @@ function CategoryFeaturePanel({
   imageLinkLabel,
 }: CategoryFeaturePanelProps) {
   const containerClass = brandLayout
-    ? "overflow-hidden rounded-[0.4rem] text-white"
+    ? "overflow-hidden rounded-[0.4rem] text-ink"
     : "overflow-hidden rounded-[0.4rem] border-t-2 border-white/45 bg-white text-ink";
-  const descriptionClass = brandLayout ? "text-white/72" : "text-ink/70";
+  const descriptionClass = brandLayout ? "text-ink/72" : "text-ink/70";
   const imageFrameClass = `group/image aspect-[1.55] overflow-hidden rounded-[0.4rem] bg-white ${
     imageHoverScale
       ? "transition-transform duration-700 ease-out hover:scale-[0.98]"
@@ -138,7 +137,7 @@ function CategoryFeaturePanel({
         {imageHref ? (
           <Link
             aria-label={imageLinkLabel ?? `View ${title}`}
-            className={`${imageFrameClass} focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white`}
+            className={`${imageFrameClass} focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink`}
             href={imageHref}
           >
             {imageElement}
@@ -153,6 +152,13 @@ function CategoryFeaturePanel({
 
 export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
   const isBrandPage = category.slug === "brand";
+  const pageColorClass = isBrandPage ? "bg-white text-ink" : "bg-black text-white";
+  const categoryCurrentClass = isBrandPage
+    ? "bg-ink text-paper"
+    : "bg-white text-ink";
+  const categoryInactiveClass = isBrandPage
+    ? "bg-ink/10 text-ink hover:bg-ink/15"
+    : "bg-white/15 text-white hover:bg-white/25";
   const featurePanels: CategoryFeaturePanelProps[] = [
     {
       description: isBrandPage
@@ -177,7 +183,7 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
       ? [
           {
             description:
-              "PetPets 是一套面向宠物陪伴场景的品牌视觉系统。项目尝试把亲密、活泼和轻松的情绪转化成可重复使用的图形资产，让品牌既有陪伴感，也有清楚的商业识别。",
+              "PetPets 是一套面向宠物咖啡馆的品牌视觉系统。项目尝试把亲密、活泼和轻松的情绪转化成可重复使用的图形资产，让品牌既有陪伴感，也有清楚的商业识别。",
             eyebrow: "Brand",
             eyebrowIndex: "0.2 /",
             eyebrowClassName: "bg-[#e0e0e0] text-black",
@@ -194,13 +200,13 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className={`min-h-screen ${pageColorClass}`}>
       <div className="px-4 pb-16">
         <SiteNav />
 
         <section className="mx-auto max-w-[100rem] pt-36 sm:pt-44">
           {isBrandPage ? (
-            <header className="mb-10 flex items-end gap-5 border-b border-white bg-black pb-5 text-white">
+            <header className="mb-10 flex items-end gap-5 border-b border-ink/25 pb-5 text-ink">
               <h1 className="brand-page-title shrink-0">
                 <span>Brand</span>{" "}
                 <span className="text-[#999999]">design</span>
@@ -255,8 +261,8 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
                 <WorksTransitionLink
                   className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                     item.slug === category.slug
-                      ? "bg-white text-ink"
-                      : "bg-white/15 text-white hover:bg-white/25"
+                      ? categoryCurrentClass
+                      : categoryInactiveClass
                   }`}
                   key={item.slug}
                   transition={item.slug}
@@ -267,40 +273,6 @@ export function WorkCategoryPage({ category }: WorkCategoryPageProps) {
             </div>
           </div>
 
-          <div className="grid gap-5 border-t border-white/15 pt-5 lg:grid-cols-3">
-            {category.projects.map((work, index) => (
-              <article
-                className="group flex min-h-[22rem] flex-col justify-between rounded-[0.4rem] bg-white p-5 text-ink transition hover:-translate-y-1 sm:p-7"
-                key={work.title}
-              >
-                <div>
-                  <div className="mb-8 flex items-start justify-between gap-4">
-                    <span className="font-mono text-xs text-ink/35">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <ArrowUpRight className="size-5 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </div>
-                  <h3 className="text-3xl font-semibold leading-none">
-                    {work.title}
-                  </h3>
-                  <p className="mt-5 max-w-[29rem] text-sm font-medium leading-5 text-ink/55">
-                    {work.summary}
-                  </p>
-                </div>
-
-                <div className="mt-10 flex flex-wrap gap-1.5">
-                  {work.tags.map((tag) => (
-                    <span
-                      className="rounded-full bg-ink px-3 py-1 font-mono text-[0.68rem] font-semibold uppercase leading-none text-paper"
-                      key={tag}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
         </section>
       </div>
 

@@ -32,7 +32,7 @@ const projects: Array<{
   },
   {
     title: "03/视觉设计",
-    image: workCategories[2].image,
+    image: "/images/home-visual-category-82.jpg",
     summary:
       "Visual design projects explore composition, contrast, image treatment, and editorial systems for memorable digital pages.",
     transition: "visual",

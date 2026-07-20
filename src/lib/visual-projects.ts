@@ -45,10 +45,10 @@ export const visualProjects: VisualProject[] = [
     summary:
       "通过蛙蛙慢慢适应交通规则的过程来隐喻人们从面对未尝新事物时的局促，到慢慢适应新变化、新环境的过程。呼吁观者像蛙蛙一样奔跃向前，遇到挫折要勇于面对，对未来的生活充满希望。",
     image: {
-      src: "/images/project-field-notes-76.jpg",
+      src: "/images/project-field-notes-cover.jpg",
       alt: "Field Notes project visual",
-      width: 3488,
-      height: 3069,
+      width: 3591,
+      height: 3000,
       fit: "contain",
     },
     tags: [

@@ -43,15 +43,11 @@ const projects: Array<{
 const notes = [
   {
     label: "Studio Note",
-    title: "让网站先像一个人，再像一个产品。",
+    title: "明天早八，从第一封信开始",
   },
   {
     label: "Process",
-    title: "从参考网站出发，提取节奏，而不是复制外壳。",
-  },
-  {
-    label: "Signal",
-    title: "把复杂经历变成别人愿意继续看的入口。",
+    title: "资讯之外，更在意判断",
   },
 ];
 
@@ -183,7 +179,13 @@ export default function Home() {
             </h2>
           </div>
           <div className="grid items-stretch gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="relative flex aspect-[16/12] flex-col justify-between overflow-hidden rounded-[0.4rem] p-5 text-white transition-transform duration-700 ease-out hover:scale-[0.98] sm:p-7 lg:p-8">
+            <a
+              aria-label="打开 Open Letters 网站"
+              className="relative flex aspect-[16/12] flex-col justify-between overflow-hidden rounded-[0.4rem] p-5 text-white transition-transform duration-700 ease-out hover:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground sm:p-7 lg:p-8"
+              href="https://xushure.asia/"
+              rel="noreferrer"
+              target="_blank"
+            >
               <Image
                 alt=""
                 className="object-cover"
@@ -191,13 +193,14 @@ export default function Home() {
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 src="/images/notes-paper-sky.png"
               />
-              <p className="relative z-10 font-montserrat text-sm uppercase text-white/75">
+              <p className="relative z-10 font-montserrat text-2xl uppercase text-white/75 sm:text-3xl lg:text-[40px]">
                 Open Letters
               </p>
               <h2 className="relative z-10 max-w-3xl font-taipei text-4xl font-semibold leading-tight sm:text-6xl">
-                用长期更新的方式，让别人持续理解你。
+                <span className="block">一封关于 AI 的信。</span>
+                <span className="block">每天一封，随时可退订。</span>
               </h2>
-            </div>
+            </a>
             <div className="grid gap-5 lg:grid-rows-3">
               {notes.map((note) => (
                 <article className="flex min-h-[11rem] flex-col justify-between rounded-[0.4rem] border border-foreground/10 p-5 sm:p-7 lg:min-h-0" key={note.title}>

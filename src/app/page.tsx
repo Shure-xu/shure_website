@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ContactFooter } from "@/components/contact-footer";
+import { AboutTransitionLink } from "@/components/about-transition-link";
 import { HomeImageCycle } from "@/components/home-image-cycle";
 import { HeroLoader } from "@/components/hero-loader";
 import { SiteNav } from "@/components/site-nav";
@@ -96,7 +97,7 @@ export default function Home() {
 
       <section id="about" className="px-4 py-10 lg:py-16">
           <div className="mx-auto grid max-w-[100rem] gap-5 lg:grid-cols-[1fr_0.96fr]">
-            <div className="flex h-[34rem] flex-col justify-between rounded-[0.4rem] bg-[#d5d5d2] bg-[url('/images/h3-metal-texture.jpg')] bg-cover bg-center p-5 text-ink transition-transform duration-700 ease-out hover:scale-[0.98] sm:p-7 lg:h-[37rem] lg:p-8">
+            <AboutTransitionLink className="flex h-[34rem] flex-col justify-between rounded-[0.4rem] bg-[#d5d5d2] bg-[url('/images/h3-metal-texture.jpg')] bg-cover bg-center p-5 text-ink transition-transform duration-700 ease-out hover:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink sm:p-7 lg:h-[37rem] lg:p-8">
             <div>
               <p className="mb-8 font-taipei text-sm tracking-normal text-ink/75">
                 Hi！我是徐航朔
@@ -108,7 +109,7 @@ export default function Home() {
             <p className="max-w-xl font-montserrat text-base font-semibold leading-tight sm:text-lg">
               I hope you will like it.
             </p>
-          </div>
+            </AboutTransitionLink>
 
           <div className="h-[34rem] overflow-hidden rounded-[0.4rem] bg-ink lg:h-[37rem]">
             <video

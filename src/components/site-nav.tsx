@@ -18,7 +18,7 @@ export function SiteNav() {
         <HomeTransitionLink className={primaryLink}>
           Shure
         </HomeTransitionLink>
-        <Link className={secondaryLink} href="/#about">
+        <Link className={secondaryLink} href="/about">
           About me
         </Link>
         <div className="group relative flex flex-col items-center">

@@ -277,6 +277,49 @@ body.is-home-returning.is-home-arriving::before {
     forwards;
 }
 
+body.is-about-entering::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: #c9caca;
+  pointer-events: none;
+  transform: translateY(105%);
+  animation: home-return-cover-in 0.68s cubic-bezier(0.76, 0, 0.18, 1)
+    forwards;
+  will-change: transform;
+}
+
+.about-arrival-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: #c9caca;
+  color: #000;
+  pointer-events: none;
+  animation: home-return-overlay-dismiss 1.85s cubic-bezier(0.22, 0.61, 0.36, 1)
+    forwards;
+  will-change: opacity;
+}
+
+.about-arrival-overlay__word {
+  font-family: var(--font-montserrat-local), ui-sans-serif, sans-serif;
+  font-size: clamp(4rem, 13vw, 13rem);
+  font-weight: 500;
+  line-height: 0.78;
+  letter-spacing: -0.07em;
+  animation: home-return-word-reveal 1.85s cubic-bezier(0.22, 0.61, 0.36, 1)
+    forwards;
+  will-change: opacity, transform;
+}
+
+body.is-about-entering.is-about-arriving::before {
+  animation: home-return-cover-reveal 1.85s cubic-bezier(0.22, 0.61, 0.36, 1)
+    forwards;
+}
+
 #about,
 #work,
 #notes,
@@ -550,7 +593,10 @@ body.is-home-returning.is-home-arriving::before {
 
   body.is-home-returning::before,
   .home-return-overlay,
-  .home-return-overlay__word {
+  .home-return-overlay__word,
+  body.is-about-entering::before,
+  .about-arrival-overlay,
+  .about-arrival-overlay__word {
     animation-duration: 0.01ms;
   }
 }

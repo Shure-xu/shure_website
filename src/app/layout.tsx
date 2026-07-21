@@ -4,6 +4,7 @@ import "lenis/dist/lenis.css";
 import "./globals.css";
 import { montserrat, taipeiSans } from "./fonts";
 import { CursorTrail } from "@/components/cursor-trail";
+import { AboutTransitionOverlay } from "@/components/about-transition-overlay";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { WorksTransitionOverlay } from "@/components/works-transition-overlay";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <SmoothScroll />
         {children}
+        <AboutTransitionOverlay />
         <WorksTransitionOverlay />
         <CursorTrail />
       </body>

@@ -18,3 +18,10 @@
 ## Known Gaps
 - Reference screenshots could not be captured reliably through the current Chrome session because Chrome screenshot capture timed out.
 - This is an inspired personal-site draft, not a pixel-perfect reconstruction.
+
+## About Page Route Transition
+- The homepage grey About card is a client-side link to `/about`.
+- On a standard left click from `/`, the cover rises from below over `680ms` and navigation begins after the cover has filled the viewport.
+- The cover and arrival overlay use `#C9CACA`; the centred arrival word is `Me`.
+- The arrival phase keeps the same `1850ms` reveal timing as the established `/works/dynamic → /` transition, then clears both transition classes.
+- Reduced-motion users navigate to `/about` without the staged cover.

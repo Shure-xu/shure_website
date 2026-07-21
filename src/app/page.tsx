@@ -95,8 +95,8 @@ export default function Home() {
       </section>
 
       <section id="about" className="px-4 py-10 lg:py-16">
-        <div className="mx-auto grid max-w-[100rem] gap-5 lg:grid-cols-[1fr_0.96fr]">
-          <div className="flex h-[34rem] flex-col justify-between rounded-[0.4rem] bg-[#d5d5d2] bg-[url('/images/h3-metal-texture.jpg')] bg-cover bg-center p-5 text-ink sm:p-7 lg:h-[37rem] lg:p-8">
+          <div className="mx-auto grid max-w-[100rem] gap-5 lg:grid-cols-[1fr_0.96fr]">
+            <div className="flex h-[34rem] flex-col justify-between rounded-[0.4rem] bg-[#d5d5d2] bg-[url('/images/h3-metal-texture.jpg')] bg-cover bg-center p-5 text-ink transition-transform duration-700 ease-out hover:scale-[0.98] sm:p-7 lg:h-[37rem] lg:p-8">
             <div>
               <p className="mb-8 font-taipei text-sm tracking-normal text-ink/75">
                 Hi！我是徐航朔

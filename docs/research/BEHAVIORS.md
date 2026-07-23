@@ -25,3 +25,9 @@
 - The cover and arrival overlay use `#C9CACA`; the centred arrival word is `Me`.
 - The arrival phase keeps the same `1850ms` reveal timing as the established `/works/dynamic → /` transition, then clears both transition classes.
 - Reduced-motion users navigate to `/about` without the staged cover.
+
+## About Hero Cards
+- The `/about` hero is time-driven: the heading and three project cards enter with a short stagger, then the cards use independent, low-amplitude vertical drift.
+- As the hero scrolls out, the card wrappers move towards the heading on three separate paths. Their movement is spring-smoothed, so the cards follow the scroll with a small, deliberate delay instead of moving rigidly with it.
+- Cards are decorative and do not add an interactive destination.
+- `prefers-reduced-motion` leaves the complete composition visible without entrances or loops.

@@ -1,37 +1,33 @@
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { AboutHero } from "@/components/about-hero";
 import { ContactFooter } from "@/components/contact-footer";
 import { SiteNav } from "@/components/site-nav";
 
 const practices = [
   {
     index: "01",
-    title: "视觉表达",
-    en: "Visual",
+    title: "京东",
+    en: "JD.com",
     description: "从文字、图像与版式之间，寻找一个作品最准确的视觉语气。",
   },
   {
     index: "02",
-    title: "动态叙事",
-    en: "Motion",
+    title: "新东方",
+    en: "New Oriental",
     description: "用节奏、转场与细微的变化，让静态想法拥有可以被感知的时间。",
   },
   {
     index: "03",
-    title: "数字体验",
-    en: "Digital",
+    title: "永和大王",
+    en: "Yonghe King",
     description: "把作品带到网页与交互中，持续练习清楚、自然且有温度的体验。",
   },
   {
     index: "04",
-    title: "调研与记录",
-    en: "Research",
+    title: "南京嘉木健康",
+    en: "Nanjing Jiamu Health",
     description: "从日常观察里收集线索，尝试把模糊的感受整理成可继续讨论的内容。",
-  },
-  {
-    index: "05",
-    title: "个人练习",
-    en: "Practice",
-    description: "保留没有标准答案的试验，作为长期创作中不断发生的偏离与回看。",
   },
 ] as const;
 
@@ -49,35 +45,61 @@ export function AboutPage() {
     <main className="min-h-screen bg-white text-ink">
       <SiteNav />
 
-      <section className="px-4 pb-10 pt-36 lg:pb-16 lg:pt-44">
+      <AboutHero />
+
+      <section className="px-4 pb-8 pt-16 lg:pb-12 lg:pt-24">
         <div className="mx-auto max-w-[100rem] border-t border-ink/30 pt-5 lg:pt-7">
-          <p className="font-montserrat text-sm uppercase tracking-[0.08em] text-ink/55">
-            About me / 个人档案
-          </p>
-          <div className="mt-16 grid gap-8 lg:mt-24 lg:grid-cols-[minmax(0,1.08fr)_minmax(19rem,0.62fr)] lg:items-end lg:gap-16">
-            <h1 className="max-w-4xl font-taipei text-[clamp(2.7rem,4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em]">
-              一个持续整理灵感、工具与表达的个人设计工作台。
-            </h1>
-            <div className="max-w-[31rem] space-y-5 font-taipei text-base font-normal leading-[1.6] text-ink/70 lg:text-[18px]">
-              <p>
-                我是徐航朔，学习视觉传达设计，也在网页、动态与内容表达之间不断练习。
-              </p>
-              <p>
-                这里收录正在形成的作品、笔记和观察；它们不必完整，但希望足够真诚。
-              </p>
-            </div>
+          <div className="grid gap-4 lg:grid-cols-12 lg:gap-x-4 lg:gap-y-12">
+            <article className="flex min-h-64 flex-col justify-end bg-white p-5 text-ink sm:p-7 lg:col-span-8 lg:min-h-[13rem] lg:p-8">
+              <h2 className="max-w-4xl font-taipei text-[clamp(2.4rem,3.4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em]">
+                一个持续整理灵感、工具与表达的个人设计工作台。
+              </h2>
+            </article>
+            <div className="hidden lg:col-span-4 lg:block" />
+
+            <article className="min-h-56 self-end bg-white p-5 text-ink sm:p-7 lg:col-span-4 lg:min-h-0 lg:p-6">
+              <div className="space-y-5 font-taipei text-base font-normal leading-[1.6] text-ink/70 lg:text-[18px]">
+                <p>
+                  我是徐航朔，学习视觉传达设计，也在网页、动态与内容表达之间不断练习。
+                </p>
+                <p>
+                  这里收录正在形成的作品、笔记和观察；它们不必完整，但希望足够真诚。
+                </p>
+              </div>
+            </article>
+            <div className="hidden lg:col-span-2 lg:block" />
+            <figure className="relative aspect-[1127/1541] overflow-hidden bg-[#d5d5d2] lg:col-span-3">
+              <Image
+                alt="关于徐航朔的影像一"
+                className="object-contain"
+                fill
+                quality={90}
+                sizes="(min-width: 1024px) 24vw, 100vw"
+                src="/images/about/about-01.jpg"
+              />
+            </figure>
+            <figure className="relative aspect-[1127/1541] overflow-hidden bg-[#d5d5d2] lg:col-span-3">
+              <Image
+                alt="关于徐航朔的影像二"
+                className="object-contain"
+                fill
+                quality={90}
+                sizes="(min-width: 1024px) 24vw, 100vw"
+                src="/images/about/about-02.jpg"
+              />
+            </figure>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-10 lg:py-16">
+      <section className="px-4 pb-10 pt-5 lg:pb-16 lg:pt-8">
         <div className="mx-auto max-w-[100rem] border-t border-ink/30 pt-5 lg:pt-7">
           <div className="mb-8 flex items-end justify-between gap-6 lg:mb-12">
             <h2 className="font-taipei text-[clamp(2.1rem,3.4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em]">
-              正在练习的事
+              实习经历
             </h2>
             <p className="hidden font-montserrat text-sm text-ink/55 sm:block">
-              Ongoing practices
+              Internship experience
             </p>
           </div>
           <div className="grid border-t border-ink/30 lg:grid-cols-2">

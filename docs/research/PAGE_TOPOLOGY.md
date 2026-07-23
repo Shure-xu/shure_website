@@ -27,11 +27,12 @@
 ## About Page
 
 1. Fixed floating navigation.
-2. Editorial intro with a Chinese exhibition-style statement and short personal archive notes.
-3. Five two-column practice modules, each pairing a Chinese practice name with an English label.
-4. Existing personal video and the existing metal-texture card form a profile diptych.
-5. Cross-media direction list.
-6. Shared black `#contact` footer.
+2. Black hero: central Chinese statement surrounded by three floating project-thumbnail records that converge toward the title as the hero scrolls out.
+3. Editorial intro uses an asymmetrical four-region composition: a wide title area at upper-left, a smaller copy area at lower-left, and two full-height portrait images on the right.
+4. Five two-column practice modules, each pairing a Chinese practice name with an English label.
+5. Existing personal video and the existing metal-texture card form a profile diptych.
+6. Cross-media direction list.
+7. Shared black `#contact` footer.
 
 ## Interaction Model
 - Navigation: anchor-scroll links.

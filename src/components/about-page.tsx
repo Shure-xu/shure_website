@@ -5,12 +5,10 @@ import { InternshipAccordion } from "@/components/internship-accordion";
 import { SiteNav } from "@/components/site-nav";
 
 const directions = [
-  "平面与版式",
+  "AI产品",
   "品牌视觉",
   "动态设计",
-  "网页与交互",
-  "图像叙事",
-  "内容表达",
+  "平面与版式",
 ] as const;
 
 export function AboutPage() {
@@ -65,9 +63,9 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="px-4 pb-10 pt-5 lg:pb-16 lg:pt-8">
+      <section className="px-4 pb-10 pt-5 lg:pb-16 lg:pt-12">
         <div className="mx-auto max-w-[100rem] border-t border-ink/30 pt-5 lg:pt-7">
-          <div className="mb-8 flex items-end justify-between gap-6 lg:mb-12">
+          <div className="mb-8 flex items-end justify-between gap-6 lg:mb-8">
             <h2 className="font-taipei text-[clamp(2.1rem,3.4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em]">
               实习经历
             </h2>
@@ -90,7 +88,7 @@ export function AboutPage() {
               muted
               playsInline
               preload="metadata"
-              src="/videos/shure-about.mp4"
+              src="/videos/about-envelopes.mp4"
             />
           </div>
           <div className="flex min-h-[32rem] flex-col justify-between rounded-[0.4rem] bg-[#d5d5d2] bg-[url('/images/h3-metal-texture.jpg')] bg-cover bg-center p-5 lg:min-h-[42rem] lg:p-8">

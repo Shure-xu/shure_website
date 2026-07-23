@@ -3,12 +3,15 @@
 import { useRef } from "react";
 import Image from "next/image";
 import {
+  cubicBezier,
   motion,
   useReducedMotion,
   useScroll,
   useSpring,
   useTransform,
 } from "framer-motion";
+
+const cardScrollEase = cubicBezier(0.22, 1, 0.36, 1);
 
 const heroCards = [
   {
@@ -41,6 +44,16 @@ const heroCards = [
     delay: 0.4,
     duration: 5.1,
   },
+  {
+    image: "/images/project-open-signal-03.jpg",
+    label: "版式 / Open Signal",
+    cardClass: "left-[28%] top-[72%] lg:left-[30%] lg:top-[69%]",
+    labelClass: "-left-8 -bottom-3 bg-[#1d8f82]",
+    arrowClass: "right-3 border-l-[#1d8f82]",
+    floatOffset: 7,
+    delay: 0.52,
+    duration: 5.7,
+  },
 ] as const;
 
 export function AboutHero() {
@@ -58,16 +71,20 @@ export function AboutHero() {
   });
   const cardScrollTransforms = [
     {
-      x: useTransform(smoothedScrollProgress, [0, 0.68, 1], ["0vw", "22vw", "22vw"]),
-      y: useTransform(smoothedScrollProgress, [0, 0.68, 1], ["0rem", "7.5rem", "7.5rem"]),
+      x: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0vw", "22vw", "22vw"], { ease: cardScrollEase }),
+      y: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0rem", "7.5rem", "7.5rem"], { ease: cardScrollEase }),
     },
     {
-      x: useTransform(smoothedScrollProgress, [0, 0.68, 1], ["0vw", "-20vw", "-20vw"]),
-      y: useTransform(smoothedScrollProgress, [0, 0.68, 1], ["0rem", "4rem", "4rem"]),
+      x: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0vw", "-20vw", "-20vw"], { ease: cardScrollEase }),
+      y: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0rem", "4rem", "4rem"], { ease: cardScrollEase }),
     },
     {
-      x: useTransform(smoothedScrollProgress, [0, 0.68, 1], ["0vw", "-14vw", "-14vw"]),
-      y: useTransform(smoothedScrollProgress, [0, 0.68, 1], ["0rem", "-8rem", "-8rem"]),
+      x: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0vw", "-14vw", "-14vw"], { ease: cardScrollEase }),
+      y: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0rem", "-8rem", "-8rem"], { ease: cardScrollEase }),
+    },
+    {
+      x: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0vw", "11.5vw", "11.5vw"], { ease: cardScrollEase }),
+      y: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0rem", "-6rem", "-6rem"], { ease: cardScrollEase }),
     },
   ] as const;
 
@@ -76,7 +93,7 @@ export function AboutHero() {
       className="relative isolate overflow-hidden bg-ink px-4 pt-32 text-paper lg:pt-40"
       ref={heroRef}
     >
-      <div className="relative mx-auto min-h-[40rem] max-w-[100rem] lg:min-h-[46rem]">
+      <div className="relative mx-auto min-h-[54.4rem] max-w-[100rem] lg:min-h-[62.8rem]">
         <div className="absolute left-1/2 top-1/2 z-20 w-[min(90%,54rem)] -translate-x-1/2 -translate-y-1/2">
           <motion.h1
             animate={{ opacity: 1, y: 0 }}
@@ -93,7 +110,11 @@ export function AboutHero() {
             aria-hidden="true"
             className={`absolute z-10 w-[5.9rem] sm:w-[7.25rem] lg:w-[8.25rem] ${card.cardClass}`}
             key={card.label}
-            style={shouldReduceMotion ? undefined : cardScrollTransforms[index]}
+            style={
+              shouldReduceMotion
+                ? { scale: 1.2 }
+                : { ...cardScrollTransforms[index], scale: 1.2 }
+            }
           >
             <motion.figure
               animate={

@@ -40,7 +40,8 @@ export function HomeTransitionLink({
   }, [pathname]);
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    const shouldUseTransition = pathname.startsWith("/works");
+    const shouldUseTransition =
+      pathname.startsWith("/works") || pathname === "/about";
 
     if (
       event.defaultPrevented ||

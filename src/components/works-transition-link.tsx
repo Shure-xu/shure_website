@@ -96,8 +96,12 @@ export function WorksTransitionLink({
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     const shouldUseInterWorkTransition = isInterWorkTransition(pathname, href);
+    const shouldUseAboutDynamicTransition =
+      pathname === "/about" && transition === "dynamic";
     const shouldUseTransition =
-      pathname === "/" || shouldUseInterWorkTransition;
+      pathname === "/" ||
+      shouldUseAboutDynamicTransition ||
+      shouldUseInterWorkTransition;
 
     if (
       event.defaultPrevented ||

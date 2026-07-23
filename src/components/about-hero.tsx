@@ -5,26 +5,45 @@ import Image from "next/image";
 import {
   cubicBezier,
   motion,
+  type MotionValue,
   useReducedMotion,
   useScroll,
   useSpring,
+  useTime,
   useTransform,
 } from "framer-motion";
 
 const cardScrollEase = cubicBezier(0.22, 1, 0.36, 1);
 
+function useCardMotionY(
+  scrollY: MotionValue<string>,
+  time: MotionValue<number>,
+  floatOffset: number,
+  duration: number,
+) {
+  const floatingY = useTransform(time, (currentTime) =>
+    Math.sin((currentTime / (duration * 1000)) * Math.PI * 2) * floatOffset,
+  );
+
+  return useTransform([scrollY, floatingY], ([scrollValue, floatValue]) =>
+    `calc(${scrollValue} + ${floatValue}px)`,
+  );
+}
+
 const heroCards = [
   {
+    id: "open-signal",
     image: "/images/project-open-signal-03.jpg",
     label: "版式 / Open Signal",
     cardClass: "left-[5%] top-[24%] lg:left-[11%] lg:top-[22%]",
     labelClass: "-right-8 -bottom-3 bg-[#c41b30]",
     arrowClass: "left-3 border-r-[#c41b30]",
-    floatOffset: -10,
+    floatOffset: -6,
     delay: 0.16,
-    duration: 4.8,
+    duration: 5.8,
   },
   {
+    id: "mood-index",
     image: "/images/project-mood-index-04.jpg",
     label: "视觉 / Mood Index",
     cardClass: "right-[5%] top-[19%] lg:right-[12%] lg:top-[31%]",
@@ -35,6 +54,7 @@ const heroCards = [
     duration: 5.4,
   },
   {
+    id: "hello",
     image: "/images/dynamic-hello-38.jpg",
     label: "动态 / Hello",
     cardClass: "right-[18%] top-[68%] lg:right-[24%] lg:top-[67%]",
@@ -45,7 +65,8 @@ const heroCards = [
     duration: 5.1,
   },
   {
-    image: "/images/project-open-signal-03.jpg",
+    id: "envelope",
+    image: "/images/about/about-envelope-card.jpg",
     label: "版式 / Open Signal",
     cardClass: "left-[28%] top-[72%] lg:left-[30%] lg:top-[69%]",
     labelClass: "-left-8 -bottom-3 bg-[#1d8f82]",
@@ -69,22 +90,67 @@ export function AboutHero() {
     restDelta: 0.001,
     stiffness: 210,
   });
+  const time = useTime();
+  const firstCardScrollY = useTransform(
+    smoothedScrollProgress,
+    [0, 0.4, 1],
+    ["0rem", "7.5rem", "7.5rem"],
+    { ease: cardScrollEase },
+  );
+  const secondCardScrollY = useTransform(
+    smoothedScrollProgress,
+    [0, 0.4, 1],
+    ["0rem", "4rem", "4rem"],
+    { ease: cardScrollEase },
+  );
+  const thirdCardScrollY = useTransform(
+    smoothedScrollProgress,
+    [0, 0.4, 1],
+    ["0rem", "-8rem", "-8rem"],
+    { ease: cardScrollEase },
+  );
+  const fourthCardScrollY = useTransform(
+    smoothedScrollProgress,
+    [0, 0.4, 1],
+    ["0rem", "-6rem", "-6rem"],
+    { ease: cardScrollEase },
+  );
   const cardScrollTransforms = [
     {
       x: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0vw", "22vw", "22vw"], { ease: cardScrollEase }),
-      y: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0rem", "7.5rem", "7.5rem"], { ease: cardScrollEase }),
+      y: useCardMotionY(
+        firstCardScrollY,
+        time,
+        heroCards[0].floatOffset,
+        heroCards[0].duration,
+      ),
     },
     {
       x: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0vw", "-20vw", "-20vw"], { ease: cardScrollEase }),
-      y: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0rem", "4rem", "4rem"], { ease: cardScrollEase }),
+      y: useCardMotionY(
+        secondCardScrollY,
+        time,
+        heroCards[1].floatOffset,
+        heroCards[1].duration,
+      ),
     },
     {
       x: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0vw", "-14vw", "-14vw"], { ease: cardScrollEase }),
-      y: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0rem", "-8rem", "-8rem"], { ease: cardScrollEase }),
+      y: useCardMotionY(
+        thirdCardScrollY,
+        time,
+        heroCards[2].floatOffset,
+        heroCards[2].duration,
+      ),
     },
     {
       x: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0vw", "11.5vw", "11.5vw"], { ease: cardScrollEase }),
-      y: useTransform(smoothedScrollProgress, [0, 0.4, 1], ["0rem", "-6rem", "-6rem"], { ease: cardScrollEase }),
+      y: useCardMotionY(
+        fourthCardScrollY,
+        time,
+        heroCards[3].floatOffset,
+        heroCards[3].duration,
+      ),
     },
   ] as const;
 
@@ -97,11 +163,11 @@ export function AboutHero() {
         <div className="absolute left-1/2 top-1/2 z-20 w-[min(90%,54rem)] -translate-x-1/2 -translate-y-1/2">
           <motion.h1
             animate={{ opacity: 1, y: 0 }}
-            className="text-center font-taipei text-[clamp(3rem,4vw,3.25rem)] font-semibold leading-[1.12] tracking-[-0.055em]"
+            className="text-center font-taipei text-[clamp(3rem,4.92vw,5.1875rem)] font-semibold leading-[1.12] tracking-[-0.055em] text-white"
             initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="text-[#f4f18b]">持续</span>练习，保持开放。
+            <span className="text-[#48a4dc]">持续</span>练习，保持开放。
           </motion.h1>
         </div>
 
@@ -109,7 +175,7 @@ export function AboutHero() {
           <motion.div
             aria-hidden="true"
             className={`absolute z-10 w-[5.9rem] sm:w-[7.25rem] lg:w-[8.25rem] ${card.cardClass}`}
-            key={card.label}
+            key={card.id}
             style={
               shouldReduceMotion
                 ? { scale: 1.2 }
@@ -117,32 +183,14 @@ export function AboutHero() {
             }
           >
             <motion.figure
-              animate={
-                shouldReduceMotion
-                  ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 1, y: [0, card.floatOffset, 0], scale: 1 }
-              }
+              animate={{ opacity: 1 }}
               className="m-0 w-full"
-              initial={
-                shouldReduceMotion
-                  ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: card.floatOffset * -2, scale: 0.92 }
-              }
+              initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
               transition={{
                 opacity: { delay: card.delay, duration: 0.5 },
-                scale: { delay: card.delay, duration: 0.5 },
-                y: shouldReduceMotion
-                  ? { duration: 0 }
-                  : {
-                      delay: 0.9 + card.delay,
-                      duration: card.duration,
-                      ease: "easeInOut",
-                      repeat: Infinity,
-                      repeatType: "mirror",
-                    },
               }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[0.8rem] border border-paper/80 bg-paper/10 p-0.5 shadow-[0_12px_26px_rgba(0,0,0,0.28)]">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[0.8rem] bg-paper/10 shadow-[0_12px_26px_rgba(0,0,0,0.28)]">
                 <Image
                   alt=""
                   className="rounded-[0.6rem] object-cover"

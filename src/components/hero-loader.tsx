@@ -103,7 +103,7 @@ export function HeroLoader() {
     );
   }
 
-  const travel = `calc(${count / 99} * (100vw - clamp(4.8rem, 9vw, 9rem) - 32px))`;
+  const travel = `calc(${count / 99} * (100vw - clamp(6rem, 12vw, 10.8rem) - 56px))`;
 
   return (
     <div

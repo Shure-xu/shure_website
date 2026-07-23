@@ -128,7 +128,7 @@ export default function Home() {
       <section id="work" className="px-4 py-10 lg:py-16">
         <div className="mx-auto max-w-[100rem]">
           <div className="mb-8 flex items-end justify-between gap-5 border-t border-foreground/35 pt-8">
-            <h2 className="font-montserrat text-4xl font-semibold sm:text-6xl">
+            <h2 className="font-montserrat text-4xl font-medium sm:text-6xl">
               <span>Design </span>
               <span className="text-[#999999]">projects</span>
             </h2>
@@ -174,7 +174,7 @@ export default function Home() {
       <section id="notes" className="px-4 pt-10 pb-20 lg:pt-16 lg:pb-32">
         <div className="mx-auto max-w-[100rem]">
           <div className="mb-8 border-t border-foreground/35 pt-8">
-            <h2 className="font-montserrat text-4xl font-semibold sm:text-6xl">
+            <h2 className="font-montserrat text-4xl font-medium sm:text-6xl">
               <span>Vibe coding </span>
               <span className="text-[#999999]">projects</span>
             </h2>

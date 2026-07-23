@@ -77,10 +77,6 @@ export function AboutHero() {
       ref={heroRef}
     >
       <div className="relative mx-auto min-h-[40rem] max-w-[100rem] lg:min-h-[46rem]">
-        <p className="relative z-10 font-montserrat text-sm uppercase tracking-[0.08em] text-paper/55">
-          About me / 个人档案
-        </p>
-
         <div className="absolute left-1/2 top-1/2 z-20 w-[min(90%,54rem)] -translate-x-1/2 -translate-y-1/2">
           <motion.h1
             animate={{ opacity: 1, y: 0 }}

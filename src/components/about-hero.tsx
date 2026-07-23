@@ -33,44 +33,48 @@ function useCardMotionY(
 const heroCards = [
   {
     id: "open-signal",
-    image: "/images/project-open-signal-03.jpg",
-    label: "版式 / Open Signal",
+    image: "/images/about/about-open-signal-card.jpg",
+    label: "Dynamic",
     cardClass: "left-[5%] top-[24%] lg:left-[11%] lg:top-[22%]",
-    labelClass: "-right-8 -bottom-3 bg-[#c41b30]",
-    arrowClass: "left-3 border-r-[#c41b30]",
+    labelClass: "-right-8 -bottom-3 bg-[#f8cb37]",
+    arrowClass: "left-3 border-r-[#f8cb37]",
+    textClass: "text-white",
     floatOffset: -6,
     delay: 0.16,
     duration: 5.8,
   },
   {
     id: "mood-index",
-    image: "/images/project-mood-index-04.jpg",
-    label: "视觉 / Mood Index",
+    image: "/images/about/about-mood-index-card.jpg",
+    label: "Brand",
     cardClass: "right-[5%] top-[19%] lg:right-[12%] lg:top-[31%]",
-    labelClass: "-left-8 -bottom-3 bg-[#8054c7]",
-    arrowClass: "right-3 border-l-[#8054c7]",
+    labelClass: "-left-8 -bottom-3 bg-[#8ec02c]",
+    arrowClass: "right-3 border-l-[#8ec02c]",
+    textClass: "text-white",
     floatOffset: 9,
     delay: 0.28,
     duration: 5.4,
   },
   {
     id: "hello",
-    image: "/images/dynamic-hello-38.jpg",
-    label: "动态 / Hello",
+    image: "/images/about/about-hello-card.jpg",
+    label: "Visual",
     cardClass: "right-[18%] top-[68%] lg:right-[24%] lg:top-[67%]",
-    labelClass: "-right-7 -bottom-3 bg-[#168cdb]",
-    arrowClass: "left-3 border-r-[#168cdb]",
+    labelClass: "-right-7 -bottom-3 bg-[#ef8678]",
+    arrowClass: "left-3 border-r-[#ef8678]",
+    textClass: "text-white",
     floatOffset: -8,
     delay: 0.4,
     duration: 5.1,
   },
   {
     id: "envelope",
-    image: "/images/about/about-envelope-card.jpg",
-    label: "版式 / Open Signal",
+    image: "/images/about/about-envelope-card-02.jpg",
+    label: "Vibe coding",
     cardClass: "left-[28%] top-[72%] lg:left-[30%] lg:top-[69%]",
-    labelClass: "-left-8 -bottom-3 bg-[#1d8f82]",
-    arrowClass: "right-3 border-l-[#1d8f82]",
+    labelClass: "-left-8 -bottom-3 bg-white",
+    arrowClass: "right-3 border-l-white",
+    textClass: "text-[#48a4dc]",
     floatOffset: 7,
     delay: 0.52,
     duration: 5.7,
@@ -200,7 +204,7 @@ export function AboutHero() {
                 />
               </div>
               <figcaption
-                className={`absolute flex h-7 items-center whitespace-nowrap rounded-full px-3 font-montserrat text-[0.625rem] font-medium tracking-[-0.01em] text-white sm:h-8 sm:px-3.5 sm:text-xs ${card.labelClass}`}
+                className={`absolute flex h-7 items-center whitespace-nowrap rounded-full px-3 font-montserrat text-[0.625rem] font-medium tracking-[-0.01em] sm:h-8 sm:px-3.5 sm:text-xs ${card.labelClass} ${card.textClass}`}
               >
                 <span
                   className={`absolute top-1/2 h-0 w-0 -translate-y-1/2 border-y-[5px] border-y-transparent ${card.arrowClass}`}

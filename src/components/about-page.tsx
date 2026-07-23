@@ -22,8 +22,10 @@ export function AboutPage() {
         <div className="mx-auto max-w-[100rem] border-t border-white pt-5 lg:pt-7">
           <div className="grid gap-4 lg:grid-cols-12 lg:gap-x-4 lg:gap-y-12">
             <article className="flex min-h-64 flex-col justify-end bg-white p-5 text-ink sm:p-7 lg:col-span-8 lg:min-h-[13rem] lg:p-8">
-              <h2 className="max-w-4xl font-taipei text-[clamp(2.4rem,3.4vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em]">
-                一个持续整理灵感、工具与表达的个人设计工作台。
+              <h2 className="max-w-4xl font-taipei text-[clamp(2.4rem,3.4vw,3.125rem)] font-semibold leading-[1.14] tracking-[-0.035em]">
+                Hi! 我是徐航朔。<br />
+                欢迎来到我整理灵感、工具与表达的<br />
+                个人设计工作台。
               </h2>
             </article>
             <div className="hidden lg:col-span-4 lg:block" />
@@ -34,7 +36,7 @@ export function AboutPage() {
                   我是徐航朔，学习视觉传达设计，也在网页、动态与内容表达之间不断练习。
                 </p>
                 <p>
-                  这里收录正在形成的作品、笔记和观察；它们不必完整，但希望足够真诚。
+                这里收录正在形成的作品、笔记和观察。
                 </p>
               </div>
             </article>

@@ -23,8 +23,8 @@ export function ContactFooter() {
             </p>
           </div>
           <div className="mt-1 grid gap-3 font-taipei text-2xl font-semibold leading-none text-white sm:text-3xl lg:mr-2 lg:text-right">
-            <a className="transition hover:opacity-70" href="tel:1806884989">
-              1806884989
+            <a className="transition hover:opacity-70" href="tel:18068849890">
+              18068849890
             </a>
             <a
               className="transition hover:opacity-70"

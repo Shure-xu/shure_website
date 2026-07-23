@@ -231,7 +231,7 @@
 | --- | --- | --- | --- |
 | F1 | 大型联系标题 | 黑底；桌面最小高度 `608px`，上下内边距 `96px / 64px`。标题位于顶部，单词分段轻微旋转与位移。 | `Shure。sure？sure！` 使用默认无衬线、`clamp(51.2px, 9.8vw, 176px) / 0.8`、`600`。 |
 | F2 | 联系文案与方式 | 标题到下方信息区的桌面上边距 `80px`；信息区桌面两列 `1fr : auto`，列距 `48px`。 | 左侧中文文案为 Taipei Sans `30px / 1.08`、`700`；补充说明为 `14px / 1.1`。右侧电话与邮箱为 Taipei Sans `30px`、`600`，右对齐。 |
-| F3 | 电话与邮箱链接 | 电话 `1806884989` 与邮箱 `2664265205@qq.com`。 | 分别使用 `tel:`、`mailto:`；悬浮时透明度降低。 |
+| F3 | 电话与邮箱链接 | 电话 `18068849890` 与邮箱 `2664265205@qq.com`。 | 分别使用 `tel:`、`mailto:`；悬浮时透明度降低。 |
 
 ---
 
@@ -270,4 +270,3 @@
 | Dynamic 两页 | `src/components/dynamic-work-page.tsx`、`src/app/works/[category]/page.tsx`、`src/app/works/dynamic2/page.tsx` |
 | 全局字体、标题类、转场动画 | `src/app/fonts.ts`、`src/app/globals.css` |
 | 共用联系页脚 | `src/components/contact-footer.tsx` |
-

@@ -34,7 +34,7 @@ type Internship = {
       };
 };
 
-const internships = [
+const internships: readonly Internship[] = [
   {
     index: "01",
     title: "京东",
@@ -194,7 +194,7 @@ const internships = [
       ],
     },
   },
-] as const satisfies readonly Internship[];
+];
 
 export function InternshipAccordion() {
   const [expandedIndex, setExpandedIndex] = useState<string | null>(null);

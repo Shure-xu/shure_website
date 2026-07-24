@@ -24,9 +24,10 @@ function useCardMotionY(
   const floatingY = useTransform(time, (currentTime) =>
     Math.sin((currentTime / (duration * 1000)) * Math.PI * 2) * floatOffset,
   );
+  const floatingOffset = useTransform(floatingY, (value) => `${value}px`);
 
-  return useTransform([scrollY, floatingY], ([scrollValue, floatValue]) =>
-    `calc(${scrollValue} + ${floatValue}px)`,
+  return useTransform([scrollY, floatingOffset], ([scrollValue, floatValue]) =>
+    `calc(${scrollValue} + ${floatValue})`,
   );
 }
 
